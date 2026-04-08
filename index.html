@@ -23,8 +23,8 @@
             panel: "#F7FAFB"
           },
           boxShadow: {
-            soft: "0 14px 40px rgba(16, 33, 42, 0.08)",
-            lift: "0 18px 48px rgba(16, 33, 42, 0.12)",
+            soft: "0 16px 42px rgba(16, 33, 42, 0.09)",
+            lift: "0 22px 56px rgba(16, 33, 42, 0.14)",
             button: "0 10px 24px rgba(21, 154, 165, 0.18)"
           }
         }
@@ -48,6 +48,10 @@
         linear-gradient(180deg, #fbfdfd 0%, #ffffff 40%, #f7fafb 100%);
     }
 
+    .section-surface {
+      background: linear-gradient(180deg, #f6fafb 0%, #f9fcfc 100%);
+    }
+
     .fade-up {
       opacity: 0;
       transform: translateY(20px);
@@ -63,7 +67,7 @@
       border-radius: 1.35rem;
       border: 1px solid rgba(148, 163, 184, 0.18);
       background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 14px 40px rgba(16, 33, 42, 0.08);
+      box-shadow: 0 16px 42px rgba(16, 33, 42, 0.09);
     }
 
     .support-card {
@@ -86,8 +90,8 @@
 
     .feature-card:hover,
     .step-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 48px rgba(16, 33, 42, 0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 22px 56px rgba(16, 33, 42, 0.14);
     }
 
     .phone-wrap {
@@ -120,25 +124,33 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 17rem;
-      border-radius: 1.95rem;
+      max-width: 17.4rem;
+      border-radius: 1.9rem;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.06) 16%, rgba(255,255,255,0.02) 42%, rgba(255,255,255,0.14) 100%),
-        linear-gradient(180deg, #1b232c 0%, #10161c 100%);
-      padding: 0.24rem;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+        linear-gradient(145deg, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.08) 14%, rgba(255,255,255,0.03) 42%, rgba(255,255,255,0.16) 100%),
+        linear-gradient(180deg, #1c242c 0%, #0e141a 100%);
+      padding: 0.18rem;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       box-shadow:
-        0 10px 20px rgba(255,255,255,0.08) inset,
-        0 -10px 18px rgba(0,0,0,0.20) inset,
-        0 30px 76px rgba(16, 33, 42, 0.24);
+        0 10px 18px rgba(255,255,255,0.08) inset,
+        0 -10px 16px rgba(0,0,0,0.18) inset,
+        0 30px 76px rgba(16, 33, 42, 0.20);
+    }
+
+    .phone-large {
+      max-width: 19.1rem;
+    }
+
+    .phone-compact {
+      max-width: 16.7rem;
     }
 
     .phone:hover {
       transform: scale(1.03);
       box-shadow:
-        0 10px 20px rgba(255,255,255,0.08) inset,
-        0 -10px 18px rgba(0,0,0,0.20) inset,
-        0 36px 88px rgba(16, 33, 42, 0.28);
+        0 10px 18px rgba(255,255,255,0.08) inset,
+        0 -10px 16px rgba(0,0,0,0.18) inset,
+        0 36px 88px rgba(16, 33, 42, 0.24);
     }
 
     .phone::before {
@@ -156,24 +168,43 @@
       pointer-events: none;
     }
 
+    .phone::after {
+      content: "";
+      position: absolute;
+      inset: 0.18rem;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 18%, rgba(255,255,255,0) 82%, rgba(255,255,255,0.06));
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
     .phone-frame {
       position: relative;
       overflow: hidden;
-      border-radius: 30px;
-      aspect-ratio: 9 / 16;
+      border-radius: 28px;
+      aspect-ratio: 1290 / 2796;
       background: #05070a;
       box-shadow:
         0 1px 0 rgba(255,255,255,0.2) inset,
         0 0 0 1px rgba(255,255,255,0.04);
     }
 
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 20%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .notch {
       position: absolute;
       left: 50%;
-      top: 0.66rem;
+      top: 0.58rem;
       transform: translateX(-50%);
-      width: 37%;
-      height: 1.46rem;
+      width: 32%;
+      height: 1.02rem;
       border-radius: 9999px;
       background: linear-gradient(180deg, #0b0f13 0%, #151b21 100%);
       z-index: 3;
@@ -185,21 +216,21 @@
     .notch::after {
       content: "";
       position: absolute;
-      right: 0.6rem;
+      right: 0.45rem;
       top: 50%;
-      width: 0.4rem;
-      height: 0.4rem;
+      width: 0.28rem;
+      height: 0.28rem;
       transform: translateY(-50%);
       border-radius: 9999px;
       background: rgba(255,255,255,0.08);
     }
 
     .phone-tilt-left {
-      transform: rotate(-3deg);
+      transform: translateY(6px);
     }
 
     .phone-tilt-right {
-      transform: rotate(3deg);
+      transform: translateY(-4px);
     }
 
     .phone-tilt-left:hover,
@@ -216,23 +247,26 @@
 
     .screen {
       position: absolute;
-      inset: -0.95rem 0 0 0;
+      inset: 0;
       display: block;
       width: 100%;
-      height: calc(100% + 0.95rem);
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
       object-position: center top;
       background: #05070a;
+      image-rendering: auto;
+      backface-visibility: hidden;
+      transform: translateZ(0);
     }
 
     .section-shell {
-      padding-top: 4.5rem;
-      padding-bottom: 4.5rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
 
     .hero-shell {
-      padding-top: 7.25rem;
-      padding-bottom: 4.25rem;
+      padding-top: 7.5rem;
+      padding-bottom: 4.75rem;
     }
 
     .glow {
@@ -242,6 +276,18 @@
       border-radius: 9999px;
       background: radial-gradient(circle, rgba(21,154,165,0.14) 0%, rgba(21,154,165,0) 70%);
       filter: blur(36px);
+      pointer-events: none;
+    }
+
+    .hero-device-aura {
+      position: absolute;
+      inset: 7% 8% 10% 8%;
+      border-radius: 2.5rem;
+      background:
+        radial-gradient(circle at 34% 44%, rgba(21, 154, 165, 0.16) 0%, rgba(21, 154, 165, 0) 44%),
+        radial-gradient(circle at 74% 60%, rgba(232, 137, 26, 0.14) 0%, rgba(232, 137, 26, 0) 40%);
+      filter: blur(48px);
+      z-index: 0;
       pointer-events: none;
     }
 
@@ -260,6 +306,13 @@
       color: #159AA5;
     }
 
+    .brand-wordmark {
+      display: block;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
     .cta-button:hover,
     .ghost-button:hover {
       transform: translateY(-2px);
@@ -273,27 +326,48 @@
       display: none;
     }
 
-    @media (min-width: 768px) {
-      .section-shell {
-        padding-top: 5.25rem;
-        padding-bottom: 5.25rem;
+    @media (max-width: 767px) {
+      .hero-device-aura {
+        inset: 12% 12% 16% 12%;
+        filter: blur(34px);
+        opacity: 0.85;
       }
 
-      .hero-shell {
-        padding-top: 8rem;
-        padding-bottom: 5rem;
+      .phone-tilt-left,
+      .phone-tilt-right {
+        transform: none;
+      }
+
+      .phone-large {
+        max-width: 18rem;
+      }
+
+      .phone-compact {
+        max-width: 16rem;
       }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       .section-shell {
         padding-top: 5.75rem;
         padding-bottom: 5.75rem;
       }
 
       .hero-shell {
-        padding-top: 8.75rem;
-        padding-bottom: 5.75rem;
+        padding-top: 8.25rem;
+        padding-bottom: 5.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-shell {
+        padding-top: 6.25rem;
+        padding-bottom: 6.25rem;
+      }
+
+      .hero-shell {
+        padding-top: 9rem;
+        padding-bottom: 6rem;
       }
     }
 
@@ -321,22 +395,22 @@
 <body class="bg-white text-ink antialiased">
   <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-      <div class="flex min-h-[4.5rem] items-center justify-between gap-4">
+      <div class="flex min-h-[5rem] items-center justify-between gap-5 py-1.5">
         <a href="#top" class="flex shrink-0 items-center">
-          <img src="images/branding/cytrea-wordmark.png" alt="Cytrea" class="h-9 w-auto sm:h-10 lg:h-12">
+          <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-9 w-auto sm:h-11 lg:h-[3rem]">
         </a>
 
-        <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-          <a href="#features" class="transition hover:text-brandTeal">Features</a>
-          <a href="#providers" class="transition hover:text-brandTeal">AFHs</a>
-          <a href="#caregivers" class="transition hover:text-brandTeal">Caregivers</a>
-          <a href="#how" class="transition hover:text-brandTeal">How It Works</a>
-          <a href="#preview" class="transition hover:text-brandTeal">Preview</a>
+        <nav class="hidden items-center gap-11 text-[1.02rem] font-semibold tracking-[0.012em] text-slate-700 md:flex lg:gap-14">
+          <a href="#features" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Features</a>
+          <a href="#providers" class="transition duration-200 hover:text-brandTeal hover:opacity-100">AFHs</a>
+          <a href="#caregivers" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Caregivers</a>
+          <a href="#how" class="transition duration-200 hover:text-brandTeal hover:opacity-100">How It Works</a>
+          <a href="#preview" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Preview</a>
         </nav>
 
         <a
           href="#cta"
-          class="cta-button hidden rounded-full bg-brandTeal px-5 py-2.5 text-sm font-semibold text-white shadow-button md:inline-flex md:items-center md:justify-center hover:bg-cyan-700 hover:shadow-lift"
+          class="cta-button hidden rounded-full bg-brandTeal px-6 py-3.5 text-base font-semibold text-white shadow-button md:inline-flex md:items-center md:justify-center hover:bg-cyan-700 hover:shadow-lift"
         >Get Early Access</a>
 
         <details class="mobile-nav md:hidden">
@@ -370,7 +444,7 @@
             Built for Adult Family Homes and caregivers
           </div>
 
-          <h1 class="mt-6 max-w-3xl text-[2.7rem] font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-[3.5rem] lg:text-[4.6rem]">
+          <h1 class="mt-6 max-w-3xl text-[2.7rem] font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-[3.5rem] lg:text-[4.6rem]">
             Hire caregivers faster for your Adult Family Home.
           </h1>
 
@@ -397,15 +471,18 @@
         </div>
 
         <div class="fade-up">
-          <div class="relative mx-auto max-w-[24rem] lg:max-w-[34rem]">
+          <div class="relative mx-auto max-w-[25rem] lg:max-w-[36rem]">
+            <div class="hero-device-aura"></div>
             <div class="phone-wrap phone-teal">
-              <div class="phone">
+              <div class="phone phone-large">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
                       src="images/caregiver/caregiver-dashboard.PNG"
                       alt="Cytrea caregiver dashboard"
+                      width="1290"
+                      height="2796"
                       class="screen"
                     >
                   </div>
@@ -413,14 +490,16 @@
               </div>
             </div>
 
-            <div class="phone-wrap phone-orange absolute -bottom-8 right-0 hidden w-[48%] lg:flex">
-              <div class="phone phone-tilt-right">
+            <div class="phone-wrap phone-orange absolute right-3 top-12 hidden w-[46%] lg:flex">
+              <div class="phone phone-compact phone-tilt-right">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
                       src="images/provider/provider-dashbboard.PNG"
                       alt="Cytrea provider dashboard"
+                      width="1290"
+                      height="2796"
                       class="screen"
                     >
                   </div>
@@ -447,7 +526,7 @@
       </div>
     </section>
 
-    <section id="features" class="section-shell bg-panel">
+    <section id="features" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
           <h2 class="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
@@ -511,15 +590,17 @@
         <div class="fade-up">
           <div class="relative">
             <div class="phone-wrap phone-orange">
-              <div class="phone">
+              <div class="phone phone-large">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      src="images/provider/provider-job-post.PNG"
-                      alt="Provider job post screenshot"
-                      class="screen"
-                    >
+                  <img
+                    src="images/provider/provider-job-post.PNG"
+                    alt="Provider job post screenshot"
+                    width="1290"
+                    height="2796"
+                    class="screen"
+                  >
                   </div>
                 </div>
               </div>
@@ -541,20 +622,22 @@
       </div>
     </section>
 
-    <section id="caregivers" class="section-shell bg-panel">
+    <section id="caregivers" class="section-shell section-surface">
       <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:px-8">
         <div class="fade-up order-2 lg:order-1">
           <div class="relative">
             <div class="phone-wrap phone-teal">
-              <div class="phone phone-tilt-left">
+              <div class="phone phone-large phone-tilt-left">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      src="images/caregiver/caregiver-profile.PNG"
-                      alt="Caregiver profile screenshot"
-                      class="screen"
-                    >
+                  <img
+                    src="images/caregiver/caregiver-profile.PNG"
+                    alt="Caregiver profile screenshot"
+                    width="1290"
+                    height="2796"
+                    class="screen"
+                  >
                   </div>
                 </div>
               </div>
@@ -625,7 +708,7 @@
       </div>
     </section>
 
-    <section id="preview" class="section-shell bg-panel">
+    <section id="preview" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">App Preview</p>
@@ -638,13 +721,15 @@
         <div class="mt-12 grid gap-5 sm:mx-auto sm:max-w-[20rem] md:max-w-none md:grid-cols-3">
           <div class="fade-up">
             <div class="phone-wrap phone-teal">
-              <div class="phone mx-auto">
+              <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
                       src="images/caregiver/caregiver-onboarding.PNG"
                       alt="Onboarding screenshot"
+                      width="1290"
+                      height="2796"
                       class="screen"
                     >
                   </div>
@@ -656,13 +741,15 @@
 
           <div class="fade-up">
             <div class="phone-wrap phone-orange">
-              <div class="phone mx-auto">
+              <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
                       src="images/caregiver/caregiver-chat.PNG"
                       alt="Messaging screenshot"
+                      width="1290"
+                      height="2796"
                       class="screen"
                     >
                   </div>
@@ -674,13 +761,15 @@
 
           <div class="fade-up">
             <div class="phone-wrap phone-teal">
-              <div class="phone mx-auto">
+              <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
                       src="images/caregiver/caregiver-application-status.PNG"
                       alt="Application screenshot"
+                      width="1290"
+                      height="2796"
                       class="screen"
                     >
                   </div>
@@ -703,10 +792,10 @@
           </p>
 
           <form
-            action="https://formspree.io/f/xabcd123"
+            action="https://formspree.io/f/mykbvrwz"
             method="POST"
             id="waitlist-form"
-            data-form-endpoint="https://formspree.io/f/xabcd123"
+            data-form-endpoint="https://formspree.io/f/mykbvrwz"
             class="waitlist-form mt-8 flex flex-col items-center justify-center gap-3 sm:mx-auto sm:max-w-xl sm:flex-row"
           >
             <input
@@ -730,17 +819,17 @@
   <footer class="border-t border-slate-200 bg-white py-8">
     <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
       <div class="flex items-center justify-center md:justify-start">
-        <img src="images/branding/cytrea-wordmark.png" alt="Cytrea" class="h-8 w-auto sm:h-9">
+        <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-8 w-auto sm:h-9">
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-600">
+      <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-base font-medium text-slate-600">
         <a href="#features" class="transition hover:text-brandTeal">Features</a>
         <a href="#how" class="transition hover:text-brandTeal">How It Works</a>
         <a href="#cta" class="transition hover:text-brandTeal">Get Early Access</a>
         <span class="text-slate-400">Web design by Sam</span>
       </div>
 
-      <div class="text-center text-sm text-slate-500 md:text-right">
+      <div class="text-center text-base text-slate-500 md:text-right">
         &copy; 2026 Cytrea
       </div>
     </div>
