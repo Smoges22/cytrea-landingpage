@@ -114,15 +114,15 @@ body {
 }
 
 h1 {
-  line-height: 1.42;
+  line-height: 1.18;
 }
 
 h2 {
-  line-height: 1.5;
+  line-height: 1.24;
 }
 
 h3 {
-  line-height: 1.46;
+  line-height: 1.36;
 }
 
 h1,
@@ -186,6 +186,7 @@ h2 {
 .feature-card,
 .step-card,
 .preview-card,
+.proof-card,
 .phone,
 .cta-button,
 .ghost-button {
@@ -199,7 +200,8 @@ h2 {
 
 .feature-card:hover,
 .preview-card:hover,
-.step-card:hover {
+.step-card:hover,
+.proof-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 38px rgba(0,0,0,0.09), 0 5px 12px rgba(0,0,0,0.06);
 }
@@ -425,16 +427,16 @@ h2 {
 
 .hero-copy h1 {
   font-size: 2.1rem;
-  line-height: 1.24;
+  line-height: 1.18;
   letter-spacing: -0.045em;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .hero-description {
   max-width: 34rem;
   color: #556370;
   font-size: 1.02rem;
-  line-height: 1.66;
+  line-height: 1.58;
   letter-spacing: -0.018em;
 }
 
@@ -478,6 +480,7 @@ h2 {
 .hero-phone-stage-single {
   max-width: 36rem;
   min-height: 36rem;
+  margin-left: auto;
 }
 
 .hero-device-aura {
@@ -495,27 +498,6 @@ h2 {
       rgba(109, 235, 226, 0) 76%);
   filter: blur(30px);
   z-index: 0;
-  pointer-events: none;
-}
-
-.hero-device-echo {
-  position: absolute;
-  right: 1.15rem;
-  top: 3.9rem;
-  width: 56%;
-  height: auto;
-  border-radius: 2rem;
-  background:
-    linear-gradient(160deg, rgba(224, 252, 250, 0.82), rgba(162, 232, 227, 0.22) 24%, rgba(130, 209, 201, 0.06) 55%, rgba(214, 247, 244, 0.36) 100%),
-    linear-gradient(180deg, rgba(191, 241, 236, 0.92) 0%, rgba(240, 252, 251, 0.96) 100%);
-  aspect-ratio: 1290 / 2796;
-  border: 1px solid rgba(143, 211, 206, 0.68);
-  box-shadow:
-    0 14px 32px rgba(16,33,42,0.08),
-    0 1px 0 rgba(239,255,253,0.72) inset;
-  opacity: 0.66;
-  transform: rotate(3deg) translateX(1.4rem) translateY(1rem);
-  z-index: 1;
   pointer-events: none;
 }
 
@@ -552,6 +534,32 @@ h2 {
   border: 1px solid rgba(148, 163, 184, 0.14);
   padding: 1.6rem;
   box-shadow: 0 14px 34px rgba(16,33,42,0.06), 0 4px 10px rgba(16,33,42,0.04);
+}
+
+.proof-card {
+  min-height: 100%;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 12px 28px rgba(16,33,42,0.05), 0 3px 8px rgba(16,33,42,0.04);
+}
+
+.proof-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(21,154,165,0.1);
+  color: #159AA5;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.mobile-sticky-cta {
+  box-shadow: 0 -12px 34px rgba(16,33,42,0.08), 0 -2px 8px rgba(16,33,42,0.04);
 }
 
 .feature-badge {
@@ -750,15 +758,15 @@ select:focus-visible {
 /* MOBILE */
 @media (max-width: 767px) {
   h1 {
-    line-height: 1.48;
+    line-height: 1.22;
   }
 
   h2 {
-    line-height: 1.56;
+    line-height: 1.28;
   }
 
   h3 {
-    line-height: 1.5;
+    line-height: 1.38;
   }
 
   .hero-shell {
@@ -780,14 +788,14 @@ select:focus-visible {
   .hero-copy h1 {
     max-width: 12.4ch;
     font-size: 1.66rem;
-    line-height: 1.34;
+    line-height: 1.2;
   }
 
   .hero-description {
     max-width: none;
     margin-top: 0.8rem;
     font-size: 0.9rem;
-    line-height: 1.58;
+    line-height: 1.52;
   }
 
   .hero-actions {
@@ -812,7 +820,7 @@ select:focus-visible {
   }
 
   .hero-visual {
-    min-height: 18rem;
+    min-height: 19rem;
     justify-content: flex-end;
     align-items: flex-end;
     transform: translateY(-0.95rem);
@@ -845,7 +853,6 @@ select:focus-visible {
     border-radius: 1.45rem;
   }
 
-
   .notch {
     top: 0.45rem;
     height: 0.84rem;
@@ -860,7 +867,7 @@ select:focus-visible {
 
   .hero-copy h1 {
     font-size: 1.48rem;
-    line-height: 1.34;
+    line-height: 1.18;
   }
 
   .hero-description {
@@ -896,9 +903,14 @@ select:focus-visible {
     padding-bottom: 5.8rem;
   }
 
+  .hero-mobile-grid {
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+    gap: 2rem;
+  }
+
   .hero-copy h1 {
     font-size: 2.5rem;
-    line-height: 1.36;
+    line-height: 1.18;
   }
 
   .hero-description {
@@ -907,11 +919,13 @@ select:focus-visible {
 
   .hero-visual {
     min-height: 31rem;
+    justify-content: flex-end;
   }
 
   .hero-phone-stage-single {
     max-width: 25rem;
     min-height: 31rem;
+    margin-left: auto;
   }
 
   .hero-device-aura {
@@ -924,7 +938,6 @@ select:focus-visible {
   .hero-main-phone .phone {
     max-width: 15.3rem;
   }
-
 }
 
 /* DESKTOP */
@@ -950,7 +963,7 @@ select:focus-visible {
 
   .hero-copy h1 {
     font-size: 3.15rem;
-    line-height: 1.36;
+    line-height: 1.16;
     max-width: 11.6ch;
   }
 
@@ -1048,7 +1061,7 @@ select:focus-visible {
   }
 
   .hero-main-phone-angled {
-    transform: rotate(3.2deg) translateY(1.15rem);
+    transform: rotate(2deg) translateY(0.9rem);
   }
 }
 
@@ -1075,7 +1088,7 @@ select:focus-visible {
   </style>
 </head>
 
-<body class="bg-white text-ink antialiased">
+<body class="bg-white pb-24 text-ink antialiased md:pb-0">
   <header class="site-header fixed inset-x-0 top-0 z-50">
     <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
       <div class="flex min-h-[5rem] items-center justify-between gap-5">
@@ -1124,11 +1137,11 @@ select:focus-visible {
   <div class="hero-mobile-grid relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 md:gap-10 lg:px-10">
     <div class="fade-up show hero-copy min-w-0">
       <h1 class="max-w-[14ch] font-semibold tracking-[-0.04em] text-slate-950">
-        Caregiver hiring for Adult Family Homes, simplified.
+        Hire caregivers faster — without agencies, delays, or guesswork.
       </h1>
 
       <p class="hero-description mt-5">
-        Cytrea helps AFH providers and caregivers connect in one simple platform so providers can hire faster and caregivers can find better opportunities without the usual hiring stress.
+        Cytrea connects Adult Family Homes with qualified caregivers in one streamlined platform — so you can fill shifts faster and hire with confidence.
       </p>
 
       <div class="hero-actions">
@@ -1136,15 +1149,28 @@ select:focus-visible {
           href="#cta"
           class="cta-button inline-flex items-center justify-center rounded-full bg-brandOrange font-semibold text-white shadow-soft hover:bg-brandTeal hover:shadow-lift"
         >
-          Join the Waitlist
+          Join Early Access
+        </a>
+
+        <a
+          href="#caregivers"
+          class="ghost-button inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/80 font-semibold text-slate-800 hover:border-brandTeal hover:text-brandTeal"
+        >
+          Browse as Caregiver
         </a>
       </div>
+
+      <p class="hero-trust">
+        Built for Adult Family Homes &bull; Early access launching in Washington
+      </p>
+      <p class="mt-3 text-sm font-semibold tracking-[-0.01em] text-brandOrange">
+        Limited early access spots for AFH providers
+      </p>
     </div>
 
     <div class="fade-up show hero-visual min-w-0">
       <div class="hero-phone-stage hero-phone-stage-single">
         <div class="hero-device-aura"></div>
-        <div class="hero-device-echo"></div>
 
         <div class="hero-main-phone hero-main-phone-angled phone-wrap phone-teal">
           <div class="phone phone-large">
@@ -1171,6 +1197,45 @@ select:focus-visible {
   </div>
 </section>
 
+    <section class="section-shell pt-0">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="fade-up rounded-[2rem] border border-slate-200/80 bg-white px-6 py-8 shadow-soft sm:px-8 lg:px-10">
+          <h2 class="max-w-3xl text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-[2.1rem]">
+            Trusted by Adult Family Home providers and caregivers across Washington
+          </h2>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <article class="proof-card">
+              <div class="flex items-start gap-3">
+                <div class="proof-chip">01</div>
+                <p class="text-[0.97rem] font-medium leading-7 text-slate-700">
+                  Early adopters already joining Cytrea
+                </p>
+              </div>
+            </article>
+
+            <article class="proof-card">
+              <div class="flex items-start gap-3">
+                <div class="proof-chip">02</div>
+                <p class="text-[0.97rem] font-medium leading-7 text-slate-700">
+                  Built around real AFH hiring challenges
+                </p>
+              </div>
+            </article>
+
+            <article class="proof-card">
+              <div class="flex items-start gap-3">
+                <div class="proof-chip">03</div>
+                <p class="text-[0.97rem] font-medium leading-7 text-slate-700">
+                  Designed for daily-rate caregiver hiring
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up max-w-3xl">
@@ -1185,9 +1250,9 @@ select:focus-visible {
             <div class="flex items-start gap-4">
               <div class="feature-badge">01</div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-950">Fill Open Shifts Faster</h3>
+                <h3 class="text-lg font-semibold text-slate-950">Fill shifts in days, not weeks</h3>
                 <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
-                  Smart matching connects providers with caregivers based on availability, experience, and fit — so less time is wasted searching and more time is spent hiring.
+                  Surface the right caregivers sooner with clearer fit signals, faster review, and less time lost waiting on the wrong applicants.
                 </p>
               </div>
             </div>
@@ -1197,9 +1262,9 @@ select:focus-visible {
             <div class="flex items-start gap-4">
               <div class="feature-badge">02</div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-950">Hire with More Confidence</h3>
+                <h3 class="text-lg font-semibold text-slate-950">See qualified caregivers before you call</h3>
                 <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
-                  Caregiver profiles highlight credentials, experience, and availability clearly — giving providers stronger trust signals before they reach out.
+                  Review credentials, availability, and experience in one place so you can spend time on stronger leads first.
                 </p>
               </div>
             </div>
@@ -1209,9 +1274,9 @@ select:focus-visible {
             <div class="flex items-start gap-4">
               <div class="feature-badge">03</div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-950">Connect Faster with Messaging</h3>
+                <h3 class="text-lg font-semibold text-slate-950">Move from application to hire faster</h3>
                 <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
-                  Go from application to conversation faster with built-in messaging designed for real caregiving hiring workflows.
+                  Cut delays between interest, outreach, and next steps with direct messaging built for real hiring momentum.
                 </p>
               </div>
             </div>
@@ -1221,9 +1286,9 @@ select:focus-visible {
             <div class="flex items-start gap-4">
               <div class="feature-badge">04</div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-950">Designed for Real Mobile Hiring</h3>
+                <h3 class="text-lg font-semibold text-slate-950">Hire directly from your phone, anytime</h3>
                 <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
-                  Manage job discovery, applications, and hiring directly from your phone — whether you're on shift, between visits, or at home.
+                  Manage jobs, applicants, and conversations from anywhere without relying on desktop-heavy hiring tools.
                 </p>
               </div>
             </div>
@@ -1238,24 +1303,28 @@ select:focus-visible {
           <div class="fade-up">
             <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">For Adult Family Homes</p>
             <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
-              Hire caregivers faster without the back-and-forth
+              Stop chasing caregivers. Start hiring faster.
             </h2>
             <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Cytrea gives Adult Family Homes a cleaner, faster way to move from open roles to stronger hires without relying on generic job boards or slow agency workflows.
+              Cytrea gives Adult Family Homes a direct, faster way to connect with caregivers — without relying on agencies, slow responses, or endless back-and-forth.
+            </p>
+
+            <p class="mt-5 text-base font-semibold tracking-[-0.01em] text-slate-900">
+              No middlemen. No agency delays. Just direct hiring.
             </p>
 
             <div class="check-list">
               <div class="check-item">
                 <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
-                <div class="check-item-title">Post openings clearly and attract better-fit applicants</div>
+                <div class="check-item-title">Post openings clearly and reach caregivers faster</div>
               </div>
               <div class="check-item">
                 <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
-                <div class="check-item-title">Review caregiver profiles before spending time on calls</div>
+                <div class="check-item-title">Review strong-fit profiles before you spend time calling</div>
               </div>
               <div class="check-item">
                 <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
-                <div class="check-item-title">Keep hiring moving without delays or admin overload</div>
+                <div class="check-item-title">Keep hiring moving without agency lag or admin overload</div>
               </div>
             </div>
           </div>
@@ -1323,24 +1392,24 @@ select:focus-visible {
           <div class="fade-up order-1 lg:order-2">
             <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">For Caregivers</p>
             <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
-              Find better caregiving jobs, faster and easier
+              Find better caregiving jobs — without the hassle
             </h2>
             <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Cytrea helps caregivers showcase their experience, explore opportunities, and connect directly with Adult Family Homes in one place.
+              Create your profile once, discover opportunities that match your schedule, and connect directly with providers — no repeated applications or wasted time.
             </p>
 
             <div class="check-list">
               <div class="check-item">
                 <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
-                <div class="check-item-title">Build a strong profile that highlights your experience</div>
+                <div class="check-item-title">Build one profile that keeps your strengths clear</div>
               </div>
               <div class="check-item">
                 <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
-                <div class="check-item-title">Discover jobs that match your schedule and preferences</div>
+                <div class="check-item-title">See jobs that match your schedule and availability</div>
               </div>
               <div class="check-item">
                 <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
-                <div class="check-item-title">Apply and connect with providers without repeating steps</div>
+                <div class="check-item-title">Apply and connect directly without repeating the same steps</div>
               </div>
             </div>
           </div>
@@ -1360,26 +1429,26 @@ select:focus-visible {
         <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <article class="step-card fade-up p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 1</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Create your profile</h3>
-            <p class="mt-3 leading-7 text-slate-600">Set up your caregiver or provider account in minutes.</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Create your profile in minutes</h3>
+            <p class="mt-3 leading-7 text-slate-600">Set up the details that make matching and outreach easier.</p>
           </article>
 
           <article class="step-card fade-up p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 2</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Post or apply</h3>
-            <p class="mt-3 leading-7 text-slate-600">Providers post jobs, and caregivers explore and apply with ease.</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Post jobs or apply instantly</h3>
+            <p class="mt-3 leading-7 text-slate-600">Homes post openings and caregivers respond without extra friction.</p>
           </article>
 
           <article class="step-card fade-up p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 3</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Connect instantly</h3>
-            <p class="mt-3 leading-7 text-slate-600">Start conversations quickly and evaluate fit without delays.</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Connect and chat in real time</h3>
+            <p class="mt-3 leading-7 text-slate-600">Move from interest to conversation without waiting on slow follow-up.</p>
           </article>
 
           <article class="step-card fade-up p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 4</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Hire with confidence</h3>
-            <p class="mt-3 leading-7 text-slate-600">Make better hiring decisions with clearer information and smoother workflows.</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Hire or get hired faster</h3>
+            <p class="mt-3 leading-7 text-slate-600">Turn better matches into faster staffing decisions and better outcomes.</p>
           </article>
         </div>
       </div>
@@ -1394,6 +1463,9 @@ select:focus-visible {
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
             From onboarding to messaging and hiring decisions, everything is designed to be simple, fast, and mobile-first.
+          </p>
+          <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-slate-700">
+            Real workflows designed for caregiver hiring — not generic job boards
           </p>
         </div>
 
@@ -1465,10 +1537,13 @@ select:focus-visible {
       <div class="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <div class="waitlist-shell fade-up px-6 py-10 sm:px-10 sm:py-12">
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-[3.4rem]">
-            Join Cytrea early
+            Be among the first to hire faster with Cytrea
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Join the waitlist for early access to a faster, simpler hiring platform built for caregivers and Adult Family Homes.
+            Join early access and get ahead of the hiring curve — built specifically for Adult Family Homes and caregivers.
+          </p>
+          <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-brandOrange">
+            Limited onboarding spots available
           </p>
 
           <form
@@ -1500,7 +1575,7 @@ select:focus-visible {
               type="submit"
               class="button cta-button inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-orange-500 px-6 py-3 text-sm font-semibold text-white hover:from-orange-500 hover:to-orange-500 hover:shadow-lift"
             >
-              Join Waitlist
+              Request Early Access
             </button>
           </form>
 
@@ -1509,6 +1584,15 @@ select:focus-visible {
       </div>
     </section>
   </main>
+
+  <div class="mobile-sticky-cta fixed inset-x-0 bottom-0 z-40 border-t border-slate-200/80 bg-white/92 px-4 py-3 backdrop-blur md:hidden">
+    <a
+      href="#cta"
+      class="cta-button inline-flex w-full items-center justify-center rounded-full bg-brandOrange px-6 py-3.5 text-sm font-semibold text-white shadow-soft hover:bg-brandTeal hover:shadow-lift"
+    >
+      Join Waitlist
+    </a>
+  </div>
 
   <footer class="border-t border-slate-200/70 bg-white/92 py-8">
     <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
