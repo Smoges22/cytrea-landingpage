@@ -130,6 +130,24 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+.section-kicker {
+  position: relative;
+  display: inline-flex;
+  padding-bottom: 0.5rem;
+}
+
+.section-kicker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.3rem;
+  height: 2px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
 .section-surface {
   background: #ffffff;
 }
@@ -422,7 +440,7 @@ h2 {
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.75rem;
   margin-top: 1.9rem;
 }
@@ -776,9 +794,11 @@ select:focus-visible {
     justify-content: flex-start;
     gap: 0.55rem;
     margin-top: 1rem;
+    flex-wrap: nowrap;
   }
 
   .hero-actions a {
+    flex: 0 0 auto;
     padding: 0.72rem 0.95rem;
     font-size: 0.84rem;
     white-space: nowrap;
@@ -848,6 +868,7 @@ select:focus-visible {
   }
 
   .hero-actions a {
+    flex: 0 0 auto;
     padding: 0.64rem 0.82rem;
     font-size: 0.77rem;
   }
@@ -1158,8 +1179,8 @@ select:focus-visible {
 
     <section id="features" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div class="fade-up mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Features</p>
+        <div class="fade-up max-w-3xl">
+          <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Features</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
             Faster hiring tools built for real Adult Family Home needs
           </h2>
@@ -1221,7 +1242,7 @@ select:focus-visible {
       <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div class="split-panel split-panel-orange grid items-center gap-10 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-12">
           <div class="fade-up">
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">For Adult Family Homes</p>
+            <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">For Adult Family Homes</p>
             <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
               Hire caregivers faster without the back-and-forth
             </h2>
@@ -1306,7 +1327,7 @@ select:focus-visible {
           </div>
 
           <div class="fade-up order-1 lg:order-2">
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">For Caregivers</p>
+            <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">For Caregivers</p>
             <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
               Find better caregiving jobs, faster and easier
             </h2>
@@ -1336,7 +1357,7 @@ select:focus-visible {
     <section id="how" class="section-shell">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">How It Works</p>
+          <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">How It Works</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
             Simple hiring. Faster results.
           </h2>
@@ -1373,7 +1394,7 @@ select:focus-visible {
     <section id="preview" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Product Preview</p>
+          <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Product Preview</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
             See how hiring works inside Cytrea
           </h2>
