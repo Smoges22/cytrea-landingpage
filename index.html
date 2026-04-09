@@ -159,6 +159,10 @@ h2 {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
   backdrop-filter: blur(10px);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .feature-card,
@@ -178,8 +182,14 @@ h2 {
 .feature-card:hover,
 .preview-card:hover,
 .step-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.09), 0 5px 12px rgba(0,0,0,0.06);
+}
+
+.support-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(21, 154, 165, 0.18);
+  box-shadow: 0 16px 34px rgba(16,33,42,0.09), 0 4px 10px rgba(16,33,42,0.05);
 }
 
 .phone-wrap {
@@ -347,8 +357,8 @@ h2 {
 }
 
 .section-shell {
-  padding-top: 5.75rem;
-  padding-bottom: 5.75rem;
+  padding-top: 4.75rem;
+  padding-bottom: 4.75rem;
 }
 
 /* HERO */
@@ -614,6 +624,12 @@ select:focus-visible {
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,251,251,0.96) 100%);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 767px) {
+  .split-panel {
+    border-radius: 1.5rem;
+  }
 }
 
 .split-panel::before {
