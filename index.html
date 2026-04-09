@@ -1,14 +1,81 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cytrea | Hire Caregivers Faster for Your Adult Family Home</title>
   <meta
     name="description"
-    content="Cytrea helps AFH providers post jobs, review applicants, and connect with caregivers in one streamlined platform."
-  >
-  <meta name="theme-color" content="#159AA5">
+    content="Cytrea helps Adult Family Home providers and caregivers connect in one streamlined platform for faster hiring and better opportunities."
+  />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#159AA5" />
+  <link rel="canonical" href="https://cytrea.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cytrea" />
+  <meta property="og:title" content="Cytrea | Hire Caregivers Faster for Your Adult Family Home" />
+  <meta
+    property="og:description"
+    content="Cytrea helps Adult Family Home providers and caregivers connect in one streamlined platform for faster hiring and better opportunities."
+  />
+  <meta property="og:url" content="https://cytrea.com/" />
+  <meta property="og:image" content="https://cytrea.com/images/branding/cytrea-wordmark-trimmed.png" />
+  <meta property="og:image:alt" content="Cytrea caregiver hiring platform" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cytrea | Hire Caregivers Faster for Your Adult Family Home" />
+  <meta
+    name="twitter:description"
+    content="Cytrea helps Adult Family Home providers and caregivers connect in one streamlined platform for faster hiring and better opportunities."
+  />
+  <meta name="twitter:image" content="https://cytrea.com/images/branding/cytrea-wordmark-trimmed.png" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://cytrea.com/#organization",
+          "name": "Cytrea",
+          "url": "https://cytrea.com/",
+          "logo": "https://cytrea.com/images/branding/cytrea-wordmark-trimmed.png",
+          "description": "Cytrea is a caregiver hiring platform built for Adult Family Homes."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cytrea.com/#website",
+          "url": "https://cytrea.com/",
+          "name": "Cytrea",
+          "publisher": {
+            "@id": "https://cytrea.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://cytrea.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Cytrea",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "url": "https://cytrea.com/",
+          "description": "Cytrea helps Adult Family Home providers and caregivers connect in one streamlined platform for faster hiring and better opportunities."
+        }
+      ]
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,408 +90,987 @@
             panel: "#F7FAFB"
           },
           boxShadow: {
-            soft: "0 16px 42px rgba(16, 33, 42, 0.09)",
-            lift: "0 22px 56px rgba(16, 33, 42, 0.14)",
-            button: "0 10px 24px rgba(21, 154, 165, 0.18)"
+            soft: "0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04)",
+            lift: "0 14px 34px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05)",
+            button: "0 6px 14px rgba(21, 154, 165, 0.25)"
           }
         }
       }
     };
   </script>
+
   <style>
-    :root {
-      color-scheme: light;
-    }
+   :root {
+  color-scheme: light;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top center, rgba(21, 154, 165, 0.09), transparent 27%),
-        radial-gradient(circle at right top, rgba(232, 137, 26, 0.06), transparent 20%),
-        linear-gradient(180deg, #fbfdfd 0%, #ffffff 40%, #f7fafb 100%);
-    }
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff;
+}
 
-    .section-surface {
-      background: linear-gradient(180deg, #f6fafb 0%, #f9fcfc 100%);
-    }
+h1 {
+  line-height: 1.42;
+}
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
+h2 {
+  line-height: 1.5;
+}
 
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+h3 {
+  line-height: 1.46;
+}
 
-    .surface-card {
-      border-radius: 1.35rem;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 16px 42px rgba(16, 33, 42, 0.09);
-    }
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
 
-    .support-card {
-      position: relative;
-      z-index: 4;
-      border-radius: 1.2rem;
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 22px 48px rgba(16, 33, 42, 0.12);
-      backdrop-filter: blur(10px);
-    }
+.section-surface {
+  background: #ffffff;
+}
 
-    .feature-card,
-    .step-card,
-    .phone,
-    .cta-button,
-    .ghost-button {
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease, color 0.22s ease;
-    }
+.fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
 
-    .feature-card:hover,
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 22px 56px rgba(16, 33, 42, 0.14);
-    }
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .phone-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
+.site-header {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
 
-    .phone-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 12% 10%;
-      border-radius: 9999px;
-      filter: blur(52px);
-      opacity: 0.22;
-      z-index: 0;
-    }
+.support-card {
+  position: relative;
+  z-index: 4;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+  backdrop-filter: blur(10px);
+}
 
-    .phone-wrap.phone-teal::before {
-      background: radial-gradient(circle, rgba(21, 154, 165, 0.9) 0%, rgba(21, 154, 165, 0) 72%);
-    }
+.feature-card,
+.step-card,
+.preview-card,
+.phone,
+.cta-button,
+.ghost-button {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    color 0.22s ease;
+}
 
-    .phone-wrap.phone-orange::before {
-      background: radial-gradient(circle, rgba(232, 137, 26, 0.9) 0%, rgba(232, 137, 26, 0) 72%);
-    }
+.feature-card:hover,
+.preview-card:hover,
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+}
 
-    .phone {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 17.4rem;
-      border-radius: 1.9rem;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.08) 14%, rgba(255,255,255,0.03) 42%, rgba(255,255,255,0.16) 100%),
-        linear-gradient(180deg, #1c242c 0%, #0e141a 100%);
-      padding: 0.18rem;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow:
-        0 10px 18px rgba(255,255,255,0.08) inset,
-        0 -10px 16px rgba(0,0,0,0.18) inset,
-        0 30px 76px rgba(16, 33, 42, 0.20);
-    }
+.phone-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
 
-    .phone-large {
-      max-width: 19.1rem;
-    }
+.phone-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 10% 8%;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.18;
+  z-index: 0;
+}
 
-    .phone-compact {
-      max-width: 16.7rem;
-    }
+.phone-wrap.phone-teal::before {
+  background: radial-gradient(circle, rgba(21, 154, 165, 0.68) 0%, rgba(21, 154, 165, 0) 72%);
+}
 
-    .phone:hover {
-      transform: scale(1.03);
-      box-shadow:
-        0 10px 18px rgba(255,255,255,0.08) inset,
-        0 -10px 16px rgba(0,0,0,0.18) inset,
-        0 36px 88px rgba(16, 33, 42, 0.24);
-    }
+.phone-wrap.phone-orange::before {
+  background: radial-gradient(circle, rgba(232, 137, 26, 0.58) 0%, rgba(232, 137, 26, 0) 72%);
+}
 
-    .phone::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.55), rgba(255,255,255,0.08) 28%, rgba(255,255,255,0.02) 48%, rgba(255,255,255,0.22) 100%);
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
+.phone {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 17.4rem;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.08) 18%, rgba(255,255,255,0.03) 44%, rgba(255,255,255,0.12) 100%),
+    linear-gradient(180deg, #1a2128 0%, #10171d 100%);
+  padding: 0.14rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 6px 14px rgba(255,255,255,0.06) inset,
+    0 -8px 12px rgba(0,0,0,0.12) inset,
+    0 20px 36px rgba(16,33,42,0.12),
+    0 8px 14px rgba(16,33,42,0.05);
+}
 
-    .phone::after {
-      content: "";
-      position: absolute;
-      inset: 0.18rem;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 18%, rgba(255,255,255,0) 82%, rgba(255,255,255,0.06));
-      pointer-events: none;
-      opacity: 0.8;
-    }
+.phone-large {
+  max-width: 19.1rem;
+}
 
-    .phone-frame {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      aspect-ratio: 1290 / 2796;
-      background: #05070a;
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.2) inset,
-        0 0 0 1px rgba(255,255,255,0.04);
-    }
+.phone-compact {
+  max-width: 16.7rem;
+}
 
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 20%);
-      pointer-events: none;
-      z-index: 2;
-    }
+.phone:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 6px 14px rgba(255,255,255,0.06) inset,
+    0 -8px 12px rgba(0,0,0,0.12) inset,
+    0 24px 42px rgba(16,33,42,0.14),
+    0 10px 18px rgba(16,33,42,0.06);
+}
 
-    .notch {
-      position: absolute;
-      left: 50%;
-      top: 0.58rem;
-      transform: translateX(-50%);
-      width: 32%;
-      height: 1.02rem;
-      border-radius: 9999px;
-      background: linear-gradient(180deg, #0b0f13 0%, #151b21 100%);
-      z-index: 3;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 2px 6px rgba(0,0,0,0.28);
-    }
+.phone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.55), rgba(255,255,255,0.08) 28%, rgba(255,255,255,0.02) 48%, rgba(255,255,255,0.22) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
-    .notch::after {
-      content: "";
-      position: absolute;
-      right: 0.45rem;
-      top: 50%;
-      width: 0.28rem;
-      height: 0.28rem;
-      transform: translateY(-50%);
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.08);
-    }
+.phone::after {
+  content: "";
+  position: absolute;
+  inset: 0.18rem;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 18%, rgba(255,255,255,0) 82%, rgba(255,255,255,0.06));
+  pointer-events: none;
+  opacity: 0.8;
+}
 
-    .phone-tilt-left {
-      transform: translateY(6px);
-    }
+.phone-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  aspect-ratio: 1290 / 2796;
+  background: #05070a;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.2) inset,
+    0 0 0 1px rgba(255,255,255,0.04);
+}
 
-    .phone-tilt-right {
-      transform: translateY(-4px);
-    }
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0) 18%);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.35;
+}
 
-    .phone-tilt-left:hover,
-    .phone-tilt-right:hover {
-      transform: scale(1.03);
-    }
+.notch {
+  position: absolute;
+  left: 50%;
+  top: 0.58rem;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 1.02rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #0b0f13 0%, #151b21 100%);
+  z-index: 3;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 2px 6px rgba(0,0,0,0.28);
+}
 
-    .screen-mask {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      border-radius: inherit;
-    }
+.notch::after {
+  content: "";
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  width: 0.28rem;
+  height: 0.28rem;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.08);
+}
 
-    .screen {
-      position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center top;
-      background: #05070a;
-      image-rendering: auto;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-    }
+.screen-mask {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #ffffff;
+}
 
-    .section-shell {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
+.screen-mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 30%);
+  pointer-events: none;
+}
 
-    .hero-shell {
-      padding-top: 7.5rem;
-      padding-bottom: 4.75rem;
-    }
+.screen {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: #ffffff;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
 
-    .glow {
-      position: absolute;
-      width: 30rem;
-      height: 30rem;
-      border-radius: 9999px;
-      background: radial-gradient(circle, rgba(21,154,165,0.14) 0%, rgba(21,154,165,0) 70%);
-      filter: blur(36px);
-      pointer-events: none;
-    }
+.section-shell {
+  padding-top: 5.75rem;
+  padding-bottom: 5.75rem;
+}
 
-    .hero-device-aura {
-      position: absolute;
-      inset: 7% 8% 10% 8%;
-      border-radius: 2.5rem;
-      background:
-        radial-gradient(circle at 34% 44%, rgba(21, 154, 165, 0.16) 0%, rgba(21, 154, 165, 0) 44%),
-        radial-gradient(circle at 74% 60%, rgba(232, 137, 26, 0.14) 0%, rgba(232, 137, 26, 0) 40%);
-      filter: blur(48px);
-      z-index: 0;
-      pointer-events: none;
-    }
+/* HERO */
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 5.25rem;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.82) 26%, rgba(255,255,255,0) 56%),
+    linear-gradient(180deg, #f7f9f9 0%, #f3f6f6 100%);
+}
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(21, 154, 165, 0.18);
-      background: rgba(21, 154, 165, 0.08);
-      padding: 0.625rem 0.95rem;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #159AA5;
-    }
+.hero-bg-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.5;
+}
 
-    .brand-wordmark {
-      display: block;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
+.hero-bg-orb-left {
+  width: 20rem;
+  height: 20rem;
+  left: -5rem;
+  top: 4rem;
+  background: rgba(21, 154, 165, 0.07);
+}
 
-    .cta-button:hover,
-    .ghost-button:hover {
-      transform: translateY(-2px);
-    }
+.hero-bg-orb-right {
+  width: 18rem;
+  height: 18rem;
+  right: -3rem;
+  top: 5rem;
+  background: rgba(232, 137, 26, 0.05);
+}
 
-    .mobile-nav[open] summary {
-      margin-bottom: 0.75rem;
-    }
+.hero-mobile-grid {
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: center;
+}
 
-    .mobile-nav summary::-webkit-details-marker {
-      display: none;
-    }
+.hero-copy {
+  max-width: 38rem;
+}
 
-    @media (max-width: 767px) {
-      .hero-device-aura {
-        inset: 12% 12% 16% 12%;
-        filter: blur(34px);
-        opacity: 0.85;
-      }
+.hero-copy h1 {
+  font-size: 2.1rem;
+  line-height: 1.24;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
 
-      .phone-tilt-left,
-      .phone-tilt-right {
-        transform: none;
-      }
+.hero-description {
+  max-width: 34rem;
+  color: #556370;
+  font-size: 1.02rem;
+  line-height: 1.66;
+  letter-spacing: -0.018em;
+}
 
-      .phone-large {
-        max-width: 18rem;
-      }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.9rem;
+}
 
-      .phone-compact {
-        max-width: 16rem;
-      }
-    }
+.hero-actions a {
+  padding: 0.84rem 1.3rem;
+  font-size: 0.96rem;
+}
 
-    @media (min-width: 768px) {
-      .section-shell {
-        padding-top: 5.75rem;
-        padding-bottom: 5.75rem;
-      }
+.hero-trust {
+  margin-top: 0.9rem;
+  color: #667481;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
 
-      .hero-shell {
-        padding-top: 8.25rem;
-        padding-bottom: 5.25rem;
-      }
-    }
+.hero-visual {
+  position: relative;
+  min-height: 36rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 0.3rem;
+}
 
-    @media (min-width: 1024px) {
-      .section-shell {
-        padding-top: 6.25rem;
-        padding-bottom: 6.25rem;
-      }
+.hero-phone-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
 
-      .hero-shell {
-        padding-top: 9rem;
-        padding-bottom: 6rem;
-      }
-    }
+.hero-phone-stage-single {
+  max-width: 36rem;
+  min-height: 36rem;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+.hero-device-aura {
+  position: absolute;
+  right: 0.1rem;
+  top: 2.6rem;
+  width: 28rem;
+  height: 25rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(109, 235, 226, 0.22) 0%,
+      rgba(109, 235, 226, 0.12) 28%,
+      rgba(232, 137, 26, 0.06) 52%,
+      rgba(109, 235, 226, 0) 76%);
+  filter: blur(30px);
+  z-index: 0;
+  pointer-events: none;
+}
 
-      .fade-up,
-      .feature-card,
-      .step-card,
-      .phone,
-      .cta-button,
-      .ghost-button {
-        transition: none !important;
-        transform: none !important;
-      }
+.hero-device-echo {
+  position: absolute;
+  right: 1.15rem;
+  top: 3.9rem;
+  width: 56%;
+  height: auto;
+  border-radius: 2rem;
+  background:
+    linear-gradient(160deg, rgba(224, 252, 250, 0.82), rgba(162, 232, 227, 0.22) 24%, rgba(130, 209, 201, 0.06) 55%, rgba(214, 247, 244, 0.36) 100%),
+    linear-gradient(180deg, rgba(191, 241, 236, 0.92) 0%, rgba(240, 252, 251, 0.96) 100%);
+  aspect-ratio: 1290 / 2796;
+  border: 1px solid rgba(143, 211, 206, 0.68);
+  box-shadow:
+    0 14px 32px rgba(16,33,42,0.08),
+    0 1px 0 rgba(239,255,253,0.72) inset;
+  opacity: 0.66;
+  transform: rotate(3deg) translateX(1.4rem) translateY(1rem);
+  z-index: 1;
+  pointer-events: none;
+}
 
-      .fade-up {
-        opacity: 1 !important;
-      }
-    }
+.hero-main-phone {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-main-phone-angled {
+  display: flex;
+  justify-content: flex-end;
+  transform: rotate(2deg) translateY(0.95rem);
+  transform-origin: center center;
+}
+
+.hero-main-phone .phone {
+  max-width: 20.7rem;
+  box-shadow:
+    0 6px 14px rgba(255,255,255,0.06) inset,
+    0 -8px 12px rgba(0,0,0,0.10) inset,
+    0 42px 72px rgba(16,33,42,0.18),
+    0 18px 34px rgba(16,33,42,0.10);
+}
+
+.hero-main-phone .phone-frame {
+  border-radius: 2rem;
+}
+
+.feature-card {
+  display: flex;
+  min-height: 100%;
+  border-radius: 1.55rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  padding: 1.6rem;
+  box-shadow: 0 14px 34px rgba(16,33,42,0.06), 0 4px 10px rgba(16,33,42,0.04);
+}
+
+.feature-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  height: 2.35rem;
+  padding: 0 0.7rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(21,154,165,0.12) 0%, rgba(21,154,165,0.04) 100%);
+  border: 1px solid rgba(21,154,165,0.14);
+  color: #159AA5;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(21,154,165,0.08);
+}
+
+.cta-button {
+  box-shadow: 0 6px 14px rgba(21,154,165,0.25);
+}
+
+.ghost-button {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.brand-wordmark {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.cta-button:hover,
+.ghost-button:hover {
+  transform: translateY(-2px);
+}
+
+.cta-button:hover {
+  box-shadow: 0 10px 18px rgba(21,154,165,0.28);
+}
+
+.ghost-button:hover {
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.mobile-nav[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+.mobile-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 154, 165, 0.14);
+  border-color: rgba(21, 154, 165, 0.36);
+}
+
+.icon-chip {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 4px 12px rgba(16,33,42,0.04);
+}
+
+.feature-card {
+  border-radius: 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  padding: 1.35rem;
+}
+
+.split-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,251,251,0.96) 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.split-panel::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -30% auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.split-panel-teal::before {
+  background: radial-gradient(circle, rgba(21,154,165,0.18) 0%, rgba(21,154,165,0) 70%);
+}
+
+.split-panel-orange::before {
+  background: radial-gradient(circle, rgba(232,137,26,0.18) 0%, rgba(232,137,26,0) 70%);
+}
+
+.step-card {
+  border-radius: 1.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.check-list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.95rem 1rem;
+}
+
+.check-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  border-radius: 9999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0.05rem;
+}
+
+.check-item-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #10212A;
+  letter-spacing: -0.01em;
+  line-height: 1.55;
+}
+
+.menu-bars {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.menu-bars span {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  border-radius: 9999px;
+  background: #10212A;
+}
+
+.preview-card {
+  border-radius: 1.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(247,251,251,0.95) 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.waitlist-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background:
+    radial-gradient(circle at 18% 24%, rgba(21,154,165,0.10) 0%, rgba(21,154,165,0) 28%),
+    radial-gradient(circle at 82% 30%, rgba(232,137,26,0.10) 0%, rgba(232,137,26,0) 22%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbfb 100%);
+  box-shadow: 0 18px 48px rgba(16, 33, 42, 0.08);
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  h1 {
+    line-height: 1.48;
+  }
+
+  h2 {
+    line-height: 1.56;
+  }
+
+  h3 {
+    line-height: 1.5;
+  }
+
+  .hero-shell {
+    padding-top: 6.9rem;
+    padding-bottom: 3.4rem;
+  }
+
+  .hero-mobile-grid {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
+    gap: 0.7rem;
+  }
+
+  .hero-copy {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+  }
+
+  .hero-copy h1 {
+    max-width: 12.4ch;
+    font-size: 1.66rem;
+    line-height: 1.34;
+  }
+
+  .hero-description {
+    max-width: none;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.58;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .hero-actions a {
+    padding: 0.72rem 0.95rem;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
+
+  .hero-trust {
+    margin-top: 0.7rem;
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .hero-visual {
+    min-height: 18rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .hero-phone-stage-single {
+    max-width: 13rem;
+    min-height: 19rem;
+    margin-left: auto;
+  }
+
+  .hero-device-aura {
+    right: -0.1rem;
+    top: 2rem;
+    width: 11rem;
+    height: 10rem;
+    filter: blur(16px);
+    opacity: 0.92;
+  }
+
+  .hero-main-phone-angled {
+    transform: rotate(5deg) translateY(1.2rem);
+  }
+
+  .hero-main-phone .phone {
+    max-width: 10.6rem;
+  }
+
+  .hero-main-phone .phone-frame {
+    border-radius: 1.45rem;
+  }
+
+
+  .notch {
+    top: 0.45rem;
+    height: 0.84rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-mobile-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    gap: 0.45rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.48rem;
+    line-height: 1.34;
+  }
+
+  .hero-description {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions a {
+    padding: 0.64rem 0.82rem;
+    font-size: 0.77rem;
+  }
+
+  .hero-phone-stage-single {
+    max-width: 9.8rem;
+    min-height: 15rem;
+  }
+
+  .hero-main-phone .phone {
+    max-width: 7.9rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .section-shell {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .hero-shell {
+    padding-top: 8.7rem;
+    padding-bottom: 5.8rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.5rem;
+    line-height: 1.36;
+  }
+
+  .hero-description {
+    font-size: 1.03rem;
+  }
+
+  .hero-visual {
+    min-height: 31rem;
+  }
+
+  .hero-phone-stage-single {
+    max-width: 25rem;
+    min-height: 31rem;
+  }
+
+  .hero-device-aura {
+    width: 18rem;
+    height: 18rem;
+    right: 0.4rem;
+    top: 2.8rem;
+  }
+
+  .hero-main-phone .phone {
+    max-width: 15.3rem;
+  }
+
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .section-shell {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+
+  .hero-shell {
+    padding-top: 9.3rem;
+    padding-bottom: 6.25rem;
+  }
+
+  .hero-mobile-grid {
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+    gap: 3.5rem;
+  }
+
+  .hero-copy {
+    padding-right: 1.5rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 3.15rem;
+    line-height: 1.36;
+    max-width: 11.6ch;
+  }
+
+  .hero-description {
+    font-size: 1.12rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions a {
+    padding: 0.88rem 1.34rem;
+    font-size: 0.96rem;
+  }
+
+  .hero-visual {
+    min-height: 43rem;
+  }
+
+  .hero-phone-stage-single {
+    max-width: 39rem;
+    min-height: 43rem;
+  }
+
+  .hero-device-aura {
+    width: 25rem;
+    height: 25rem;
+    right: 0.5rem;
+    top: 3.2rem;
+    filter: blur(28px);
+  }
+
+  .hero-main-phone .phone {
+    max-width: 22rem;
+  }
+
+}
+
+.hero-main-phone::before {
+  content: "";
+  position: absolute;
+  right: 2rem;
+  bottom: 0.34rem;
+  width: 11rem;
+  height: 0.14rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg,
+    rgba(21, 154, 165, 0) 0%,
+    rgba(21, 154, 165, 0.12) 22%,
+    rgba(21, 154, 165, 0.34) 50%,
+    rgba(21, 154, 165, 0.12) 78%,
+    rgba(21, 154, 165, 0) 100%);
+  box-shadow:
+    0 -1px 3px rgba(21, 154, 165, 0.08),
+    0 1px 3px rgba(21, 154, 165, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-main-phone::after {
+  content: "";
+  position: absolute;
+  right: 1.8rem;
+  bottom: -0.02rem;
+  width: 12.2rem;
+  height: 0.46rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(16, 33, 42, 0.17) 0%,
+      rgba(16, 33, 42, 0.08) 36%,
+      rgba(16, 33, 42, 0.025) 62%,
+      rgba(23, 52, 62, 0) 84%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-main-phone-angled {
+  transform: rotate(2.5deg) translateY(1.45rem);
+}
+
+@media (max-width: 767px) {
+  .hero-main-phone::before {
+    right: 1rem;
+    bottom: 0.3rem;
+    width: 5.8rem;
+    height: 0.12rem;
+  }
+
+  .hero-main-phone::after {
+    right: 0.92rem;
+    bottom: -0.02rem;
+    width: 6rem;
+    height: 0.28rem;
+    filter: blur(1.6px);
+  }
+
+  .hero-main-phone-angled {
+    transform: rotate(3.2deg) translateY(1.15rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .feature-card,
+  .step-card,
+  .preview-card,
+  .phone,
+  .cta-button,
+  .ghost-button {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .fade-up {
+    opacity: 1 !important;
+  }
+}
   </style>
 </head>
+
 <body class="bg-white text-ink antialiased">
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-md">
-    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-      <div class="flex min-h-[5rem] items-center justify-between gap-5 py-1.5">
+  <header class="site-header fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+      <div class="flex min-h-[5rem] items-center justify-between gap-5">
         <a href="#top" class="flex shrink-0 items-center">
-          <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-9 w-auto sm:h-11 lg:h-[3rem]">
+          <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-10 w-auto sm:h-11 lg:h-[3.05rem]" />
         </a>
 
-        <nav class="hidden items-center gap-11 text-[1.02rem] font-semibold tracking-[0.012em] text-slate-700 md:flex lg:gap-14">
-          <a href="#features" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Features</a>
-          <a href="#providers" class="transition duration-200 hover:text-brandTeal hover:opacity-100">AFHs</a>
-          <a href="#caregivers" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Caregivers</a>
-          <a href="#how" class="transition duration-200 hover:text-brandTeal hover:opacity-100">How It Works</a>
-          <a href="#preview" class="transition duration-200 hover:text-brandTeal hover:opacity-100">Preview</a>
+        <nav class="hidden items-center gap-11 text-[1.03rem] font-bold tracking-[0.01em] text-slate-700 md:flex lg:gap-12">
+          <a href="#features" class="transition hover:text-brandTeal">Features</a>
+          <a href="#providers" class="transition hover:text-brandTeal">AFHs</a>
+          <a href="#caregivers" class="transition hover:text-brandTeal">Caregivers</a>
+          <a href="#how" class="transition hover:text-brandTeal">How It Works</a>
         </nav>
 
         <a
           href="#cta"
-          class="cta-button hidden rounded-full bg-brandTeal px-6 py-3.5 text-base font-semibold text-white shadow-button md:inline-flex md:items-center md:justify-center hover:bg-cyan-700 hover:shadow-lift"
-        >Get Early Access</a>
+          class="cta-button hidden items-center justify-center rounded-full bg-brandTeal px-6 py-3.5 text-[0.96rem] font-semibold text-white md:inline-flex hover:bg-cyan-700 hover:shadow-lift"
+        >
+          Join the Waitlist
+        </a>
 
-        <details class="mobile-nav md:hidden">
-          <summary class="flex cursor-pointer list-none items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800">
-            Menu
+        <details class="mobile-nav relative md:hidden">
+          <summary aria-label="Open navigation menu" class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-slate-200/80 bg-white/92 text-slate-800 shadow-soft transition hover:border-brandTeal/25 hover:bg-white">
+            <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           </summary>
-          <div class="absolute left-5 right-5 top-[4.75rem] rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
+          <div class="absolute right-0 top-[4.25rem] w-[17rem] rounded-[1.6rem] border border-slate-200/80 bg-white/95 p-3 shadow-soft backdrop-blur-xl">
             <nav class="flex flex-col gap-1 text-sm font-medium text-slate-700">
               <a href="#features" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">Features</a>
               <a href="#providers" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">AFHs</a>
               <a href="#caregivers" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">Caregivers</a>
               <a href="#how" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">How It Works</a>
               <a href="#preview" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">Preview</a>
-              <a href="#cta" class="mt-2 rounded-full bg-brandTeal px-4 py-3 text-center font-semibold text-white">Get Early Access</a>
+              <a href="#cta" class="mt-2 rounded-full bg-brandTeal px-4 py-3 text-center font-semibold text-white">Join the Waitlist</a>
             </nav>
           </div>
         </details>
@@ -433,189 +1079,180 @@
   </header>
 
   <main id="top">
-    <section class="hero-shell relative overflow-hidden">
-      <div class="glow left-1/2 top-10 -translate-x-1/2"></div>
-      <div class="absolute right-0 top-20 h-56 w-56 rounded-full bg-brandOrange/10 blur-3xl"></div>
+    <section class="hero-shell">
+  <div class="hero-bg-orb hero-bg-orb-left"></div>
+  <div class="hero-bg-orb hero-bg-orb-right"></div>
 
-      <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 md:gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8">
-        <div class="fade-up">
-          <div class="eyebrow">
-            <span class="h-2 w-2 rounded-full bg-brandOrange"></span>
-            Built for Adult Family Homes and caregivers
-          </div>
+  <div class="hero-mobile-grid relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 md:gap-10 lg:px-10">
+    <div class="fade-up show hero-copy min-w-0">
+      <h1 class="max-w-[14ch] font-semibold tracking-[-0.04em] text-slate-950">
+        Caregiver hiring for Adult Family Homes, simplified.
+      </h1>
 
-          <h1 class="mt-6 max-w-3xl text-[2.7rem] font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-[3.5rem] lg:text-[4.6rem]">
-            Hire caregivers faster for your Adult Family Home.
-          </h1>
+      <p class="hero-description mt-5">
+        Cytrea helps AFH providers and caregivers connect in one simple platform so providers can hire faster and caregivers can find better opportunities without the usual hiring stress.
+      </p>
 
-          <p class="mt-5 max-w-2xl text-[1.0625rem] leading-8 text-slate-600 sm:text-xl">
-            Cytrea helps AFH providers post jobs, review applicants, and connect with caregivers in one streamlined platform.
-          </p>
+      <div class="hero-actions">
+        <a
+          href="#cta"
+          class="cta-button inline-flex items-center justify-center rounded-full bg-brandTeal font-semibold text-white hover:bg-cyan-700 hover:shadow-lift"
+        >
+          Request Early Access
+        </a>
 
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a
-              href="#cta"
-              class="cta-button inline-flex items-center justify-center rounded-full bg-brandTeal px-6 py-3.5 text-base font-semibold text-white shadow-button hover:bg-cyan-700 hover:shadow-lift"
-            >Get Early Access</a>
-            <a
-              href="#how"
-              class="ghost-button inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-800 hover:border-brandTeal hover:bg-mist hover:text-brandTeal"
-            >See How It Works</a>
-          </div>
-
-          <div class="mt-7 max-w-2xl rounded-2xl border border-slate-200 bg-white/92 px-5 py-4 shadow-soft">
-            <p class="text-sm font-medium leading-6 text-slate-600">
-              Designed for real caregiver hiring workflows not generic job boards.
-            </p>
-          </div>
-        </div>
-
-        <div class="fade-up">
-          <div class="relative mx-auto max-w-[25rem] lg:max-w-[36rem]">
-            <div class="hero-device-aura"></div>
-            <div class="phone-wrap phone-teal">
-              <div class="phone phone-large">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                    <img
-                      src="images/caregiver/caregiver-dashboard.PNG"
-                      alt="Cytrea caregiver dashboard"
-                      width="1290"
-                      height="2796"
-                      class="screen"
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="phone-wrap phone-orange absolute right-3 top-12 hidden w-[46%] lg:flex">
-              <div class="phone phone-compact phone-tilt-right">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                    <img
-                      src="images/provider/provider-dashbboard.PNG"
-                      alt="Cytrea provider dashboard"
-                      width="1290"
-                      height="2796"
-                      class="screen"
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="surface-card relative z-[2] mx-auto mt-4 max-w-[30rem] p-5 sm:p-6 lg:mr-24 lg:mt-2">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brandTeal">Why Cytrea</p>
-            <h2 class="mt-2 text-xl font-semibold tracking-tight text-slate-950 sm:text-2xl">Built around actual AFH hiring flow.</h2>
-            <div class="mt-5 grid gap-3">
-              <div class="rounded-2xl bg-mist p-4">
-                <div class="font-semibold text-slate-900">Real product clarity</div>
-                <p class="mt-1 text-sm leading-6 text-slate-600">Care teams and caregivers can immediately understand what the platform does and how it helps.</p>
-              </div>
-              <div class="rounded-2xl bg-warm p-4">
-                <div class="font-semibold text-slate-900">Premium but minimal presentation</div>
-                <p class="mt-1 text-sm leading-6 text-slate-600">Fewer screens, stronger hierarchy, and less visual clutter.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <a
+          href="#caregivers"
+          class="ghost-button inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/80 font-semibold text-slate-800 hover:border-brandTeal hover:text-brandTeal"
+        >
+          For Caregivers
+        </a>
       </div>
-    </section>
+    </div>
+
+    <div class="fade-up show hero-visual min-w-0">
+      <div class="hero-phone-stage hero-phone-stage-single">
+        <div class="hero-device-aura"></div>
+        <div class="hero-device-echo"></div>
+
+        <div class="hero-main-phone hero-main-phone-angled phone-wrap phone-teal">
+          <div class="phone phone-large">
+            <div class="phone-frame">
+              <div class="notch"></div>
+              <div class="screen-mask">
+                <img
+                  decoding="async"
+                  src="images/caregiver/caregiver-credentials.png"
+                  alt="Cytrea caregiver app screen"
+                  width="1290"
+                  height="2796"
+                  loading="eager"
+                  fetchpriority="high"
+                  class="screen"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="features" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
-          <h2 class="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-            Powerful features for care hiring that needs to move.
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Features</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
+            Faster hiring tools built for real Adult Family Home needs
           </h2>
         </div>
 
-        <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <article class="feature-card surface-card fade-up flex h-full flex-col p-7">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brandTeal/10 text-sm font-semibold text-brandTeal">01</div>
-            <h3 class="text-xl font-semibold text-slate-950">Smart Matching</h3>
-            <p class="mt-4 leading-7 text-slate-600">Find caregivers faster using role fit, availability, and care context.</p>
+        <div class="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="feature-card fade-up bg-white/95">
+            <div class="flex items-start gap-4">
+              <div class="feature-badge">01</div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-950">Fill Open Shifts Faster</h3>
+                <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
+                  Smart matching connects providers with caregivers based on availability, experience, and fit — so less time is wasted searching and more time is spent hiring.
+                </p>
+              </div>
+            </div>
           </article>
 
-          <article class="feature-card surface-card fade-up flex h-full flex-col p-7">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brandOrange/10 text-sm font-semibold text-brandOrange">02</div>
-            <h3 class="text-xl font-semibold text-slate-950">Verified Profiles</h3>
-            <p class="mt-4 leading-7 text-slate-600">Present caregiver and provider profiles with stronger trust and hiring signals.</p>
+          <article class="feature-card fade-up bg-[#fffaf4]">
+            <div class="flex items-start gap-4">
+              <div class="feature-badge">02</div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-950">Hire with More Confidence</h3>
+                <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
+                  Caregiver profiles highlight credentials, experience, and availability clearly — giving providers stronger trust signals before they reach out.
+                </p>
+              </div>
+            </div>
           </article>
 
-          <article class="feature-card surface-card fade-up flex h-full flex-col p-7">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brandTeal/10 text-sm font-semibold text-brandTeal">03</div>
-            <h3 class="text-xl font-semibold text-slate-950">Messaging</h3>
-            <p class="mt-4 leading-7 text-slate-600">Communicate seamlessly in-app with less drop-off between interest and response.</p>
+          <article class="feature-card fade-up bg-[#f7fbfb]">
+            <div class="flex items-start gap-4">
+              <div class="feature-badge">03</div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-950">Connect Faster with Messaging</h3>
+                <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
+                  Go from application to conversation faster with built-in messaging designed for real caregiving hiring workflows.
+                </p>
+              </div>
+            </div>
           </article>
 
-          <article class="feature-card surface-card fade-up flex h-full flex-col p-7">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brandOrange/10 text-sm font-semibold text-brandOrange">04</div>
-            <h3 class="text-xl font-semibold text-slate-950">Mobile Experience</h3>
-            <p class="mt-4 leading-7 text-slate-600">Designed to work beautifully with real mobile screens and modern hiring flows.</p>
+          <article class="feature-card fade-up bg-white/92">
+            <div class="flex items-start gap-4">
+              <div class="feature-badge">04</div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-950">Designed for Real Mobile Hiring</h3>
+                <p class="mt-2 text-[0.97rem] leading-7 text-slate-600">
+                  Manage job discovery, applications, and hiring directly from your phone — whether you're on shift, between visits, or at home.
+                </p>
+              </div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <section id="providers" class="section-shell">
-      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-8">
-        <div class="fade-up">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">For Adult Family Homes</p>
-          <h2 class="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Post openings, review applicants, and hire faster.</h2>
-          <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Cytrea helps Adult Family Homes reduce staffing friction with a hiring flow tailored to the pace and trust demands of care teams.
-          </p>
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="split-panel split-panel-orange grid items-center gap-10 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-12">
+          <div class="fade-up">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">For Adult Family Homes</p>
+            <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
+              Hire caregivers faster without the back-and-forth
+            </h2>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              Cytrea gives Adult Family Homes a cleaner, faster way to move from open roles to stronger hires without relying on generic job boards or slow agency workflows.
+            </p>
 
-          <div class="mt-8 space-y-4">
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Post jobs instantly</h3>
-              <p class="mt-2 leading-7 text-slate-600">Publish openings clearly and make expectations easy to understand.</p>
-            </div>
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Review applicants easily</h3>
-              <p class="mt-2 leading-7 text-slate-600">See stronger fit signals before spending time on outreach.</p>
-            </div>
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Hire faster</h3>
-              <p class="mt-2 leading-7 text-slate-600">Move from open role to shortlist with fewer delays and less admin overhead.</p>
+            <div class="check-list">
+              <div class="check-item">
+                <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
+                <div class="check-item-title">Post openings clearly and attract better-fit applicants</div>
+              </div>
+              <div class="check-item">
+                <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
+                <div class="check-item-title">Review caregiver profiles before spending time on calls</div>
+              </div>
+              <div class="check-item">
+                <span class="check-mark bg-brandOrange/12 text-brandOrange">&#10003;</span>
+                <div class="check-item-title">Keep hiring moving without delays or admin overload</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="fade-up">
-          <div class="relative">
-            <div class="phone-wrap phone-orange">
-              <div class="phone phone-large">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                  <img
-                    src="images/provider/provider-job-post.PNG"
-                    alt="Provider job post screenshot"
-                    width="1290"
-                    height="2796"
-                    class="screen"
-                  >
+          <div class="fade-up">
+            <div class="relative mx-auto max-w-[24rem] sm:max-w-[27rem]">
+              <div class="phone-wrap phone-orange">
+                <div class="phone phone-large">
+                  <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen-mask">
+                      <img
+                        src="images/provider/provider-job-post.png"
+                        alt="Provider job post screenshot"
+                        width="1290"
+                        height="2796"
+                        class="screen"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="support-card absolute bottom-5 left-2 hidden max-w-[13rem] -rotate-2 p-4 lg:block">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brandOrange">Role Setup</p>
-              <p class="mt-2 text-sm font-semibold text-slate-900">Clear post details</p>
-              <p class="mt-1 text-sm leading-6 text-slate-600">Publish shift expectations, care needs, and role requirements in one cleaner flow.</p>
-            </div>
-
-            <div class="support-card absolute right-2 top-14 hidden max-w-[12.5rem] rotate-2 p-4 lg:block">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brandTeal">Shortlist</p>
-              <p class="mt-2 text-sm font-semibold text-slate-900">Faster review</p>
-              <p class="mt-1 text-sm leading-6 text-slate-600">See stronger fit signals before spending time on outreach.</p>
+              <div class="support-card absolute bottom-5 left-0 hidden max-w-[13rem] p-4 lg:block">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brandOrange">Role Setup</p>
+                <p class="mt-2 text-sm font-semibold text-slate-900">Cleaner hiring flow</p>
+                <p class="mt-1 text-sm leading-6 text-slate-600">Make each opening easier to review and act on.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -623,53 +1260,57 @@
     </section>
 
     <section id="caregivers" class="section-shell section-surface">
-      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:px-8">
-        <div class="fade-up order-2 lg:order-1">
-          <div class="relative">
-            <div class="phone-wrap phone-teal">
-              <div class="phone phone-large phone-tilt-left">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                  <img
-                    src="images/caregiver/caregiver-profile.PNG"
-                    alt="Caregiver profile screenshot"
-                    width="1290"
-                    height="2796"
-                    class="screen"
-                  >
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="split-panel split-panel-teal grid items-center gap-10 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14 lg:px-12">
+          <div class="fade-up order-2 lg:order-1">
+            <div class="relative mx-auto max-w-[24rem] sm:max-w-[27rem]">
+              <div class="phone-wrap phone-teal">
+                <div class="phone phone-large">
+                  <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen-mask">
+                      <img
+                        src="images/caregiver/caregiver-profile.png"
+                        alt="Caregiver profile screenshot"
+                        width="1290"
+                        height="2796"
+                        class="screen"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="support-card absolute bottom-6 right-2 hidden max-w-[13rem] rotate-2 p-4 lg:block">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brandTeal">Profile Quality</p>
-              <p class="mt-2 text-sm font-semibold text-slate-900">Show strengths clearly</p>
-              <p class="mt-1 text-sm leading-6 text-slate-600">Highlight availability, experience, and fit in a more professional format.</p>
+              <div class="support-card absolute right-0 top-8 hidden max-w-[13rem] p-4 lg:block">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brandTeal">Profile Quality</p>
+                <p class="mt-2 text-sm font-semibold text-slate-900">Present strengths clearly</p>
+                <p class="mt-1 text-sm leading-6 text-slate-600">Show experience, availability, and fit in one place.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="fade-up order-1 lg:order-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandOrange">For Caregivers</p>
-          <h2 class="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Find jobs easily and apply from a better mobile flow.</h2>
-          <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Caregivers get a simpler way to discover opportunities, present their profile well, and connect with Adult Family Homes that need the right support.
-          </p>
+          <div class="fade-up order-1 lg:order-2">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">For Caregivers</p>
+            <h2 class="mt-4 max-w-xl text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
+              Find better caregiving jobs, faster and easier
+            </h2>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              Cytrea helps caregivers showcase their experience, explore opportunities, and connect directly with Adult Family Homes in one place.
+            </p>
 
-          <div class="mt-8 space-y-4">
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Find jobs easily</h3>
-              <p class="mt-2 leading-7 text-slate-600">Search and compare openings with clearer role information and fit signals.</p>
-            </div>
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Build profile</h3>
-              <p class="mt-2 leading-7 text-slate-600">Highlight experience, availability, and strengths in a clean format.</p>
-            </div>
-            <div class="surface-card p-5">
-              <h3 class="font-semibold text-slate-950">Apply instantly</h3>
-              <p class="mt-2 leading-7 text-slate-600">Reduce repetitive steps and keep the experience mobile-friendly from start to finish.</p>
+            <div class="check-list">
+              <div class="check-item">
+                <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
+                <div class="check-item-title">Build a strong profile that highlights your experience</div>
+              </div>
+              <div class="check-item">
+                <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
+                <div class="check-item-title">Discover jobs that match your schedule and preferences</div>
+              </div>
+              <div class="check-item">
+                <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
+                <div class="check-item-title">Apply and connect with providers without repeating steps</div>
+              </div>
             </div>
           </div>
         </div>
@@ -679,30 +1320,35 @@
     <section id="how" class="section-shell">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">How It Works</p>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">A cleaner path from profile to hire.</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">How It Works</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
+            Simple hiring. Faster results.
+          </h2>
         </div>
 
         <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <article class="step-card surface-card fade-up p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">Step 1</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Create Profile</h3>
-            <p class="mt-3 leading-7 text-slate-600">Caregivers and homes set up the information that makes matching easier.</p>
+          <article class="step-card fade-up p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 1</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Create your profile</h3>
+            <p class="mt-3 leading-7 text-slate-600">Set up your caregiver or provider account in minutes.</p>
           </article>
-          <article class="step-card surface-card fade-up p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">Step 2</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Discover</h3>
-            <p class="mt-3 leading-7 text-slate-600">Browse roles or candidates with clearer filters and stronger context.</p>
+
+          <article class="step-card fade-up p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 2</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Post or apply</h3>
+            <p class="mt-3 leading-7 text-slate-600">Providers post jobs, and caregivers explore and apply with ease.</p>
           </article>
-          <article class="step-card surface-card fade-up p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">Step 3</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Connect</h3>
-            <p class="mt-3 leading-7 text-slate-600">Message, review fit, and move the conversation forward without unnecessary friction.</p>
+
+          <article class="step-card fade-up p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 3</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Connect instantly</h3>
+            <p class="mt-3 leading-7 text-slate-600">Start conversations quickly and evaluate fit without delays.</p>
           </article>
-          <article class="step-card surface-card fade-up p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">Step 4</p>
-            <h3 class="mt-3 text-xl font-semibold text-slate-950">Hire</h3>
-            <p class="mt-3 leading-7 text-slate-600">Turn strong matches into faster decisions for better staffing outcomes.</p>
+
+          <article class="step-card fade-up p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Step 4</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">Hire with confidence</h3>
+            <p class="mt-3 leading-7 text-slate-600">Make better hiring decisions with clearer information and smoother workflows.</p>
           </article>
         </div>
       </div>
@@ -711,84 +1357,87 @@
     <section id="preview" class="section-shell section-surface">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandTeal">App Preview</p>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Real App Experience</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Product Preview</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
+            See how hiring works inside Cytrea
+          </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Show the product directly with real mobile screens from onboarding through messaging and application flow.
+            From onboarding to messaging and hiring decisions, everything is designed to be simple, fast, and mobile-first.
           </p>
         </div>
 
-        <div class="mt-12 grid gap-5 sm:mx-auto sm:max-w-[20rem] md:max-w-none md:grid-cols-3">
-          <div class="fade-up">
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          <article class="preview-card fade-up p-6 text-center">
             <div class="phone-wrap phone-teal">
               <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
-                      src="images/caregiver/caregiver-onboarding.PNG"
+                      src="images/caregiver/caregiver-onboarding.png"
                       alt="Onboarding screenshot"
                       width="1290"
                       height="2796"
                       class="screen"
-                    >
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <p class="mt-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Onboarding</p>
-          </div>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Onboarding</p>
+          </article>
 
-          <div class="fade-up">
+          <article class="preview-card fade-up p-6 text-center">
             <div class="phone-wrap phone-orange">
               <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
-                      src="images/caregiver/caregiver-chat.PNG"
+                      src="images/caregiver/caregiver-chat.png"
                       alt="Messaging screenshot"
                       width="1290"
                       height="2796"
                       class="screen"
-                    >
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <p class="mt-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Messages</p>
-          </div>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Messaging</p>
+          </article>
 
-          <div class="fade-up">
+          <article class="preview-card fade-up p-6 text-center">
             <div class="phone-wrap phone-teal">
               <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
                     <img
-                      src="images/caregiver/caregiver-application-status.PNG"
+                      src="images/caregiver/caregiver-application-status.png"
                       alt="Application screenshot"
                       width="1290"
                       height="2796"
                       class="screen"
-                    >
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <p class="mt-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Application</p>
-          </div>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Application</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="cta" class="section-shell">
-      <div class="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
-        <div class="surface-card fade-up rounded-[1.6rem] px-6 py-8 text-center sm:px-10 sm:py-10">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brandOrange">Call to Action</p>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Join Cytrea</h2>
+      <div class="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+        <div class="waitlist-shell fade-up px-6 py-10 text-center sm:px-10 sm:py-12">
+          <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-[3.4rem]">
+            Join Cytrea early
+          </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Join the waitlist to get early access to a hiring platform built for caregivers and Adult Family Homes.
+            Join the waitlist for early access to a faster, simpler hiring platform built for caregivers and Adult Family Homes.
           </p>
 
           <form
@@ -796,41 +1445,56 @@
             method="POST"
             id="waitlist-form"
             data-form-endpoint="https://formspree.io/f/mykbvrwz"
-            class="waitlist-form mt-8 flex flex-col items-center justify-center gap-3 sm:mx-auto sm:max-w-xl sm:flex-row"
+            class="waitlist-form mt-8 flex flex-col items-center justify-center gap-3 sm:mx-auto sm:max-w-2xl sm:flex-row sm:flex-wrap"
           >
+            <select
+              name="role"
+              required
+              class="w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-sm text-slate-900 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-brandTeal/10 sm:w-56 sm:flex-none"
+            >
+              <option value="" disabled selected>I am a...</option>
+              <option value="caregiver">Caregiver</option>
+              <option value="provider">AFH Owner / Provider</option>
+            </select>
+
             <input
               type="email"
               name="email"
               required
               placeholder="Enter your email"
               class="input w-full min-w-0 rounded-full border border-gray-300 bg-white px-5 py-3 text-sm text-slate-900 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-brandTeal/10 sm:w-80 sm:flex-none"
-            >
+            />
+
             <button
               type="submit"
-              class="button cta-button inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-md hover:from-orange-500 hover:to-orange-500 hover:shadow-lift"
-            >Get Early Access</button>
+              class="button cta-button inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-orange-500 px-6 py-3 text-sm font-semibold text-white hover:from-orange-500 hover:to-orange-500 hover:shadow-lift"
+            >
+              Join Waitlist
+            </button>
           </form>
+
           <p id="form-message" class="waitlist-message mt-4 hidden text-sm font-semibold" aria-live="polite"></p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white py-8">
+  <footer class="border-t border-slate-200/70 bg-white/92 py-8">
     <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
       <div class="flex items-center justify-center md:justify-start">
-        <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-8 w-auto sm:h-9">
+        <img src="images/branding/cytrea-wordmark-trimmed.png" alt="Cytrea" class="brand-wordmark h-8 w-auto sm:h-9" />
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-base font-medium text-slate-600">
+      <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm font-medium text-slate-500 sm:text-base">
         <a href="#features" class="transition hover:text-brandTeal">Features</a>
+        <a href="#providers" class="transition hover:text-brandTeal">AFHs</a>
+        <a href="#caregivers" class="transition hover:text-brandTeal">Caregivers</a>
         <a href="#how" class="transition hover:text-brandTeal">How It Works</a>
-        <a href="#cta" class="transition hover:text-brandTeal">Get Early Access</a>
-        <span class="text-slate-400">Web design by Sam</span>
+        <a href="#cta" class="transition hover:text-brandTeal">Join the Waitlist</a>
       </div>
 
-      <div class="text-center text-base text-slate-500 md:text-right">
-        &copy; 2026 Cytrea
+      <div class="text-center text-sm text-slate-400 md:text-right sm:text-base">
+        Designed for modern care hiring.
       </div>
     </div>
   </footer>
@@ -840,6 +1504,7 @@
 
     const waitlistForm = document.querySelector(".waitlist-form");
     const waitlistMessage = document.querySelector("#form-message");
+    const mobileNav = document.querySelector(".mobile-nav");
 
     if (waitlistForm && waitlistMessage) {
       const configuredEndpoint = waitlistForm.dataset.formEndpoint || waitlistForm.action;
@@ -849,7 +1514,15 @@
         event.preventDefault();
 
         const data = new FormData(waitlistForm);
+        const submitButton = waitlistForm.querySelector("button[type='submit']");
+        const emailInput = waitlistForm.querySelector("input[type='email']");
+        const roleInput = waitlistForm.querySelector("select[name='role']");
+
         waitlistMessage.className = "waitlist-message mt-4 hidden text-sm font-semibold";
+
+        if (submitButton) submitButton.disabled = true;
+        if (emailInput) emailInput.disabled = true;
+        if (roleInput) roleInput.disabled = true;
 
         try {
           const response = await fetch(configuredEndpoint, {
@@ -861,17 +1534,36 @@
           });
 
           if (response.ok) {
-            waitlistForm.reset();
-            waitlistForm.classList.add("hidden");
             waitlistMessage.textContent = "You're on the waitlist!";
             waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-teal-600";
+            waitlistForm.classList.add("opacity-70");
           } else {
             waitlistMessage.textContent = "Submission failed. Check the form endpoint and try again.";
             waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-red-500";
+            if (submitButton) submitButton.disabled = false;
+            if (emailInput) emailInput.disabled = false;
+            if (roleInput) roleInput.disabled = false;
           }
         } catch (error) {
           waitlistMessage.textContent = "Network error. Please try again.";
           waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-red-500";
+          if (submitButton) submitButton.disabled = false;
+          if (emailInput) emailInput.disabled = false;
+          if (roleInput) roleInput.disabled = false;
+        }
+      });
+    }
+
+    if (mobileNav) {
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.open = false;
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (mobileNav.open && !mobileNav.contains(event.target)) {
+          mobileNav.open = false;
         }
       });
     }
@@ -896,3 +1588,7 @@
   </script>
 </body>
 </html>
+
+
+
+
