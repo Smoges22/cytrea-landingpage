@@ -1832,13 +1832,9 @@ select:focus-visible {
       waitlistForm.addEventListener("submit", () => {
         if (!submitButton) return;
 
-        const formFields = waitlistForm.querySelectorAll("input, select");
         waitlistMessage.className = "waitlist-message mt-4 hidden text-sm font-semibold";
         waitlistForm.classList.remove("opacity-70");
 
-        formFields.forEach((field) => {
-          field.disabled = true;
-        });
         submitButton.disabled = true;
         submitButton.textContent = "Submitting...";
 
@@ -1846,9 +1842,6 @@ select:focus-visible {
           waitlistMessage.textContent = "You're on the Cytrea waitlist. We'll reach out shortly.";
           waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-teal-600";
           waitlistForm.reset();
-          formFields.forEach((field) => {
-            field.disabled = false;
-          });
           submitButton.disabled = false;
           submitButton.textContent = defaultButtonText;
         }, 1500);
