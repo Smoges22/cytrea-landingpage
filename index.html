@@ -1713,9 +1713,10 @@ select:focus-visible {
           </div>
 
           <form
+            id="waitlist-form"
             action="https://script.google.com/macros/s/AKfycbyT1GmZI-oXw48JgOmAw71RePiPrd__5GIuiwy9sL4MrlvDamEH7lgKT0PmjaG2-Gbe/exec"
             method="POST"
-            id="waitlist-form"
+            target="waitlist-hidden-frame"
             class="waitlist-form mt-8 flex flex-col items-center justify-center gap-3 sm:mx-auto sm:max-w-2xl sm:flex-row sm:flex-wrap"
           >
             <select
@@ -1764,6 +1765,11 @@ select:focus-visible {
               Reserve Early Access
             </button>
           </form>
+          <iframe
+            name="waitlist-hidden-frame"
+            id="waitlist-hidden-frame"
+            style="display:none;"
+          ></iframe>
 
           <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-brandOrange">
             Limited onboarding spots for the first wave of AFH providers
@@ -1820,45 +1826,32 @@ select:focus-visible {
     const mobileNav = document.querySelector(".mobile-nav");
 
     if (waitlistForm && waitlistMessage) {
-      waitlistForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
+      const submitButton = waitlistForm.querySelector("button[type='submit']");
+      const defaultButtonText = submitButton ? submitButton.textContent.trim() : "Reserve Early Access";
 
-        const data = new FormData(waitlistForm);
-        const encodedData = new URLSearchParams(data);
-        const formFields = waitlistForm.querySelectorAll("input, select, button");
+      waitlistForm.addEventListener("submit", () => {
+        if (!submitButton) return;
 
+        const formFields = waitlistForm.querySelectorAll("input, select");
         waitlistMessage.className = "waitlist-message mt-4 hidden text-sm font-semibold";
         waitlistForm.classList.remove("opacity-70");
 
         formFields.forEach((field) => {
           field.disabled = true;
         });
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
 
-        try {
-          const response = await fetch(waitlistForm.action, {
-            method: "POST",
-            body: encodedData,
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-            }
-          });
-
-          if (response.ok) {
-            waitlistMessage.textContent = "You're on the Cytrea waitlist. We'll reach out shortly.";
-            waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-teal-600";
-            waitlistForm.reset();
-          } else {
-            waitlistMessage.textContent = "Submission failed. Please try again.";
-            waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-red-500";
-          }
-        } catch (error) {
-          waitlistMessage.textContent = "Network error. Please try again.";
-          waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-red-500";
-        } finally {
+        window.setTimeout(() => {
+          waitlistMessage.textContent = "You're on the Cytrea waitlist. We'll reach out shortly.";
+          waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-teal-600";
+          waitlistForm.reset();
           formFields.forEach((field) => {
             field.disabled = false;
           });
-        }
+          submitButton.disabled = false;
+          submitButton.textContent = defaultButtonText;
+        }, 1500);
       });
     }
 
