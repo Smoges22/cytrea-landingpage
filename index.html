@@ -1177,7 +1177,7 @@ select:focus-visible {
           href="#cta"
           class="cta-button hidden items-center justify-center rounded-full bg-brandOrange px-6 py-3.5 text-[0.96rem] font-semibold text-white shadow-soft md:inline-flex hover:bg-brandTeal hover:shadow-lift"
         >
-          Join Provider Early Access
+          Join Early Access
         </a>
 
         <details class="mobile-nav relative md:hidden">
@@ -1192,7 +1192,7 @@ select:focus-visible {
               <a href="#caregivers" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">Caregivers</a>
               <a href="#how" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">How It Works</a>
               <a href="#preview" class="rounded-2xl px-4 py-3 transition hover:bg-mist hover:text-brandTeal">Preview</a>
-              <a href="#cta" class="mt-2 rounded-full bg-brandOrange px-4 py-3 text-center font-semibold text-white shadow-soft transition hover:bg-brandTeal">Join Provider Early Access</a>
+              <a href="#cta" class="mt-2 rounded-full bg-brandOrange px-4 py-3 text-center font-semibold text-white shadow-soft transition hover:bg-brandTeal">Join Early Access</a>
             </nav>
           </div>
         </details>
@@ -1225,7 +1225,7 @@ select:focus-visible {
               href="#cta"
               class="cta-button inline-flex items-center justify-center rounded-full bg-brandOrange font-semibold text-white shadow-soft hover:bg-brandTeal hover:shadow-lift"
             >
-              Join Provider Early Access
+              Join Early Access
             </a>
           </div>
 
@@ -1236,11 +1236,11 @@ select:focus-visible {
           </div>
 
           <p class="hero-trust">
-            Built in Washington for Adult Family Homes &bull; Early access prioritized for AFH owners, operators, and hiring leads
+            Built in Washington for Adult Family Homes &bull; Early access open to both providers and caregivers, with provider workflows leading this launch
           </p>
 
           <a href="#caregivers" class="mt-4 inline-flex text-sm font-semibold tracking-[-0.01em] text-slate-600 transition hover:text-brandTeal">
-            Caregiver? Explore the caregiver side instead
+            Caregiver? You can join the same waitlist here too
           </a>
         </div>
 
@@ -1607,6 +1607,10 @@ select:focus-visible {
               Caregivers still get a cleaner experience inside Cytrea: build one profile, show real qualifications clearly, and connect directly with providers who are actively hiring.
             </p>
 
+            <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-slate-700">
+              Caregivers can join early access now and get notified as soon as Cytrea opens.
+            </p>
+
             <div class="check-list">
               <div class="check-item">
                 <span class="check-mark bg-brandTeal/12 text-brandTeal">&#10003;</span>
@@ -1621,6 +1625,22 @@ select:focus-visible {
                 <div class="check-item-title">Move from application to conversation without repeating the same steps everywhere</div>
               </div>
             </div>
+
+            <a
+              href="#cta"
+              class="mt-6 inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 shadow-soft transition hover:border-brandTeal hover:text-brandTeal"
+            >
+              Join Caregiver Waitlist
+            </a>
+
+            <a
+              href="https://chat.whatsapp.com/Eav5BMh0EBP12bzZnUu4Cf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 inline-flex items-center justify-center rounded-full border border-brandTeal/20 bg-mist px-5 py-3 text-sm font-semibold text-brandTeal shadow-soft transition hover:border-brandTeal hover:bg-white"
+            >
+              Join Caregiver WhatsApp Group
+            </a>
           </div>
         </div>
       </div>
@@ -1696,14 +1716,14 @@ select:focus-visible {
         <div class="waitlist-shell fade-up px-6 py-10 sm:px-10 sm:py-12">
           <div class="eyebrow-pill w-fit">
             <span class="eyebrow-dot"></span>
-            <span class="text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-brandOrange">Founding provider access</span>
+            <span class="text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-brandOrange">Founding early access</span>
           </div>
 
           <h2 class="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-[3.4rem]">
-            Stop waiting days for the right caregiver. Start hiring faster with Cytrea.
+            Join early access for the faster, cleaner way AFHs and caregivers connect.
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Join early access to get a simpler, more direct hiring workflow built for Adult Family Homes. Provider applications are prioritized as Cytrea launches in Washington.
+            Providers can start hiring with less friction, and caregivers can be first in line to create a stronger profile and connect when Cytrea launches in Washington.
           </p>
 
           <div class="mt-6 flex flex-wrap gap-3">
@@ -1716,7 +1736,7 @@ select:focus-visible {
             id="waitlist-form"
             action="https://script.google.com/macros/s/AKfycby5bWviWeGytGzmQEovXFSggjkFLKVSfuZEJrsQJQFJkwKvWU_Z7fMROIlsIhrBnbs/exec"
             method="POST"
-            target="waitlist-hidden-frame"
+            target="hidden_iframe"
             class="waitlist-form mt-8 flex flex-col items-center justify-center gap-3 sm:mx-auto sm:max-w-2xl sm:flex-row sm:flex-wrap"
           >
             <select
@@ -1766,13 +1786,13 @@ select:focus-visible {
             </button>
           </form>
           <iframe
-            name="waitlist-hidden-frame"
-            id="waitlist-hidden-frame"
+            name="hidden_iframe"
+            id="hidden_iframe"
             style="display:none;"
           ></iframe>
 
           <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-brandOrange">
-            Limited onboarding spots for the first wave of AFH providers
+            Limited early access spots for the first wave of providers and caregivers
           </p>
 
           <p id="form-message" class="waitlist-message mt-4 hidden text-sm font-semibold" aria-live="polite"></p>
@@ -1786,7 +1806,7 @@ select:focus-visible {
       href="#cta"
       class="cta-button inline-flex w-full items-center justify-center rounded-full bg-brandOrange px-6 py-3.5 text-sm font-semibold text-white shadow-soft hover:bg-brandTeal hover:shadow-lift"
     >
-      Join Provider Early Access
+      Join Early Access
     </a>
   </div>
 
