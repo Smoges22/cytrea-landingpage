@@ -304,7 +304,7 @@ h2 {
   position: relative;
   overflow: hidden;
   border-radius: 26px;
-  aspect-ratio: 1290 / 2796;
+  aspect-ratio: 1320 / 2868;
   background: #05070a;
   box-shadow:
     0 1px 0 rgba(255,255,255,0.2) inset,
@@ -1247,16 +1247,19 @@ select:focus-visible {
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      decoding="async"
-                      src="images/provider/provider-dashbboard.png"
-                      alt="Cytrea provider dashboard screen"
-                      width="1290"
-                      height="2796"
-                      loading="eager"
-                      fetchpriority="high"
-                      class="screen"
-                    />
+                    <picture>
+                      <source srcset="images/app-screenshots/provider-dashboard.webp" type="image/webp" />
+                      <img
+                        decoding="async"
+                        src="images/app-screenshots/provider-dashboard.png"
+                        alt="Cytrea provider dashboard showing hiring workspace and applicant status"
+                        width="1320"
+                        height="2868"
+                        loading="eager"
+                        fetchpriority="high"
+                        class="screen"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>
@@ -1369,13 +1372,17 @@ select:focus-visible {
                   <div class="phone-frame">
                     <div class="notch"></div>
                     <div class="screen-mask">
-                      <img
-                        src="images/provider/provider-applicant-actions.png"
-                        alt="Provider applicant actions screenshot"
-                        width="1290"
-                        height="2796"
-                        class="screen"
-                      />
+                      <picture>
+                        <source srcset="images/app-screenshots/provider-jobs-applicants.webp" type="image/webp" />
+                        <img
+                          src="images/app-screenshots/provider-jobs-applicants.png"
+                          alt="Cytrea provider jobs and applicant review screen"
+                          width="1320"
+                          height="2868"
+                          loading="lazy"
+                          class="screen"
+                        />
+                      </picture>
                     </div>
                   </div>
                 </div>
@@ -1489,35 +1496,39 @@ select:focus-visible {
         <div class="fade-up max-w-3xl">
           <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Product Preview</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
-            See Cytrea in action
+            See the real Cytrea workflow
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            From setup to messaging, the experience is built to feel clear, mobile, and easy to use.
+            From open shifts to caregiver conversations, Cytrea keeps the hiring process organized in one place.
           </p>
           <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-slate-700">
-            Real workflow screens built for the care community, not a generic job board template
+            Built for Adult Family Home providers and caregivers in Washington.
           </p>
         </div>
 
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <article class="preview-card fade-up p-6 text-center">
             <div class="phone-wrap phone-orange">
               <div class="phone phone-compact mx-auto">
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      src="images/provider/provider-onboarding.png"
-                      alt="Provider onboarding screenshot"
-                      width="1290"
-                      height="2796"
-                      class="screen"
-                    />
+                    <picture>
+                      <source srcset="images/app-screenshots/role-selection.webp" type="image/webp" />
+                      <img
+                        src="images/app-screenshots/role-selection.png"
+                        alt="Cytrea welcome and role selection screen"
+                        width="1320"
+                        height="2868"
+                        loading="lazy"
+                        class="screen"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Role Setup</p>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Role Selection</p>
           </article>
 
           <article class="preview-card fade-up p-6 text-center">
@@ -1526,13 +1537,17 @@ select:focus-visible {
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      src="images/provider/provider-job-post.png"
-                      alt="Provider job post screenshot"
-                      width="1290"
-                      height="2796"
-                      class="screen"
-                    />
+                    <picture>
+                      <source srcset="images/app-screenshots/browse-jobs.webp" type="image/webp" />
+                      <img
+                        src="images/app-screenshots/browse-jobs.png"
+                        alt="Cytrea caregiver browse jobs screen with demo openings"
+                        width="1320"
+                        height="2868"
+                        loading="lazy"
+                        class="screen"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>
@@ -1546,18 +1561,46 @@ select:focus-visible {
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <img
-                      src="images/provider/provider-chat.png"
-                      alt="Provider chat screenshot"
-                      width="1290"
-                      height="2796"
-                      class="screen"
-                    />
+                    <picture>
+                      <source srcset="images/app-screenshots/job-details-apply.webp" type="image/webp" />
+                      <img
+                        src="images/app-screenshots/job-details-apply.png"
+                        alt="Cytrea job details and application screen"
+                        width="1320"
+                        height="2868"
+                        loading="lazy"
+                        class="screen"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Direct Messaging</p>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Apply</p>
+          </article>
+
+          <article class="preview-card fade-up p-6 text-center">
+            <div class="phone-wrap phone-teal">
+              <div class="phone phone-compact mx-auto">
+                <div class="phone-frame">
+                  <div class="notch"></div>
+                  <div class="screen-mask">
+                    <picture>
+                      <source srcset="images/app-screenshots/messaging-payment.webp" type="image/webp" />
+                      <img
+                        src="images/app-screenshots/messaging-payment.png"
+                        alt="Cytrea messaging, hire offer, payment, and contact unlock screen"
+                        width="1320"
+                        height="2868"
+                        loading="lazy"
+                        class="screen"
+                      />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Message & Hire</p>
           </article>
         </div>
       </div>
@@ -1573,13 +1616,17 @@ select:focus-visible {
                   <div class="phone-frame">
                     <div class="notch"></div>
                     <div class="screen-mask">
-                      <img
-                        src="images/caregiver/caregiver-profile.png"
-                        alt="Caregiver profile screenshot"
-                        width="1290"
-                        height="2796"
-                        class="screen"
-                      />
+                      <picture>
+                        <source srcset="images/app-screenshots/caregiver-dashboard.webp" type="image/webp" />
+                        <img
+                          src="images/app-screenshots/caregiver-dashboard.png"
+                          alt="Cytrea caregiver dashboard showing recommended job matches"
+                          width="1320"
+                          height="2868"
+                          loading="lazy"
+                          class="screen"
+                        />
+                      </picture>
                     </div>
                   </div>
                 </div>
