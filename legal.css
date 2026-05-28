@@ -1,0 +1,362 @@
+:root {
+  color-scheme: light;
+  --brand-teal: #159aa5;
+  --brand-orange: #e8891a;
+  --ink: #10212a;
+  --mist: #eef7f8;
+  --panel: #f7fafb;
+  --slate: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 15% 8%, rgba(21, 154, 165, 0.1), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(232, 137, 26, 0.12), transparent 24rem),
+    #ffffff;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
+
+.header-inner,
+.footer-inner,
+.page-shell {
+  width: min(100% - 2.5rem, 76rem);
+  margin: 0 auto;
+}
+
+.header-inner {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-wordmark {
+  display: block;
+  height: 2.6rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-nav,
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.35rem;
+  color: #475569;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.site-nav a,
+.footer-nav a,
+.footer-credit a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.footer-nav a:hover,
+.footer-credit a:hover {
+  color: var(--brand-teal);
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--brand-orange);
+  color: #ffffff;
+  padding: 0.78rem 1.2rem;
+  box-shadow: 0 12px 24px rgba(232, 137, 26, 0.22), 0 4px 10px rgba(16, 33, 42, 0.05);
+}
+
+.cta-link:hover {
+  background: var(--brand-teal);
+  color: #ffffff;
+}
+
+main {
+  padding: 8.5rem 0 4rem;
+}
+
+.page-hero {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 54rem;
+}
+
+.eyebrow {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  color: var(--brand-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2.4rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: clamp(2.7rem, 8vw, 5.25rem);
+  font-weight: 700;
+}
+
+.hero-copy {
+  margin: 0;
+  max-width: 42rem;
+  color: #475569;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+}
+
+.updated {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(21, 154, 165, 0.14);
+  border-radius: 999px;
+  background: rgba(238, 247, 248, 0.88);
+  color: var(--brand-teal);
+  padding: 0.48rem 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 2rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.legal-card,
+.side-card {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.legal-card {
+  padding: clamp(1.35rem, 4vw, 2.5rem);
+}
+
+.side-card {
+  position: sticky;
+  top: 6.5rem;
+  padding: 1.25rem;
+}
+
+.side-card h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.side-card p {
+  margin: 0 0 1rem;
+  color: var(--slate);
+  font-size: 0.94rem;
+}
+
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--brand-teal);
+  color: #ffffff;
+  padding: 0.76rem 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(21, 154, 165, 0.25);
+}
+
+.legal-section + .legal-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.legal-section h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+}
+
+.legal-section h3 {
+  margin: 1.15rem 0 0.45rem;
+  font-size: 1.05rem;
+}
+
+.legal-section p,
+.legal-section li {
+  color: #475569;
+  font-size: 1rem;
+}
+
+.legal-section p {
+  margin: 0.75rem 0 0;
+}
+
+.legal-section ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.9rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.topic-card {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1rem;
+  background: rgba(247, 250, 251, 0.9);
+  padding: 1rem;
+}
+
+.topic-card h3 {
+  margin: 0 0 0.3rem;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-credit {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 154, 165, 0.14);
+  border-radius: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .side-card {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-inner,
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    width: 100%;
+    gap: 0.85rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-link {
+    width: 100%;
+  }
+
+  main {
+    padding-top: 11.5rem;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-credit {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner,
+  .footer-inner,
+  .page-shell {
+    width: min(100% - 1.5rem, 76rem);
+  }
+
+  .brand-wordmark {
+    height: 2.25rem;
+  }
+
+  .site-nav,
+  .footer-nav {
+    gap: 0.7rem 1rem;
+  }
+}
