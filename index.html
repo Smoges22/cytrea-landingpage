@@ -849,6 +849,102 @@ select:focus-visible {
   max-width: min(100%, 23.5rem);
 }
 
+.real-screenshot-showcase {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(21,154,165,0.08) 0%, rgba(21,154,165,0) 28%),
+    radial-gradient(circle at 88% 12%, rgba(232,137,26,0.08) 0%, rgba(232,137,26,0) 30%),
+    #ffffff;
+}
+
+.screenshot-experience {
+  margin-top: 1.25rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(247,251,251,0.96) 100%);
+  padding: 1.15rem;
+  box-shadow: 0 22px 54px rgba(16,33,42,0.08), 0 5px 14px rgba(16,33,42,0.04);
+}
+
+.screenshot-experience-header {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.9rem 0.4rem 1.2rem;
+}
+
+.screenshot-section-label {
+  width: fit-content;
+  border-radius: 9999px;
+  border: 1px solid rgba(21,154,165,0.16);
+  background: rgba(21,154,165,0.08);
+  padding: 0.45rem 0.75rem;
+  color: #137f87;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.screenshot-experience-orange .screenshot-section-label {
+  border-color: rgba(232,137,26,0.18);
+  background: rgba(232,137,26,0.09);
+  color: #bd670b;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.real-shot-card {
+  min-width: 0;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: #ffffff;
+  padding: 0.85rem;
+  box-shadow: 0 16px 34px rgba(16,33,42,0.08), 0 4px 10px rgba(16,33,42,0.04);
+}
+
+.real-shot-title {
+  padding: 0.1rem 0.2rem 0.7rem;
+  color: #10212A;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.real-shot-card .phone-wrap {
+  padding: 0;
+}
+
+.real-shot-card .phone-wrap::before {
+  inset: 6% 12%;
+  filter: blur(34px);
+  opacity: 0.1;
+}
+
+.real-shot-phone {
+  max-width: min(100%, 22rem);
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+    0 6px 14px rgba(255,255,255,0.06) inset,
+    0 -8px 12px rgba(0,0,0,0.10) inset,
+    0 28px 44px rgba(16,33,42,0.14),
+    0 10px 18px rgba(16,33,42,0.06);
+}
+
+@media (max-width: 1100px) and (min-width: 768px) {
+  .screenshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .real-shot-phone {
+    max-width: 20.5rem;
+  }
+}
+
 .waitlist-shell {
   position: relative;
   overflow: hidden;
@@ -1009,6 +1105,33 @@ select:focus-visible {
     top: 0.45rem;
     height: 0.84rem;
   }
+
+  .screenshot-experience {
+    border-radius: 1.4rem;
+    padding: 0.85rem;
+  }
+
+  .screenshot-experience-header {
+    padding: 0.7rem 0.2rem 1rem;
+  }
+
+  .screenshot-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .real-shot-card {
+    border-radius: 1.25rem;
+    padding: 0.75rem;
+  }
+
+  .real-shot-title {
+    font-size: 0.92rem;
+  }
+
+  .real-shot-phone {
+    max-width: min(23rem, calc(100vw - 4.5rem));
+  }
 }
 
 @media (max-width: 390px) {
@@ -1036,6 +1159,10 @@ select:focus-visible {
   .hero-phone-stage-single {
     max-width: calc(100vw - 2rem);
     min-height: 30rem;
+  }
+
+  .real-shot-phone {
+    max-width: min(21.5rem, calc(100vw - 3.5rem));
   }
 
   .hero-main-phone .phone {
@@ -1410,19 +1537,16 @@ select:focus-visible {
                 <div class="phone-frame">
                   <div class="notch"></div>
                   <div class="screen-mask">
-                    <picture>
-                      <source srcset="images/app-screenshots/role-selection.webp" type="image/webp" />
-                      <img
-                        decoding="async"
-                        src="images/app-screenshots/role-selection.png"
-                        alt="Cytrea welcome and role selection screen for caregivers and providers"
-                        width="1320"
-                        height="2868"
-                        loading="eager"
-                        fetchpriority="high"
-                        class="screen"
-                      />
-                    </picture>
+                    <img
+                      decoding="async"
+                      src="images/provider/provider-dashbboard.png"
+                      alt="Cytrea provider dashboard screen with hiring overview and posted jobs"
+                      width="1242"
+                      height="2688"
+                      loading="eager"
+                      fetchpriority="high"
+                      class="screen"
+                    />
                   </div>
                 </div>
               </div>
@@ -1522,18 +1646,15 @@ select:focus-visible {
                 <div class="phone phone-large">
                   <div class="phone-frame">
                     <div class="notch"></div>
-                    <div class="screen-mask">
-                      <picture>
-                        <source srcset="images/app-screenshots/applicant-review.webp" type="image/webp" />
-                        <img
-                          src="images/app-screenshots/applicant-review.png"
-                          alt="Cytrea applicant review screen for Grace A. with safe demo hiring details"
-                          width="1320"
-                          height="2868"
-                          loading="lazy"
-                          class="screen"
-                        />
-                      </picture>
+                  <div class="screen-mask">
+                      <img
+                        src="images/provider/provider-applicant-actions.png"
+                        alt="Cytrea provider applicant review screen with candidate profile actions"
+                        width="1242"
+                        height="2688"
+                        loading="lazy"
+                        class="screen"
+                      />
                     </div>
                   </div>
                 </div>
@@ -1642,118 +1763,229 @@ select:focus-visible {
       </div>
     </section>
 
-    <section id="preview" class="section-shell section-surface">
-      <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+    <section id="preview" class="section-shell real-screenshot-showcase">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div class="fade-up show max-w-3xl">
-          <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Product Preview</p>
+          <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandTeal">Real App Screens</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[3.2rem]">
-            See the real Cytrea workflow
+            See Cytrea in action
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            From open shifts to caregiver conversations, Cytrea keeps the hiring process organized in one place.
+            From job posts to caregiver conversations, Cytrea keeps the hiring process organized.
           </p>
           <p class="mt-4 text-sm font-semibold tracking-[-0.01em] text-slate-700">
             Built for Adult Family Home providers and caregivers in Washington.
           </p>
         </div>
 
-        <div class="product-shot-list mt-12">
-          <article class="product-shot-card fade-up show">
-            <div class="product-shot-copy">
-              <p class="product-shot-eyebrow text-brandOrange">Provider workflow</p>
-              <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-3xl">
-                Openings, applicants, and hire status in one provider view.
+        <div class="mt-10 grid gap-6">
+          <article class="screenshot-experience screenshot-experience-orange fade-up show">
+            <div class="screenshot-experience-header">
+              <p class="screenshot-section-label">Provider Experience</p>
+              <h3 class="max-w-3xl text-3xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[2.45rem]">
+                Hire caregivers faster
               </h3>
-              <p class="mt-4 text-[1rem] leading-7 text-slate-600">
-                Magnolia Care Home can see a live-in caregiver opening, review Grace A. and Daniel M., and keep Applied, Interviewing, Offer Sent, and Contact Ready states organized.
+              <p class="max-w-2xl text-lg leading-8 text-slate-600">
+                Post jobs, review applicants, and connect directly with caregivers.
               </p>
             </div>
 
-            <div class="product-shot-device phone-wrap phone-orange">
-              <div class="phone product-phone mx-auto">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                    <picture>
-                      <source srcset="images/app-screenshots/provider-openings.webp" type="image/webp" />
-                      <img
-                        src="images/app-screenshots/provider-openings.png"
-                        alt="Cytrea provider openings screen showing Magnolia Care Home applicant and hiring status demo data"
-                        width="1320"
-                        height="2868"
-                        loading="lazy"
-                        class="screen"
-                      />
-                    </picture>
+            <div class="screenshot-grid">
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Posted Jobs</h4>
+                <div class="phone-wrap phone-orange">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/provider/provider-job-post.png" alt="Cytrea provider posted jobs screen with daily pay and applicant review entry" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Applicant Review</h4>
+                <div class="phone-wrap phone-orange">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/provider/provider-applicant-actions.png" alt="Cytrea provider applicant review screen with profile actions and hiring status" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Candidate Profile</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-profile.png" alt="Cytrea candidate profile screen with availability, credentials, and contact actions" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Provider Dashboard</h4>
+                <div class="phone-wrap phone-orange">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/provider/provider-dashbboard.png" alt="Cytrea provider dashboard screen with hiring overview and quick actions" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </article>
 
-          <article class="product-shot-card fade-up show">
-            <div class="product-shot-copy">
-              <p class="product-shot-eyebrow text-brandTeal">Caregiver workflow</p>
-              <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-3xl">
-                Clear job details before a caregiver applies.
+          <article class="screenshot-experience fade-up show">
+            <div class="screenshot-experience-header">
+              <p class="screenshot-section-label">Caregiver Experience</p>
+              <h3 class="max-w-3xl text-3xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[2.45rem]">
+                Find caregiving opportunities faster
               </h3>
-              <p class="mt-4 text-[1rem] leading-7 text-slate-600">
-                Caregivers can review location, shift type, and the $180/day pay example before sending their profile to the provider.
+              <p class="max-w-2xl text-lg leading-8 text-slate-600">
+                Discover jobs, apply instantly, and track every application.
               </p>
             </div>
 
-            <div class="product-shot-device phone-wrap phone-teal">
-              <div class="phone product-phone mx-auto">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                    <picture>
-                      <source srcset="images/app-screenshots/job-details-apply.webp" type="image/webp" />
-                      <img
-                        src="images/app-screenshots/job-details-apply.png"
-                        alt="Cytrea caregiver job details screen showing Magnolia Care Home live-in caregiver role with $180 per day demo pay"
-                        width="1320"
-                        height="2868"
-                        loading="lazy"
-                        class="screen"
-                      />
-                    </picture>
+            <div class="screenshot-grid">
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Caregiver Dashboard</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-dashboard.png" alt="Cytrea caregiver dashboard screen with browse jobs, messages, and profile actions" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Browse Jobs</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-jobs.png" alt="Cytrea caregiver browse jobs screen with daily pay and open opportunities" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Application Submitted</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-application-status.png" alt="Cytrea caregiver application submitted screen showing pending status and applied date" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Application Tracking</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-chat.png" alt="Cytrea caregiver messaging screen for following up after an application" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </article>
 
-          <article class="product-shot-card fade-up show">
-            <div class="product-shot-copy">
-              <p class="product-shot-eyebrow text-brandOrange">Messaging and hire</p>
-              <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-3xl">
-                Keep conversations and contact unlock status easy to follow.
+          <article class="screenshot-experience fade-up show">
+            <div class="screenshot-experience-header">
+              <p class="screenshot-section-label">Trusted Onboarding</p>
+              <h3 class="max-w-3xl text-3xl font-semibold tracking-[-0.035em] text-slate-950 sm:text-[2.45rem]">
+                Built for Adult Family Homes
               </h3>
-              <p class="mt-4 text-[1rem] leading-7 text-slate-600">
-                Messaging stays inside Cytrea while the hire workflow moves from offer sent to contact ready, without exposing private phone numbers or emails.
+              <p class="max-w-2xl text-lg leading-8 text-slate-600">
+                Credential verification, availability management, and caregiver onboarding designed specifically for AFHs.
               </p>
             </div>
 
-            <div class="product-shot-device phone-wrap phone-orange">
-              <div class="phone product-phone mx-auto">
-                <div class="phone-frame">
-                  <div class="notch"></div>
-                  <div class="screen-mask">
-                    <picture>
-                      <source srcset="images/app-screenshots/messaging.webp" type="image/webp" />
-                      <img
-                        src="images/app-screenshots/messaging.png"
-                        alt="Cytrea messaging and hire workflow screen showing offer sent and contact ready demo states"
-                        width="1320"
-                        height="2868"
-                        loading="lazy"
-                        class="screen"
-                      />
-                    </picture>
+            <div class="screenshot-grid">
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Caregiver Profile Setup</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-onboarding.png" alt="Cytrea caregiver profile setup onboarding screen" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Work Preferences</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-profile.png" alt="Cytrea caregiver profile screen showing work preferences and availability" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Credentials Upload</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-credentials.png" alt="Cytrea caregiver credentials upload screen with required credential fields" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="real-shot-card">
+                <h4 class="real-shot-title">Availability Setup</h4>
+                <div class="phone-wrap phone-teal">
+                  <div class="phone real-shot-phone">
+                    <div class="phone-frame">
+                      <div class="notch"></div>
+                      <div class="screen-mask">
+                        <img src="images/caregiver/caregiver-profile.png" alt="Cytrea caregiver availability setup screen with preferred shift and available dates" width="1242" height="2688" loading="lazy" class="screen" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </article>
         </div>
@@ -1770,17 +2002,14 @@ select:focus-visible {
                   <div class="phone-frame">
                     <div class="notch"></div>
                     <div class="screen-mask">
-                      <picture>
-                        <source srcset="images/app-screenshots/caregiver-dashboard.webp" type="image/webp" />
-                        <img
-                          src="images/app-screenshots/caregiver-dashboard.png"
-                          alt="Cytrea caregiver dashboard showing recommended job matches"
-                          width="1320"
-                          height="2868"
-                          loading="lazy"
-                          class="screen"
-                        />
-                      </picture>
+                      <img
+                        src="images/caregiver/caregiver-dashboard.png"
+                        alt="Cytrea caregiver dashboard showing browse jobs, messages, and profile actions"
+                        width="1242"
+                        height="2688"
+                        loading="lazy"
+                        class="screen"
+                      />
                     </div>
                   </div>
                 </div>
