@@ -1250,13 +1250,57 @@ select:focus-visible {
 }
 
 .real-shot-card .phone-wrap::before {
-  inset: 6% 12%;
-  filter: blur(34px);
-  opacity: 0.1;
+  display: none;
+}
+
+.real-shot-card .real-shot-phone {
+  max-width: min(100%, 21rem);
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.real-shot-card .real-shot-phone:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.real-shot-card .real-shot-phone::before,
+.real-shot-card .real-shot-phone::after,
+.real-shot-card .phone-frame::before,
+.real-shot-card .screen-mask::after {
+  display: none;
+}
+
+.real-shot-card .phone-frame {
+  overflow: hidden;
+  border-radius: 1.45rem;
+  aspect-ratio: 1650 / 3182;
+  background: transparent;
+  box-shadow: none;
+}
+
+.real-shot-card .screen-mask {
+  position: relative;
+  inset: auto;
+  border-radius: inherit;
+  background: transparent;
+}
+
+.real-shot-card .screen {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
 }
 
 .real-shot-phone {
-  max-width: min(100%, 18.2rem);
   margin-left: auto;
   margin-right: auto;
   box-shadow:
@@ -2595,7 +2639,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/provider/provider-jobs.png" alt="Current Cytrea provider posted jobs screen with daily pay and active job board" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/posted-jobs-mockup.png" alt="Current Cytrea provider posted jobs screen with daily pay and active job board" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2608,7 +2652,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/provider/provider-review-applicants.png" alt="Current Cytrea provider applicant review screen with available caregivers" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/applicant-review-mockup.png" alt="Current Cytrea provider applicant review screen with available caregivers" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2621,7 +2665,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/provider/provider-checks-applicants.png" alt="Current Cytrea provider candidate profile screen for checking caregiver details" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/candidate-profile-mockup.png" alt="Current Cytrea provider candidate profile screen for checking caregiver details" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2634,7 +2678,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/provider/provider-dashboard.png" alt="Current Cytrea provider dashboard screen with hiring overview and quick actions" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/provider-dashboard-mockup.png" alt="Current Cytrea provider dashboard screen with hiring overview and quick actions" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2669,7 +2713,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-dashboard.png" alt="Current Cytrea caregiver dashboard screen with profile and availability actions" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/caregiver-dashboard-mockup.png" alt="Current Cytrea caregiver dashboard screen with profile and availability actions" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2682,7 +2726,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-job-search.png" alt="Current Cytrea caregiver browse jobs screen with daily pay and open opportunities" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/browse-jobs-mockup.png" alt="Current Cytrea caregiver browse jobs screen with daily pay and open opportunities" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2695,7 +2739,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-submit-application.png" alt="Current Cytrea caregiver job application submission screen" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/application-submitted-mockup.png" alt="Current Cytrea caregiver job application submission screen" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2708,7 +2752,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-applications.png" alt="Current Cytrea caregiver application tracking screen with pending application status" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/application-tracking-mockup.png" alt="Current Cytrea caregiver application tracking screen with pending application status" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2721,7 +2765,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/live-messaging.png" alt="Current Cytrea caregiver messaging screen for provider conversations" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/messaging-mockup.png" alt="Current Cytrea caregiver messaging screen for provider conversations" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2756,7 +2800,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-create-account.png" alt="Current Cytrea caregiver profile setup screen" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/caregiver-profile-setup-mockup.png" alt="Current Cytrea caregiver profile setup screen" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2769,7 +2813,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-builing-profile.png" alt="Current Cytrea caregiver work preferences and profile building screen" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/work-preferences-mockup.png" alt="Current Cytrea caregiver work preferences and profile building screen" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2782,7 +2826,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-credentials-upload.png" alt="Current Cytrea caregiver credentials upload screen with credential review" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/credentials-upload-mockup.png" alt="Current Cytrea caregiver credentials upload screen with credential review" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -2795,7 +2839,7 @@ select:focus-visible {
                     <div class="phone real-shot-phone">
                       <div class="phone-frame">
                         <div class="screen-mask">
-                          <img src="images/current-app/caregiver/caregiver-profile.png" alt="Current Cytrea caregiver availability setup screen with profile and availability controls" width="1290" height="2796" loading="lazy" class="screen" />
+                          <img src="images/mockups/availability-setup-mockup.png" alt="Current Cytrea caregiver availability setup screen with profile and availability controls" width="1650" height="3182" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
