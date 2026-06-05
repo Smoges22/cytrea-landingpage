@@ -1869,30 +1869,52 @@ select:focus-visible {
 
 @media (max-width: 767px) {
   .hero-shell {
-    padding-top: 6.25rem;
-    padding-bottom: 3.5rem;
+    padding-top: 4.35rem;
+    padding-bottom: 3.1rem;
   }
 
   .hero-mobile-grid {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    gap: 2rem;
+    gap: 1.15rem;
+  }
+
+  .hero-copy {
+    display: contents;
+  }
+
+  .hero-traction-cue {
+    order: 1;
+    justify-self: center;
+    margin-bottom: 0.15rem;
+    padding: 0.48rem 0.72rem;
+    font-size: 0.78rem;
   }
 
   .hero-copy h1 {
+    order: 2;
+    justify-self: center;
     max-width: 11.5ch;
-    font-size: clamp(2.45rem, 13vw, 3.2rem);
+    font-size: clamp(2.2rem, 10.6vw, 2.75rem);
     line-height: 1.02;
+    text-align: center;
   }
 
   .hero-description {
+    order: 3;
+    justify-self: center;
     max-width: 32rem;
-    font-size: 1rem;
-    line-height: 1.65;
+    margin-top: 0.35rem !important;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    text-align: center;
   }
 
   .hero-actions {
+    order: 4;
+    justify-self: center;
     gap: 0.65rem;
+    margin-top: 0.75rem;
   }
 
   .hero-action {
@@ -1902,31 +1924,38 @@ select:focus-visible {
   }
 
   .hero-trust {
-    font-size: 0.86rem;
-    line-height: 1.55;
+    order: 6;
+    justify-self: center;
+    max-width: 21rem;
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
   }
 
   .hero-visual {
-    min-height: min(35rem, 136vw);
+    order: 5;
+    min-height: min(29.5rem, 112vw);
+    margin-top: 0.25rem;
   }
 
   .hero-device-stage {
-    width: min(100%, 23rem);
-    min-height: min(35rem, 136vw);
+    width: min(100%, 21.5rem);
+    min-height: min(29.5rem, 112vw);
   }
 
   .hero-tablet-frame {
     left: 0;
     top: 0;
-    width: min(18.8rem, 76vw);
+    width: min(15.8rem, 66vw);
     border-radius: 1.75rem;
     padding: 0.26rem;
   }
 
   .hero-phone-frame {
     right: 0;
-    bottom: 0.35rem;
-    width: min(12.2rem, 43vw);
+    bottom: 0.7rem;
+    width: min(10.5rem, 39vw);
     border-radius: 1.55rem;
     padding: 0.2rem;
   }
