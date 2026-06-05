@@ -1519,6 +1519,438 @@ select:focus-visible {
   }
 }
 
+/* HERO REFRESH */
+.hero-shell {
+  padding-top: 8.7rem;
+  padding-bottom: 6.4rem;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(21, 154, 165, 0.1) 0%, rgba(21, 154, 165, 0.045) 24%, rgba(21, 154, 165, 0) 48%),
+    radial-gradient(circle at 90% 70%, rgba(232, 137, 26, 0.09) 0%, rgba(232, 137, 26, 0.035) 24%, rgba(232, 137, 26, 0) 48%),
+    #f9fafb;
+}
+
+.hero-bg-orb {
+  opacity: 0.22;
+}
+
+.hero-mobile-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 5vw, 4.75rem);
+}
+
+.hero-copy {
+  max-width: 42rem;
+}
+
+.hero-copy h1 {
+  max-width: 12.5ch;
+  font-size: clamp(3rem, 5.8vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 750;
+}
+
+.hero-description {
+  max-width: 38rem;
+  color: #4d5b68;
+  font-size: clamp(1.04rem, 1.45vw, 1.22rem);
+  line-height: 1.72;
+}
+
+.hero-traction-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.58rem;
+  margin-bottom: 1.25rem;
+  padding: 0.52rem 0.82rem;
+  border: 1px solid rgba(21, 154, 165, 0.17);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 28px rgba(16, 33, 42, 0.055);
+  color: #126f78;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero-traction-cue::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 9999px;
+  background: #159aa5;
+  box-shadow: 0 0 0 0.28rem rgba(21, 154, 165, 0.12);
+}
+
+.hero-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.1rem;
+}
+
+.hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem;
+  border-radius: 9999px;
+  padding: 0.86rem 1.35rem;
+  font-size: 0.96rem;
+  font-weight: 750;
+  letter-spacing: -0.012em;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.hero-action:focus-visible {
+  outline: 3px solid rgba(21, 154, 165, 0.32);
+  outline-offset: 3px;
+}
+
+.hero-action:hover {
+  transform: translateY(-2px);
+}
+
+.hero-action-primary {
+  border: 1px solid rgba(21, 154, 165, 0.7);
+  background: #159aa5;
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(21, 154, 165, 0.24), 0 4px 10px rgba(21, 154, 165, 0.12);
+}
+
+.hero-action-primary:hover {
+  background: #127f88;
+  box-shadow: 0 20px 42px rgba(21, 154, 165, 0.28), 0 6px 14px rgba(21, 154, 165, 0.14);
+}
+
+.hero-action-secondary {
+  border: 1px solid rgba(21, 154, 165, 0.32);
+  background: rgba(255, 255, 255, 0.92);
+  color: #127f88;
+  box-shadow: 0 10px 24px rgba(16, 33, 42, 0.06);
+}
+
+.hero-action-secondary:hover {
+  border-color: rgba(21, 154, 165, 0.56);
+  background: #ffffff;
+  color: #0f727a;
+  box-shadow: 0 14px 30px rgba(16, 33, 42, 0.08);
+}
+
+.hero-trust {
+  margin-top: 1.35rem;
+  max-width: 37rem;
+  color: #60707d;
+  font-size: 0.95rem;
+}
+
+.hero-visual {
+  min-height: 43rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.hero-device-stage {
+  position: relative;
+  width: min(100%, 42rem);
+  min-height: 42rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.hero-device-stage::before,
+.hero-device-stage::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-device-stage::before {
+  width: 28rem;
+  height: 28rem;
+  right: 4rem;
+  top: 2.25rem;
+  background: radial-gradient(circle, rgba(21, 154, 165, 0.18) 0%, rgba(21, 154, 165, 0.07) 42%, rgba(21, 154, 165, 0) 72%);
+  filter: blur(22px);
+}
+
+.hero-device-stage::after {
+  width: 18rem;
+  height: 18rem;
+  right: 0.4rem;
+  bottom: 4.8rem;
+  background: radial-gradient(circle, rgba(232, 137, 26, 0.16) 0%, rgba(232, 137, 26, 0.055) 42%, rgba(232, 137, 26, 0) 74%);
+  filter: blur(24px);
+}
+
+.hero-tablet-frame,
+.hero-phone-frame {
+  position: absolute;
+  margin: 0;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 36%, rgba(255,255,255,0.16)),
+    #111820;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.14) inset,
+    0 -8px 18px rgba(0,0,0,0.18) inset,
+    0 34px 78px rgba(16, 33, 42, 0.2),
+    0 12px 24px rgba(16, 33, 42, 0.08);
+}
+
+.hero-tablet-frame {
+  left: 1rem;
+  top: 0;
+  width: min(26rem, 68vw);
+  border-radius: 2.1rem;
+  padding: 0.34rem;
+}
+
+.hero-phone-frame {
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: min(16rem, 38vw);
+  border-radius: 1.9rem;
+  padding: 0.26rem;
+}
+
+.hero-tablet-screen,
+.hero-phone-screen {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  aspect-ratio: 1290 / 2796;
+}
+
+.hero-tablet-screen {
+  border-radius: 1.74rem;
+}
+
+.hero-phone-screen {
+  border-radius: 1.55rem;
+}
+
+.hero-tablet-screen::after,
+.hero-phone-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 28%);
+  pointer-events: none;
+}
+
+.hero-device-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: #ffffff;
+}
+
+.hero-device-caption {
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  max-width: 18rem;
+  border: 1px solid rgba(21, 154, 165, 0.14);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 42px rgba(16, 33, 42, 0.11);
+  padding: 1rem 1.05rem;
+  color: #10212a;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  backdrop-filter: blur(14px);
+}
+
+.hero-device-caption strong {
+  display: block;
+  color: #159aa5;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .hero-shell {
+    padding-top: 7.3rem;
+    padding-bottom: 6.1rem;
+  }
+
+  .hero-mobile-grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(3rem, 5vw, 5.25rem);
+  }
+
+  .hero-visual {
+    min-height: 45rem;
+  }
+
+  .hero-device-stage {
+    min-height: 44.5rem;
+  }
+
+  .hero-tablet-frame {
+    left: 1.4rem;
+    top: 0.4rem;
+    width: 20.75rem;
+  }
+
+  .hero-phone-frame {
+    right: 1.4rem;
+    bottom: 1.4rem;
+    width: 13.6rem;
+  }
+
+  .hero-device-caption {
+    bottom: 4.4rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-shell {
+    padding-top: 7.3rem;
+    padding-bottom: 4.7rem;
+  }
+
+  .hero-mobile-grid {
+    width: auto;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 2.5rem;
+  }
+
+  .hero-copy {
+    max-width: 42rem;
+    text-align: center;
+  }
+
+  .hero-copy h1,
+  .hero-description,
+  .hero-trust {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-traction-cue {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual {
+    width: 100%;
+    min-height: 38rem;
+  }
+
+  .hero-device-stage {
+    min-height: 38rem;
+  }
+
+  .hero-device-caption {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-shell {
+    padding-top: 6.25rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-mobile-grid {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 2rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.45rem, 13vw, 3.2rem);
+    line-height: 1.02;
+  }
+
+  .hero-description {
+    max-width: 32rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    gap: 0.65rem;
+  }
+
+  .hero-action {
+    min-height: 2.85rem;
+    padding: 0.76rem 1.05rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-trust {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .hero-visual {
+    min-height: min(35rem, 136vw);
+  }
+
+  .hero-device-stage {
+    width: min(100%, 23rem);
+    min-height: min(35rem, 136vw);
+  }
+
+  .hero-tablet-frame {
+    left: 0;
+    top: 0;
+    width: min(18.8rem, 76vw);
+    border-radius: 1.75rem;
+    padding: 0.26rem;
+  }
+
+  .hero-phone-frame {
+    right: 0;
+    bottom: 0.35rem;
+    width: min(12.2rem, 43vw);
+    border-radius: 1.55rem;
+    padding: 0.2rem;
+  }
+
+  .hero-tablet-screen {
+    border-radius: 1.48rem;
+  }
+
+  .hero-phone-screen {
+    border-radius: 1.32rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-copy h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-action {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1591,6 +2023,8 @@ select:focus-visible {
 
       <div class="hero-mobile-grid relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 md:gap-10 lg:px-10">
         <div class="fade-up show hero-copy min-w-0">
+          <div class="hero-traction-cue">700+ caregivers waiting for release</div>
+
           <h1 class="max-w-[13ch] font-semibold tracking-[-0.04em] text-slate-950">
             Hire qualified caregivers in days &mdash; not weeks.
           </h1>
@@ -1602,48 +2036,58 @@ select:focus-visible {
           <div class="hero-actions">
             <a
               href="#cta"
-              class="cta-button inline-flex items-center justify-center rounded-full bg-brandOrange font-semibold text-white shadow-soft hover:bg-brandTeal hover:shadow-lift"
+              class="hero-action hero-action-primary"
             >
-              Join Provider Early Access
+              Join Early Access
             </a>
-          </div>
 
-          <div class="mt-5 flex flex-wrap gap-3">
-            <div class="mini-stat">Reduce agency dependence</div>
-            <div class="mini-stat">Fill shifts sooner</div>
-            <div class="mini-stat">Hire for better fit</div>
+            <a
+              href="#caregivers"
+              class="hero-action hero-action-secondary"
+            >
+              For Caregivers
+            </a>
           </div>
 
           <p class="hero-trust">
             Built in Washington for Adult Family Homes &bull; Early access prioritized for AFH owners, operators, and hiring leads
           </p>
-
-          <a href="#caregivers" class="mt-4 inline-flex text-sm font-semibold tracking-[-0.01em] text-slate-600 transition hover:text-brandTeal">
-            Caregiver? Explore the caregiver side instead
-          </a>
         </div>
 
         <div class="fade-up show hero-visual min-w-0">
-          <div class="hero-phone-stage hero-phone-stage-single">
-            <div class="hero-device-aura"></div>
-
-            <div class="hero-main-phone hero-main-phone-angled phone-wrap phone-orange">
-              <div class="phone phone-large">
-                <div class="phone-frame">
-                  <div class="screen-mask">
-                    <img
-                      decoding="async"
-                      src="images/current-app/provider/provider-dashboard.png"
-                      alt="Current Cytrea provider dashboard showing hiring overview and applicant priority cards"
-                      width="1290"
-                      height="2796"
-                      loading="eager"
-                      fetchpriority="high"
-                      class="screen"
-                    />
-                  </div>
-                </div>
+          <div class="hero-device-stage" aria-label="Cytrea app previews">
+            <figure class="hero-tablet-frame">
+              <div class="hero-tablet-screen">
+                <img
+                  decoding="async"
+                  src="images/current-app/provider/provider-dashboard.png"
+                  alt="Cytrea provider dashboard showing hiring priorities, open jobs, applicant counts, and messages"
+                  width="1290"
+                  height="2796"
+                  loading="eager"
+                  fetchpriority="high"
+                  class="hero-device-image"
+                />
               </div>
+            </figure>
+
+            <figure class="hero-phone-frame">
+              <div class="hero-phone-screen">
+                <img
+                  decoding="async"
+                  src="images/current-app/caregiver/caregiver-dashboard.png"
+                  alt="Cytrea caregiver dashboard showing profile status, quick actions, and availability"
+                  width="1290"
+                  height="2796"
+                  loading="eager"
+                  class="hero-device-image"
+                />
+              </div>
+            </figure>
+
+            <div class="hero-device-caption" aria-hidden="true">
+              <strong>Real Cytrea screens</strong>
+              Provider hiring and caregiver workflows in one focused mobile experience.
             </div>
           </div>
         </div>
