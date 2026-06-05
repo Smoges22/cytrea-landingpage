@@ -686,6 +686,140 @@ h2 {
   align-items: start;
 }
 
+/* PREMIUM PAGE SYSTEM */
+.premium-section-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(21,154,165,0.09), rgba(21,154,165,0) 32%),
+    radial-gradient(circle at 92% 10%, rgba(232,137,26,0.08), rgba(232,137,26,0) 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,252,252,0.95));
+  box-shadow: 0 28px 76px rgba(16,33,42,0.08), 0 10px 24px rgba(16,33,42,0.04);
+}
+
+.premium-section-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0) 34%, rgba(21,154,165,0.045));
+  pointer-events: none;
+}
+
+.premium-section-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+#pain,
+#choose,
+#how,
+#trust,
+#cta {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(21,154,165,0.055), rgba(21,154,165,0) 30%),
+    radial-gradient(circle at 94% 16%, rgba(232,137,26,0.045), rgba(232,137,26,0) 28%),
+    #ffffff;
+}
+
+#providers,
+#caregivers,
+#trust {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(21,154,165,0.06), rgba(21,154,165,0) 32%),
+    linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+#pain h2,
+#providers h2,
+#choose h2,
+#how h2,
+#caregivers h2,
+#trust h2,
+#cta h2 {
+  line-height: 1.06;
+}
+
+.split-panel {
+  border-color: rgba(148,163,184,0.16);
+  border-radius: 2.35rem;
+  box-shadow: 0 30px 80px rgba(16,33,42,0.08), 0 10px 26px rgba(16,33,42,0.045);
+}
+
+.split-panel::after,
+.real-screenshot-showcase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5), transparent 38%, rgba(255,255,255,0.2));
+}
+
+.split-panel > *,
+.real-screenshot-showcase > * {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card,
+.step-card,
+.proof-card,
+.story-card,
+.real-shot-card {
+  border-color: rgba(148,163,184,0.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,252,252,0.96));
+  box-shadow: 0 18px 44px rgba(16,33,42,0.065), 0 5px 14px rgba(16,33,42,0.035);
+}
+
+.feature-card,
+.step-card,
+.proof-card {
+  backdrop-filter: blur(12px);
+}
+
+.feature-badge,
+.proof-chip {
+  box-shadow: 0 8px 18px rgba(21,154,165,0.11);
+}
+
+.check-item {
+  border-color: rgba(148,163,184,0.16);
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 10px 26px rgba(16,33,42,0.045);
+}
+
+.support-card {
+  border-color: rgba(148,163,184,0.16);
+  box-shadow: 0 18px 44px rgba(16,33,42,0.1);
+}
+
+.real-screenshot-showcase {
+  position: relative;
+  overflow: hidden;
+}
+
+.screenshot-experience {
+  box-shadow: 0 28px 72px rgba(16,33,42,0.075), 0 8px 20px rgba(16,33,42,0.04);
+}
+
+.waitlist-shell {
+  border-color: rgba(21,154,165,0.16);
+  border-radius: 2.35rem;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(21,154,165,0.14), rgba(21,154,165,0) 34%),
+    radial-gradient(circle at 92% 16%, rgba(232,137,26,0.13), rgba(232,137,26,0) 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,252,252,0.96));
+  box-shadow: 0 30px 80px rgba(16,33,42,0.1), 0 10px 24px rgba(16,33,42,0.045);
+}
+
+footer {
+  background:
+    linear-gradient(180deg, rgba(249,250,251,0.9), #ffffff);
+}
+
 @media (max-width: 767px) {
   .traction-premium {
     border-radius: 1.85rem;
@@ -2570,7 +2704,7 @@ select:focus-visible {
 
     <section id="pain" class="section-shell pt-0">
       <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div class="fade-up rounded-[2rem] border border-slate-200/80 bg-white px-6 py-8 shadow-soft sm:px-8 lg:px-10">
+        <div class="premium-section-panel fade-up px-6 py-8 sm:px-8 lg:px-10">
           <div class="max-w-3xl">
             <p class="section-kicker text-sm font-semibold uppercase tracking-[0.18em] text-brandOrange">Why AFHs struggle today</p>
             <h2 class="mt-4 text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-[2.6rem]">
