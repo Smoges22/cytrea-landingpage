@@ -1198,6 +1198,10 @@ select:focus-visible {
   min-width: 0;
 }
 
+.screenshot-current-title {
+  display: none;
+}
+
 .screenshot-section-label {
   width: fit-content;
   border-radius: 9999px;
@@ -1493,6 +1497,16 @@ select:focus-visible {
     font-size: 0.92rem;
   }
 
+  .screenshot-current-title {
+    display: block;
+    min-height: 1.9rem;
+    padding: 0.1rem 0.62rem 0.62rem;
+    color: #10212A;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
   .screenshot-grid {
     display: flex;
     grid-template-columns: none;
@@ -1513,7 +1527,7 @@ select:focus-visible {
   }
 
   .real-shot-card {
-    flex: 0 0 min(92vw, 24rem);
+    flex: 0 0 min(calc(100vw - 4.25rem), 25.5rem);
     scroll-snap-align: center;
     border-radius: 1.22rem;
     padding: 0.55rem;
@@ -1521,12 +1535,11 @@ select:focus-visible {
   }
 
   .real-shot-title {
-    padding: 0.08rem 0.22rem 0.5rem;
-    font-size: 0.9rem;
+    display: none;
   }
 
   .real-shot-phone {
-    max-width: min(100%, calc(100vw - 2.65rem));
+    max-width: min(100%, calc(100vw - 2.1rem));
     border-radius: 1.7rem;
     padding: 0.12rem;
     box-shadow:
@@ -2291,30 +2304,27 @@ select:focus-visible {
 
   .hero-visual {
     order: 5;
-    min-height: 30rem;
+    min-height: auto;
     margin-top: 0.15rem;
     margin-bottom: 0;
   }
 
   .hero-device-stage {
     width: min(100%, 18rem);
-    min-height: 30rem;
+    min-height: auto;
   }
 
   .hero-tablet-frame {
-    left: 0.1rem;
-    top: 0;
-    width: min(13.6rem, 60vw);
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(16.4rem, calc(100vw - 4rem));
     border-radius: 1.75rem;
     padding: 0.26rem;
   }
 
   .hero-phone-frame {
-    right: 0.05rem;
-    bottom: 4.25rem;
-    width: min(7.25rem, 28vw);
-    border-radius: 1.36rem;
-    padding: 0.17rem;
+    display: none;
   }
 
   .hero-tablet-screen {
@@ -2699,6 +2709,19 @@ select:focus-visible {
                       <div class="phone-frame">
                         <div class="screen-mask">
                           <img src="images/current-app/caregiver/caregiver-applications.png" alt="Current Cytrea caregiver application tracking screen with pending application status" width="1290" height="2796" loading="lazy" class="screen" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="real-shot-card">
+                  <h4 class="real-shot-title">Messaging</h4>
+                  <div class="phone-wrap phone-teal">
+                    <div class="phone real-shot-phone">
+                      <div class="phone-frame">
+                        <div class="screen-mask">
+                          <img src="images/current-app/caregiver/live-messaging.png" alt="Current Cytrea caregiver messaging screen for provider conversations" width="1290" height="2796" loading="lazy" class="screen" />
                         </div>
                       </div>
                     </div>
@@ -3401,12 +3424,30 @@ select:focus-visible {
 
       if (!grid || !pagination || cards.length < 2) return;
 
+      const titleLabel = document.createElement("div");
+      titleLabel.className = "screenshot-current-title";
+      titleLabel.setAttribute("aria-live", "polite");
+      grid.before(titleLabel);
+
+      const titleOverrides = {
+        "Caregiver Dashboard": "Dashboard",
+        "Caregiver Profile Setup": "Profile Setup",
+        "Credentials Upload": "Credentials",
+        "Availability Setup": "Availability"
+      };
+
+      const getCardTitle = (card) => {
+        const title = card.querySelector(".real-shot-title")?.textContent?.trim() || "";
+        return titleOverrides[title] || title;
+      };
+
       const dots = cards.map((card, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = `screenshot-dot${index === 0 ? " is-active" : ""}`;
-        dot.setAttribute("aria-label", `Show screenshot ${index + 1}`);
+        dot.setAttribute("aria-label", `Show ${getCardTitle(card) || `screenshot ${index + 1}`}`);
         dot.addEventListener("click", () => {
+          pauseAutoplay();
           grid.scrollTo({
             left: card.offsetLeft - grid.offsetLeft,
             behavior: reduceMotion ? "auto" : "smooth"
@@ -3416,9 +3457,56 @@ select:focus-visible {
         return dot;
       });
 
-      const updateDots = () => {
+      let activeIndex = 0;
+      let autoplayTimer = null;
+      let resumeTimer = null;
+      let dotFrame = null;
+      let autoplayScrolling = false;
+
+      const isMobileCarousel = () => mobileMedia.matches;
+
+      const scrollToCard = (index, behavior = "smooth") => {
+        const nextCard = cards[index];
+        if (!nextCard) return;
+
+        autoplayScrolling = true;
+        grid.scrollTo({
+          left: nextCard.offsetLeft - grid.offsetLeft,
+          behavior: reduceMotion ? "auto" : behavior
+        });
+        window.setTimeout(() => {
+          autoplayScrolling = false;
+        }, reduceMotion ? 0 : 800);
+      };
+
+      const stopAutoplay = () => {
+        if (autoplayTimer) {
+          window.clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      };
+
+      const startAutoplay = () => {
+        stopAutoplay();
+        if (reduceMotion || !isMobileCarousel()) return;
+
+        autoplayTimer = window.setInterval(() => {
+          const nextIndex = (activeIndex + 1) % cards.length;
+          scrollToCard(nextIndex);
+        }, 5000);
+      };
+
+      const pauseAutoplay = () => {
+        if (!isMobileCarousel()) return;
+
+        stopAutoplay();
+        if (resumeTimer) window.clearTimeout(resumeTimer);
+        resumeTimer = window.setTimeout(startAutoplay, 10000);
+      };
+
+      const updateActiveState = () => {
         const gridCenter = grid.scrollLeft + grid.clientWidth / 2;
-        let activeIndex = 0;
+        let nextActiveIndex = 0;
         let activeDistance = Number.POSITIVE_INFINITY;
 
         cards.forEach((card, index) => {
@@ -3427,28 +3515,47 @@ select:focus-visible {
 
           if (distance < activeDistance) {
             activeDistance = distance;
-            activeIndex = index;
+            nextActiveIndex = index;
           }
         });
 
+        activeIndex = nextActiveIndex;
+        titleLabel.textContent = getCardTitle(cards[activeIndex]);
         dots.forEach((dot, index) => {
           dot.classList.toggle("is-active", index === activeIndex);
         });
       };
 
-      let dotFrame = null;
       const requestDotUpdate = () => {
         if (dotFrame) return;
 
         dotFrame = window.requestAnimationFrame(() => {
           dotFrame = null;
-          updateDots();
+          updateActiveState();
         });
       };
 
+      const handleUserInteraction = () => {
+        if (autoplayScrolling) return;
+        pauseAutoplay();
+      };
+
       grid.addEventListener("scroll", requestDotUpdate, { passive: true });
-      window.addEventListener("resize", requestDotUpdate);
-      updateDots();
+      grid.addEventListener("pointerdown", handleUserInteraction, { passive: true });
+      grid.addEventListener("touchstart", handleUserInteraction, { passive: true });
+      grid.addEventListener("wheel", handleUserInteraction, { passive: true });
+      grid.addEventListener("keydown", handleUserInteraction);
+      window.addEventListener("resize", () => {
+        requestDotUpdate();
+        startAutoplay();
+      });
+      mobileMedia.addEventListener?.("change", () => {
+        requestDotUpdate();
+        startAutoplay();
+      });
+
+      updateActiveState();
+      startAutoplay();
     });
 
     if (!reduceMotion) {
