@@ -427,6 +427,10 @@ h2 {
   letter-spacing: -0.018em;
 }
 
+.hero-description-mobile {
+  display: none;
+}
+
 .hero-actions {
   display: flex;
   flex-direction: column;
@@ -1870,7 +1874,7 @@ select:focus-visible {
 @media (max-width: 767px) {
   .hero-shell {
     padding-top: 4.35rem;
-    padding-bottom: 3.1rem;
+    padding-bottom: 2.45rem;
   }
 
   .hero-mobile-grid {
@@ -1910,6 +1914,14 @@ select:focus-visible {
     text-align: center;
   }
 
+  .hero-description-full {
+    display: none;
+  }
+
+  .hero-description-mobile {
+    display: block;
+  }
+
   .hero-actions {
     order: 4;
     justify-self: center;
@@ -1927,7 +1939,7 @@ select:focus-visible {
     order: 6;
     justify-self: center;
     max-width: 21rem;
-    margin-top: 0.2rem;
+    margin-top: 0;
     font-size: 0.8rem;
     line-height: 1.5;
     text-align: center;
@@ -1935,29 +1947,30 @@ select:focus-visible {
 
   .hero-visual {
     order: 5;
-    min-height: min(29.5rem, 112vw);
-    margin-top: 0.25rem;
+    min-height: min(27rem, 101vw);
+    margin-top: 0.15rem;
+    margin-bottom: -0.15rem;
   }
 
   .hero-device-stage {
-    width: min(100%, 21.5rem);
-    min-height: min(29.5rem, 112vw);
+    width: min(100%, 19.25rem);
+    min-height: min(27rem, 101vw);
   }
 
   .hero-tablet-frame {
-    left: 0;
+    left: 0.2rem;
     top: 0;
-    width: min(15.8rem, 66vw);
+    width: min(15rem, 63vw);
     border-radius: 1.75rem;
     padding: 0.26rem;
   }
 
   .hero-phone-frame {
-    right: 0;
-    bottom: 0.7rem;
-    width: min(10.5rem, 39vw);
-    border-radius: 1.55rem;
-    padding: 0.2rem;
+    right: 0.15rem;
+    bottom: 2.1rem;
+    width: min(6.8rem, 25vw);
+    border-radius: 1.25rem;
+    padding: 0.15rem;
   }
 
   .hero-tablet-screen {
@@ -1965,7 +1978,7 @@ select:focus-visible {
   }
 
   .hero-phone-screen {
-    border-radius: 1.32rem;
+    border-radius: 1.08rem;
   }
 }
 
@@ -2058,8 +2071,12 @@ select:focus-visible {
             Hire qualified caregivers in days &mdash; not weeks.
           </h1>
 
-          <p class="hero-description mt-5">
+          <p class="hero-description hero-description-full mt-5">
             Cytrea gives Adult Family Home owners a more direct hiring workflow with credential-first caregiver profiles, faster outreach, and clearer fit signals so open shifts do not stay open longer than they should.
+          </p>
+
+          <p class="hero-description hero-description-mobile mt-5">
+            Built specifically for Adult Family Homes. Review applicants, message caregivers, and hire faster.
           </p>
 
           <div class="hero-actions">
