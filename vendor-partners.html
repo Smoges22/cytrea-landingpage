@@ -121,61 +121,103 @@
           <p>Cytrea Vendor Partners apply under one primary category, with searchable subcategories that make discovery easier for Adult Family Home providers.</p>
         </div>
 
-        <div class="vendor-category-groups" aria-label="Vendor partner category groups">
-          <article class="vendor-category-group">
-            <h3>Healthcare &amp; Clinical</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">Nurse Delegation</span>
-              <span class="category-chip">Home Health</span>
-              <span class="category-chip">Pharmacy</span>
-              <span class="category-chip">Medical Equipment</span>
-              <span class="category-chip">Medical Supply</span>
+        <div class="vendor-category-accordion" aria-label="Vendor partner category groups">
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-healthcare" aria-expanded="false" aria-controls="vendor-category-panel-healthcare">
+                <span>Healthcare &amp; Clinical</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-healthcare" role="region" aria-labelledby="vendor-category-trigger-healthcare">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">Nurse Delegation</span>
+                <span class="category-chip">Home Health</span>
+                <span class="category-chip">Pharmacy</span>
+                <span class="category-chip">Medical Equipment</span>
+                <span class="category-chip">Medical Supply</span>
+              </div>
             </div>
           </article>
 
-          <article class="vendor-category-group">
-            <h3>Training &amp; Compliance</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">Training &amp; CEUs</span>
-              <span class="category-chip">Compliance Consulting</span>
-              <span class="category-chip">AFH Consulting</span>
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-training" aria-expanded="false" aria-controls="vendor-category-panel-training">
+                <span>Training &amp; Compliance</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-training" role="region" aria-labelledby="vendor-category-trigger-training">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">Training &amp; CEUs</span>
+                <span class="category-chip">Compliance Consulting</span>
+                <span class="category-chip">AFH Consulting</span>
+              </div>
             </div>
           </article>
 
-          <article class="vendor-category-group">
-            <h3>Business &amp; Professional</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">Insurance</span>
-              <span class="category-chip">Accounting &amp; Payroll</span>
-              <span class="category-chip">Legal</span>
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-business" aria-expanded="false" aria-controls="vendor-category-panel-business">
+                <span>Business &amp; Professional</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-business" role="region" aria-labelledby="vendor-category-trigger-business">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">Insurance</span>
+                <span class="category-chip">Accounting &amp; Payroll</span>
+                <span class="category-chip">Legal</span>
+              </div>
             </div>
           </article>
 
-          <article class="vendor-category-group">
-            <h3>Home &amp; Facility Services</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">General Contractor</span>
-              <span class="category-chip">Electricians</span>
-              <span class="category-chip">Plumbers</span>
-              <span class="category-chip">Cleaning Services</span>
-              <span class="category-chip">Landscaping</span>
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-facility" aria-expanded="false" aria-controls="vendor-category-panel-facility">
+                <span>Home &amp; Facility Services</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-facility" role="region" aria-labelledby="vendor-category-trigger-facility">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">General Contractor</span>
+                <span class="category-chip">Electricians</span>
+                <span class="category-chip">Plumbers</span>
+                <span class="category-chip">Cleaning Services</span>
+                <span class="category-chip">Landscaping</span>
+              </div>
             </div>
           </article>
 
-          <article class="vendor-category-group">
-            <h3>Resident Support &amp; Activities</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">Hairdressers</span>
-              <span class="category-chip">Resident Activities</span>
-              <span class="category-chip">Musicians &amp; Entertainment</span>
-              <span class="category-chip">Transportation</span>
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-resident-support" aria-expanded="false" aria-controls="vendor-category-panel-resident-support">
+                <span>Resident Support &amp; Activities</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-resident-support" role="region" aria-labelledby="vendor-category-trigger-resident-support">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">Hairdressers</span>
+                <span class="category-chip">Resident Activities</span>
+                <span class="category-chip">Musicians &amp; Entertainment</span>
+                <span class="category-chip">Transportation</span>
+              </div>
             </div>
           </article>
 
-          <article class="vendor-category-group">
-            <h3>Other Services</h3>
-            <div class="vendor-categories">
-              <span class="category-chip">Other</span>
+          <article class="vendor-category-item">
+            <h3>
+              <button type="button" class="vendor-category-trigger" id="vendor-category-trigger-other" aria-expanded="false" aria-controls="vendor-category-panel-other">
+                <span>Other Services</span>
+                <span class="category-accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="vendor-category-panel" id="vendor-category-panel-other" role="region" aria-labelledby="vendor-category-trigger-other">
+              <div class="vendor-category-panel-inner vendor-categories">
+                <span class="category-chip">Other</span>
+              </div>
             </div>
           </article>
         </div>
@@ -485,6 +527,21 @@
         subcategories: ["Other"]
       }
     ];
+
+    document.querySelectorAll(".vendor-category-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const item = trigger.closest(".vendor-category-item");
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+        const icon = trigger.querySelector(".category-accordion-icon");
+
+        trigger.setAttribute("aria-expanded", String(!isExpanded));
+        item?.classList.toggle("is-open", !isExpanded);
+
+        if (icon) {
+          icon.textContent = isExpanded ? "+" : "-";
+        }
+      });
+    });
 
     const intakeForm = document.querySelector("#vendor-intake-form");
     const categorySelect = document.querySelector("#vendor-category");
