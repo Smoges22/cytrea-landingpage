@@ -172,7 +172,7 @@
 
             <label>
               Phone
-              <input name="Phone" type="tel" autocomplete="tel" />
+              <input name="Phone" type="tel" autocomplete="tel" placeholder="(206) 555-0199" />
             </label>
 
             <label>
@@ -182,7 +182,7 @@
 
             <label>
               Category
-              <select name="Category" required>
+              <select id="vendor-category" name="Category" required>
                 <option value="" selected disabled>Select a category</option>
                 <option>Nurse Delegation</option>
                 <option>Insurance</option>
@@ -197,6 +197,11 @@
                 <option>General Contractors</option>
                 <option>Other</option>
               </select>
+            </label>
+
+            <label id="other-category-field" class="form-span is-hidden">
+              Business category
+              <input id="other-category-input" name="Business category" type="text" placeholder="Enter your business category" />
             </label>
 
             <label class="form-span">
@@ -215,12 +220,18 @@
             </label>
 
             <div class="upload-note form-span">
-              Logo upload instruction: after submitting, attach your logo when your email opens, or include a public file link in the notes.
+              Upload files here for your records. If your email opens without attachments, please attach your logo, business card, or brochure manually before sending.
             </div>
 
-            <div class="upload-note form-span">
-              Business card or brochure instruction: attach your brochure/business card to the email, or include a public file link in the notes.
-            </div>
+            <label class="form-span">
+              Upload logo
+              <input name="Upload logo" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" />
+            </label>
+
+            <label class="form-span">
+              Upload business card or brochure
+              <input name="Upload business card or brochure" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" />
+            </label>
 
             <label class="form-span">
               Notes
@@ -254,18 +265,49 @@
 
   <script>
     const intakeForm = document.querySelector("#vendor-intake-form");
+    const categorySelect = document.querySelector("#vendor-category");
+    const otherCategoryField = document.querySelector("#other-category-field");
+    const otherCategoryInput = document.querySelector("#other-category-input");
+
+    const updateOtherCategoryField = () => {
+      const isOther = categorySelect && categorySelect.value === "Other";
+
+      if (otherCategoryField) {
+        otherCategoryField.classList.toggle("is-hidden", !isOther);
+      }
+
+      if (otherCategoryInput) {
+        otherCategoryInput.required = isOther;
+        if (!isOther) {
+          otherCategoryInput.value = "";
+        }
+      }
+    };
+
+    if (categorySelect) {
+      categorySelect.addEventListener("change", updateOtherCategoryField);
+      updateOtherCategoryField();
+    }
 
     if (intakeForm) {
       intakeForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         const formData = new FormData(intakeForm);
+        const entries = Array.from(formData.entries()).map(([label, value]) => {
+          if (value instanceof File) {
+            return [label, value.name ? value.name : "No file selected"];
+          }
+
+          return [label, value || "Not provided"];
+        });
+
         const lines = [
           "Cytrea Vendor Partner Application",
           "",
-          ...Array.from(formData.entries()).map(([label, value]) => `${label}: ${value || "Not provided"}`),
+          ...entries.map(([label, value]) => `${label}: ${value}`),
           "",
-          "Attachment reminder: Please attach logo, brochure, or business card files to this email if available."
+          "Attachment reminder: This static form cannot guarantee file attachments are added to your email automatically. Please attach your logo, business card, or brochure manually before sending."
         ];
 
         const subject = encodeURIComponent("Cytrea Vendor Partner Application");
