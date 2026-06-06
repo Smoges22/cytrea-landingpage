@@ -76,14 +76,15 @@
           <article class="vendor-card" style="padding: clamp(1.35rem, 4vw, 2rem);">
             <h3>Included in your listing</h3>
             <ul class="vendor-feature-list">
-              <li>Vendor profile</li>
-              <li>Logo</li>
-              <li>Website link</li>
-              <li>Contact info</li>
+              <li>Professional directory profile</li>
+              <li>Company logo</li>
+              <li>Clickable phone number</li>
+              <li>Clickable email address</li>
+              <li>Clickable website link</li>
               <li>Service area</li>
               <li>Category listing</li>
               <li>Provider-visible directory listing</li>
-              <li>Optional brochure/business card attachment</li>
+              <li>Featured placement opportunities</li>
             </ul>
           </article>
         </div>
@@ -123,7 +124,7 @@
           <article class="vendor-card process-step">
             <span class="step-number">1</span>
             <h3>Apply</h3>
-            <p>Share company details, category, service area, and vendor materials.</p>
+            <p>Share company details, category, service area, and your company logo.</p>
           </article>
           <div class="process-arrow" aria-hidden="true">&rarr;</div>
           <article class="vendor-card process-step">
@@ -151,13 +152,14 @@
           <p class="eyebrow">Vendor intake</p>
           <h2 id="intake-title">Apply to join Cytrea</h2>
           <p>Submit your details below. This opens a prefilled email to Cytrea support so our team can review your application.</p>
+          <p>Vendor listings include clickable phone, email, and website actions inside the Cytrea directory. Future profiles are designed to support click-to-call, click-to-email, and click-to-website actions using <code>tel:</code>, <code>mailto:</code>, and <code>https://</code> links.</p>
         </div>
 
         <article class="vendor-form-card">
           <form id="vendor-intake-form" class="vendor-form">
             <label>
-              Company name
-              <input name="Company name" type="text" autocomplete="organization" required />
+              Business Name
+              <input name="Business Name" type="text" autocomplete="organization" required />
             </label>
 
             <label>
@@ -172,12 +174,12 @@
 
             <label>
               Phone
-              <input name="Phone" type="tel" autocomplete="tel" placeholder="(206) 555-0199" />
+              <input name="Phone" type="tel" autocomplete="tel" placeholder="(206) 555-0199" required />
             </label>
 
             <label>
               Website
-              <input name="Website" type="url" autocomplete="url" placeholder="https://example.com" />
+              <input name="Website" type="url" autocomplete="url" placeholder="https://example.com" required />
             </label>
 
             <label>
@@ -216,26 +218,21 @@
 
             <label class="form-span">
               Services offered
-              <textarea name="Services offered" required placeholder="List the main services, products, or professional support you provide to AFHs."></textarea>
+              <textarea name="Services offered" placeholder="Optional: list the main services, products, or professional support you provide to AFHs."></textarea>
             </label>
 
             <div class="upload-note form-span">
-              Upload files here for your records. If your email opens without attachments, please attach your logo, business card, or brochure manually before sending.
+              Upload your logo here for your records. If your email opens without attachments, please attach your company logo manually before sending. Static upload storage is not supported yet.
             </div>
 
             <label class="form-span">
-              Upload logo
-              <input name="Upload logo" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" />
-            </label>
-
-            <label class="form-span">
-              Upload business card or brochure
-              <input name="Upload business card or brochure" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" />
+              Company Logo
+              <input name="Company Logo" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" required />
             </label>
 
             <label class="form-span">
               Notes
-              <textarea name="Notes" placeholder="Add anything else Cytrea should know, including logo or brochure links."></textarea>
+              <textarea name="Notes" placeholder="Optional: add anything else Cytrea should know, including a public logo file link if helpful."></textarea>
             </label>
 
             <div class="vendor-submit-row form-span">
@@ -307,7 +304,7 @@
           "",
           ...entries.map(([label, value]) => `${label}: ${value}`),
           "",
-          "Attachment reminder: This static form cannot guarantee file attachments are added to your email automatically. Please attach your logo, business card, or brochure manually before sending."
+          "Attachment reminder: This static form cannot guarantee file attachments are added to your email automatically. Please attach your company logo manually before sending if it is missing."
         ];
 
         const subject = encodeURIComponent("Cytrea Vendor Partner Application");
