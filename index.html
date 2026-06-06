@@ -2392,21 +2392,39 @@ select:focus-visible {
   }
 
   .hero-device-stage {
-    width: min(100%, 18rem);
+    width: min(100%, 20rem);
     min-height: auto;
+    padding: 0.58rem 0.38rem 0.78rem;
+    border: 1px solid rgba(221, 231, 234, 0.82);
+    border-radius: 1.8rem;
+    background:
+      radial-gradient(circle at 16% 16%, rgba(21, 154, 165, 0.08), transparent 46%),
+      radial-gradient(circle at 92% 86%, rgba(232, 137, 26, 0.08), transparent 44%),
+      rgba(255, 255, 255, 0.88);
+    box-shadow: 0 24px 56px rgba(16, 33, 42, 0.10), 0 8px 18px rgba(16, 33, 42, 0.05);
+  }
+
+  .hero-device-stage::before,
+  .hero-device-stage::after {
+    display: none;
   }
 
   .hero-tablet-frame {
     position: relative;
     left: auto;
     top: auto;
-    width: min(16.4rem, calc(100vw - 4rem));
+    width: min(15.75rem, calc(100vw - 5.45rem));
     border-radius: 1.75rem;
-    padding: 0.26rem;
+    padding: 0;
   }
 
   .hero-phone-frame {
-    display: none;
+    display: block;
+    right: 0.22rem;
+    bottom: 0.95rem;
+    width: min(7.15rem, 35vw);
+    border-radius: 1.15rem;
+    z-index: 2;
   }
 
   .hero-tablet-screen {
@@ -2414,7 +2432,7 @@ select:focus-visible {
   }
 
   .hero-phone-screen {
-    border-radius: 1.08rem;
+    border-radius: 1rem;
   }
 }
 
