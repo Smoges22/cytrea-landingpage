@@ -439,6 +439,25 @@ h1 {
   gap: 0.75rem;
 }
 
+.vendor-category-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.vendor-category-group {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 34px rgba(16, 33, 42, 0.06), 0 3px 9px rgba(16, 33, 42, 0.035);
+  padding: 1.15rem;
+}
+
+.vendor-category-group h3 {
+  margin-bottom: 0.95rem;
+  font-size: 1.1rem;
+}
+
 .category-chip {
   display: inline-flex;
   align-items: center;

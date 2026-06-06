@@ -118,22 +118,66 @@
         <div class="vendor-section-header">
           <p class="eyebrow">Categories</p>
           <h2 id="categories-title">Built around AFH provider needs</h2>
-          <p>Cytrea Vendor Partners can apply under the category that best fits their services.</p>
+          <p>Cytrea Vendor Partners apply under one primary category, with searchable subcategories that make discovery easier for Adult Family Home providers.</p>
         </div>
 
-        <div class="vendor-categories" aria-label="Vendor partner categories">
-          <span class="category-chip">Nurse Delegation</span>
-          <span class="category-chip">Insurance</span>
-          <span class="category-chip">Pharmacy</span>
-          <span class="category-chip">Home Health</span>
-          <span class="category-chip">Medical Equipment</span>
-          <span class="category-chip">Training &amp; CEUs</span>
-          <span class="category-chip">AFH Consulting</span>
-          <span class="category-chip">Legal</span>
-          <span class="category-chip">Accounting &amp; Payroll</span>
-          <span class="category-chip">Staffing</span>
-          <span class="category-chip">General Contractors</span>
-          <span class="category-chip">Other</span>
+        <div class="vendor-category-groups" aria-label="Vendor partner category groups">
+          <article class="vendor-category-group">
+            <h3>Healthcare &amp; Clinical</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">Nurse Delegation</span>
+              <span class="category-chip">Home Health</span>
+              <span class="category-chip">Pharmacy</span>
+              <span class="category-chip">Medical Equipment</span>
+              <span class="category-chip">Medical Supply</span>
+            </div>
+          </article>
+
+          <article class="vendor-category-group">
+            <h3>Training &amp; Compliance</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">Training &amp; CEUs</span>
+              <span class="category-chip">Compliance Consulting</span>
+              <span class="category-chip">AFH Consulting</span>
+            </div>
+          </article>
+
+          <article class="vendor-category-group">
+            <h3>Business &amp; Professional</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">Insurance</span>
+              <span class="category-chip">Accounting &amp; Payroll</span>
+              <span class="category-chip">Legal</span>
+            </div>
+          </article>
+
+          <article class="vendor-category-group">
+            <h3>Home &amp; Facility Services</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">General Contractor</span>
+              <span class="category-chip">Electricians</span>
+              <span class="category-chip">Plumbers</span>
+              <span class="category-chip">Cleaning Services</span>
+              <span class="category-chip">Landscaping</span>
+            </div>
+          </article>
+
+          <article class="vendor-category-group">
+            <h3>Resident Support &amp; Activities</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">Hairdressers</span>
+              <span class="category-chip">Resident Activities</span>
+              <span class="category-chip">Musicians &amp; Entertainment</span>
+              <span class="category-chip">Transportation</span>
+            </div>
+          </article>
+
+          <article class="vendor-category-group">
+            <h3>Other Services</h3>
+            <div class="vendor-categories">
+              <span class="category-chip">Other</span>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -148,21 +192,24 @@
           <div class="directory-toolbar">
             <label class="directory-search">
               <span>Search vendors</span>
-              <input type="search" value="" placeholder="Search by service, category, or area" aria-label="Sample vendor directory search" disabled />
+              <input type="search" value="" placeholder="Search by category, subcategory, or area" aria-label="Sample vendor directory search" disabled />
             </label>
 
             <div class="directory-filter-chips" aria-label="Sample category filters">
-              <button type="button" class="directory-filter is-active" disabled>All</button>
-              <button type="button" class="directory-filter" disabled>Pharmacy</button>
-              <button type="button" class="directory-filter" disabled>Nurse Delegation</button>
-              <button type="button" class="directory-filter" disabled>Medical Equipment</button>
+              <button type="button" class="directory-filter is-active" data-primary-category="All" disabled>All</button>
+              <button type="button" class="directory-filter" data-primary-category="Healthcare &amp; Clinical" disabled>Healthcare &amp; Clinical</button>
+              <button type="button" class="directory-filter" data-primary-category="Training &amp; Compliance" disabled>Training &amp; Compliance</button>
+              <button type="button" class="directory-filter" data-primary-category="Business &amp; Professional" disabled>Business &amp; Professional</button>
+              <button type="button" class="directory-filter" data-primary-category="Home &amp; Facility Services" disabled>Home &amp; Facility</button>
+              <button type="button" class="directory-filter" data-primary-category="Resident Support &amp; Activities" disabled>Resident Support</button>
+              <button type="button" class="directory-filter" data-primary-category="Other Services" disabled>Other Services</button>
             </div>
           </div>
 
           <p class="directory-preview-note">Sample directory preview. Approved vendors will have live clickable phone, email, and website actions.</p>
 
           <div class="directory-card-grid">
-            <article class="directory-card">
+            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Pharmacy">
               <div class="directory-card-topline">
                 <div class="directory-logo-placeholder" aria-hidden="true">EP</div>
                 <span class="featured-partner-badge">Featured Partner</span>
@@ -170,6 +217,7 @@
               <p class="sample-label">Sample vendor</p>
               <h3>Evergreen Pharmacy Services</h3>
               <div class="directory-card-chips">
+                <span>Healthcare &amp; Clinical</span>
                 <span>Pharmacy</span>
               </div>
               <p class="service-area">King County, Pierce County</p>
@@ -181,7 +229,7 @@
               </div>
             </article>
 
-            <article class="directory-card">
+            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Nurse Delegation, Training &amp; CEUs">
               <div class="directory-card-topline">
                 <div class="directory-logo-placeholder directory-logo-teal" aria-hidden="true">ND</div>
                 <span class="featured-partner-badge">Featured Partner</span>
@@ -189,6 +237,7 @@
               <p class="sample-label">Sample vendor</p>
               <h3>Northwest Nurse Delegation</h3>
               <div class="directory-card-chips">
+                <span>Healthcare &amp; Clinical</span>
                 <span>Nurse Delegation</span>
               </div>
               <p class="service-area">Washington</p>
@@ -200,13 +249,14 @@
               </div>
             </article>
 
-            <article class="directory-card">
+            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Transportation">
               <div class="directory-card-topline">
                 <div class="directory-logo-placeholder" aria-hidden="true">CT</div>
               </div>
               <p class="sample-label">Sample vendor</p>
               <h3>CareLift Transportation</h3>
               <div class="directory-card-chips">
+                <span>Resident Support &amp; Activities</span>
                 <span>Transportation</span>
               </div>
               <p class="service-area">Seattle, Renton, Kent</p>
@@ -218,13 +268,14 @@
               </div>
             </article>
 
-            <article class="directory-card">
+            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Medical Equipment, Medical Supply">
               <div class="directory-card-topline">
                 <div class="directory-logo-placeholder directory-logo-teal" aria-hidden="true">SM</div>
               </div>
               <p class="sample-label">Sample vendor</p>
               <h3>SafeHome Medical Supply</h3>
               <div class="directory-card-chips">
+                <span>Healthcare &amp; Clinical</span>
                 <span>Medical Equipment</span>
               </div>
               <p class="service-area">Puget Sound</p>
@@ -312,18 +363,39 @@
               Category
               <select id="vendor-category" name="Category" required>
                 <option value="" selected disabled>Select a category</option>
-                <option>Nurse Delegation</option>
-                <option>Insurance</option>
-                <option>Pharmacy</option>
-                <option>Home Health</option>
-                <option>Medical Equipment</option>
-                <option>Training &amp; CEUs</option>
-                <option>AFH Consulting</option>
-                <option>Legal</option>
-                <option>Accounting &amp; Payroll</option>
-                <option>Staffing</option>
-                <option>General Contractors</option>
-                <option>Other</option>
+                <optgroup label="Healthcare &amp; Clinical">
+                  <option>Nurse Delegation</option>
+                  <option>Home Health</option>
+                  <option>Pharmacy</option>
+                  <option>Medical Equipment</option>
+                  <option>Medical Supply</option>
+                </optgroup>
+                <optgroup label="Training &amp; Compliance">
+                  <option>Training &amp; CEUs</option>
+                  <option>Compliance Consulting</option>
+                  <option>AFH Consulting</option>
+                </optgroup>
+                <optgroup label="Business &amp; Professional">
+                  <option>Insurance</option>
+                  <option>Accounting &amp; Payroll</option>
+                  <option>Legal</option>
+                </optgroup>
+                <optgroup label="Home &amp; Facility Services">
+                  <option>General Contractor</option>
+                  <option>Electricians</option>
+                  <option>Plumbers</option>
+                  <option>Cleaning Services</option>
+                  <option>Landscaping</option>
+                </optgroup>
+                <optgroup label="Resident Support &amp; Activities">
+                  <option>Hairdressers</option>
+                  <option>Resident Activities</option>
+                  <option>Musicians &amp; Entertainment</option>
+                  <option>Transportation</option>
+                </optgroup>
+                <optgroup label="Other Services">
+                  <option>Other</option>
+                </optgroup>
               </select>
             </label>
 
@@ -387,6 +459,33 @@
   </footer>
 
   <script>
+    window.cytreaVendorCategoryTaxonomy = [
+      {
+        primary: "Healthcare & Clinical",
+        subcategories: ["Nurse Delegation", "Home Health", "Pharmacy", "Medical Equipment", "Medical Supply"]
+      },
+      {
+        primary: "Training & Compliance",
+        subcategories: ["Training & CEUs", "Compliance Consulting", "AFH Consulting"]
+      },
+      {
+        primary: "Business & Professional",
+        subcategories: ["Insurance", "Accounting & Payroll", "Legal"]
+      },
+      {
+        primary: "Home & Facility Services",
+        subcategories: ["General Contractor", "Electricians", "Plumbers", "Cleaning Services", "Landscaping"]
+      },
+      {
+        primary: "Resident Support & Activities",
+        subcategories: ["Hairdressers", "Resident Activities", "Musicians & Entertainment", "Transportation"]
+      },
+      {
+        primary: "Other Services",
+        subcategories: ["Other"]
+      }
+    ];
+
     const intakeForm = document.querySelector("#vendor-intake-form");
     const categorySelect = document.querySelector("#vendor-category");
     const otherCategoryField = document.querySelector("#other-category-field");
