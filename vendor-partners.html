@@ -219,105 +219,131 @@
           <p>Approved Vendor Partners appear in a modern directory with clickable contact actions, category filters, and professional business profiles.</p>
         </div>
 
-        <div class="directory-preview-shell" aria-label="Sample Cytrea vendor directory preview">
+        <div class="directory-preview-shell" aria-label="Cytrea vendor directory preview">
           <div class="directory-toolbar">
             <label class="directory-search">
               <span>Search vendors</span>
-              <input type="search" value="" placeholder="Search by category, subcategory, or area" aria-label="Sample vendor directory search" disabled />
+              <input id="vendor-directory-search" type="search" value="" placeholder="Search by vendor, category, service, or area" aria-label="Search vendor directory listings" />
             </label>
 
-            <div class="directory-filter-chips" aria-label="Sample category filters">
-              <button type="button" class="directory-filter is-active" data-primary-category="All" disabled>All</button>
-              <button type="button" class="directory-filter" data-primary-category="Healthcare &amp; Clinical" disabled>Healthcare &amp; Clinical</button>
-              <button type="button" class="directory-filter" data-primary-category="Training &amp; Compliance" disabled>Training &amp; Compliance</button>
-              <button type="button" class="directory-filter" data-primary-category="Business &amp; Professional" disabled>Business &amp; Professional</button>
-              <button type="button" class="directory-filter" data-primary-category="Home &amp; Facility Services" disabled>Home &amp; Facility</button>
-              <button type="button" class="directory-filter" data-primary-category="Resident Support &amp; Activities" disabled>Resident Support</button>
-              <button type="button" class="directory-filter" data-primary-category="Other Services" disabled>Other Services</button>
+            <div class="directory-filter-chips" aria-label="Vendor category filters">
+              <button type="button" class="directory-filter is-active" data-primary-category="All">All</button>
+              <button type="button" class="directory-filter" data-primary-category="Healthcare &amp; Clinical">Healthcare &amp; Clinical</button>
+              <button type="button" class="directory-filter" data-primary-category="Training &amp; Compliance">Training &amp; Compliance</button>
+              <button type="button" class="directory-filter" data-primary-category="Business &amp; Professional">Business &amp; Professional</button>
+              <button type="button" class="directory-filter" data-primary-category="Home &amp; Facility Services">Home &amp; Facility</button>
+              <button type="button" class="directory-filter" data-primary-category="Resident Support &amp; Activities">Resident Support</button>
+              <button type="button" class="directory-filter" data-primary-category="Other Services">Other Services</button>
             </div>
           </div>
 
-          <p class="directory-preview-note">Sample directory preview. Approved vendors will have live clickable phone, email, and website actions.</p>
+          <p class="directory-preview-note">Initial real vendor partner listings. Contact actions are live where vendor contact details are available.</p>
 
           <div class="directory-card-grid">
-            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Pharmacy">
+            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Electricians" data-search="sparkson electrical electrician licensed bonded insured bellevue mercer island sammamish issaquah seattle kirkland redmond home facility services">
               <div class="directory-card-topline">
-                <div class="directory-logo-placeholder" aria-hidden="true">EP</div>
+                <img class="directory-vendor-logo" src="images/vendors/sparkson-electrical.svg" alt="Sparkson Electrical logo" loading="lazy" />
                 <span class="featured-partner-badge">Featured Partner</span>
               </div>
-              <p class="sample-label">Sample vendor</p>
-              <h3>Evergreen Pharmacy Services</h3>
+              <h3>Sparkson Electrical</h3>
               <div class="directory-card-chips">
-                <span>Healthcare &amp; Clinical</span>
-                <span>Pharmacy</span>
+                <span>Home &amp; Facility Services</span>
+                <span>Electrician</span>
+                <span>Licensed</span>
+                <span>Bonded</span>
+                <span>Insured</span>
               </div>
-              <p class="service-area">King County, Pierce County</p>
-              <p class="directory-description">Long-term care pharmacy support for Adult Family Homes.</p>
-              <div class="directory-actions" aria-label="Preview contact actions">
-                <button type="button" disabled>Call</button>
-                <button type="button" disabled>Email</button>
-                <button type="button" disabled>Website</button>
+              <p class="vendor-location">Bellevue, WA</p>
+              <div class="service-area-chips" aria-label="Sparkson Electrical service areas">
+                <span>Bellevue</span>
+                <span>Mercer Island</span>
+                <span>Sammamish</span>
+                <span>Issaquah</span>
+                <span>Seattle</span>
+                <span>Kirkland</span>
+                <span>Redmond</span>
+              </div>
+              <p class="directory-description">Licensed, bonded, and insured electrical service for AFH facility needs across the Eastside and Seattle.</p>
+              <div class="directory-actions" aria-label="Sparkson Electrical contact actions">
+                <a href="tel:+12068235237">Call Eastside</a>
+                <a href="tel:+12067738209">Call Seattle</a>
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Nurse Delegation, Training &amp; CEUs">
+            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Foot Care, Nursing" data-search="the visiting foot care nurse bonnie ackles arnp cfcs edmonds healthcare clinical foot care nursing">
               <div class="directory-card-topline">
-                <div class="directory-logo-placeholder directory-logo-teal" aria-hidden="true">ND</div>
+                <img class="directory-vendor-logo" src="images/vendors/visiting-foot-care-nurse.svg" alt="The Visiting Foot Care Nurse logo" loading="lazy" />
                 <span class="featured-partner-badge">Featured Partner</span>
               </div>
-              <p class="sample-label">Sample vendor</p>
-              <h3>Northwest Nurse Delegation</h3>
+              <h3>The Visiting Foot Care Nurse</h3>
+              <p class="vendor-contact">Bonnie Ackles ARNP, CFCS</p>
               <div class="directory-card-chips">
                 <span>Healthcare &amp; Clinical</span>
-                <span>Nurse Delegation</span>
+                <span>Foot Care</span>
+                <span>Nursing</span>
               </div>
-              <p class="service-area">Washington</p>
-              <p class="directory-description">Nurse delegation and caregiver training support for AFH teams.</p>
-              <div class="directory-actions" aria-label="Preview contact actions">
-                <button type="button" disabled>Call</button>
-                <button type="button" disabled>Email</button>
-                <button type="button" disabled>Website</button>
+              <p class="vendor-location">Edmonds, WA</p>
+              <p class="directory-description">Visiting foot care support from Bonnie Ackles ARNP, CFCS for care settings and senior clients.</p>
+              <div class="directory-actions" aria-label="The Visiting Foot Care Nurse contact actions">
+                <a href="tel:+12069400748">Call</a>
+                <span class="directory-action-unavailable" aria-disabled="true">Email</span>
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Transportation">
+            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Transportation, Medical Transportation" data-search="wingwi medical transportation non emergency medical transportation resident support activities">
               <div class="directory-card-topline">
-                <div class="directory-logo-placeholder" aria-hidden="true">CT</div>
+                <img class="directory-vendor-logo" src="images/vendors/wingwi-medical-transportation.svg" alt="Wingwi Medical Transportation LLC logo" loading="lazy" />
+                <span class="featured-partner-badge">Featured Partner</span>
               </div>
-              <p class="sample-label">Sample vendor</p>
-              <h3>CareLift Transportation</h3>
+              <h3>Wingwi Medical Transportation LLC</h3>
               <div class="directory-card-chips">
                 <span>Resident Support &amp; Activities</span>
                 <span>Transportation</span>
+                <span>Medical Transportation</span>
               </div>
-              <p class="service-area">Seattle, Renton, Kent</p>
-              <p class="directory-description">Non-emergency transportation for residents and care appointments.</p>
-              <div class="directory-actions" aria-label="Preview contact actions">
-                <button type="button" disabled>Call</button>
-                <button type="button" disabled>Email</button>
-                <button type="button" disabled>Website</button>
+              <p class="directory-description">Non-emergency medical transportation services.</p>
+              <div class="directory-actions" aria-label="Wingwi Medical Transportation LLC contact actions">
+                <a href="tel:+12533374364">Call</a>
+                <a href="mailto:info@wingwimedicaltransportation.com">Email</a>
+                <a href="http://www.wingwimedicaltransportation.com" target="_blank" rel="noopener">Website</a>
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Medical Equipment, Medical Supply">
+            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Repair &amp; Maintenance, Appliance Repair" data-search="david mburu repair maintenance refrigerators freezers washers dryers ovens stoves dishwashers microwaves garbage disposals home facility services">
               <div class="directory-card-topline">
-                <div class="directory-logo-placeholder directory-logo-teal" aria-hidden="true">SM</div>
+                <img class="directory-vendor-logo" src="images/vendors/david-mburu-maintenance.svg" alt="David Mburu Repair and Maintenance Services logo" loading="lazy" />
               </div>
-              <p class="sample-label">Sample vendor</p>
-              <h3>SafeHome Medical Supply</h3>
+              <h3>David Mburu Repair &amp; Maintenance Services</h3>
               <div class="directory-card-chips">
-                <span>Healthcare &amp; Clinical</span>
-                <span>Medical Equipment</span>
+                <span>Home &amp; Facility Services</span>
+                <span>Repair &amp; Maintenance</span>
+                <span>Appliance Repair</span>
               </div>
-              <p class="service-area">Puget Sound</p>
-              <p class="directory-description">Durable medical equipment and safety supplies for care homes.</p>
-              <div class="directory-actions" aria-label="Preview contact actions">
-                <button type="button" disabled>Call</button>
-                <button type="button" disabled>Email</button>
-                <button type="button" disabled>Website</button>
+              <p class="directory-description">Repairs and maintenance for refrigerators, freezers, washers, dryers, ovens, stoves, dishwashers, microwaves, and garbage disposals.</p>
+              <div class="directory-actions" aria-label="David Mburu Repair and Maintenance Services contact actions">
+                <a href="mailto:davidmburu0@gmail.com">Email</a>
+              </div>
+            </article>
+
+            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Resident Activities, Senior Engagement" data-search="golden year activities tina brittain ogden senior engagement activity programming adult family homes resident support activities">
+              <div class="directory-card-topline">
+                <img class="directory-vendor-logo" src="images/vendors/golden-year-activities.svg" alt="Golden Year Activities logo" loading="lazy" />
+              </div>
+              <h3>Golden Year Activities</h3>
+              <p class="vendor-contact">Tina Brittain-Ogden</p>
+              <div class="directory-card-chips">
+                <span>Resident Support &amp; Activities</span>
+                <span>Resident Activities</span>
+                <span>Senior Engagement</span>
+              </div>
+              <p class="directory-description">Senior engagement and activity programming for Adult Family Homes.</p>
+              <div class="directory-actions" aria-label="Golden Year Activities contact actions">
+                <a href="tel:+15037307367">Call</a>
+                <a href="mailto:tina@goldenyearactivities.com">Email</a>
               </div>
             </article>
           </div>
+          <p class="directory-empty-state" hidden>No vendors match that search yet.</p>
         </div>
       </section>
 
@@ -531,6 +557,50 @@
         }
       });
     });
+
+    const directorySearch = document.querySelector("#vendor-directory-search");
+    const directoryFilters = Array.from(document.querySelectorAll(".directory-filter"));
+    const directoryCards = Array.from(document.querySelectorAll(".directory-card"));
+    const directoryEmptyState = document.querySelector(".directory-empty-state");
+    let activeDirectoryCategory = "All";
+
+    const filterVendorDirectory = () => {
+      const query = (directorySearch?.value || "").trim().toLowerCase();
+      let visibleCards = 0;
+
+      directoryCards.forEach((card) => {
+        const primaryCategory = card.dataset.primaryCategory || "";
+        const searchableText = `${card.innerText} ${card.dataset.subcategories || ""} ${card.dataset.search || ""}`.toLowerCase();
+        const categoryMatches = activeDirectoryCategory === "All" || primaryCategory === activeDirectoryCategory;
+        const queryMatches = !query || searchableText.includes(query);
+        const shouldShow = categoryMatches && queryMatches;
+
+        card.hidden = !shouldShow;
+        if (shouldShow) {
+          visibleCards += 1;
+        }
+      });
+
+      if (directoryEmptyState) {
+        directoryEmptyState.hidden = visibleCards > 0;
+      }
+    };
+
+    directoryFilters.forEach((filter) => {
+      filter.addEventListener("click", () => {
+        activeDirectoryCategory = filter.dataset.primaryCategory || "All";
+
+        directoryFilters.forEach((button) => {
+          button.classList.toggle("is-active", button === filter);
+        });
+
+        filterVendorDirectory();
+      });
+    });
+
+    if (directorySearch) {
+      directorySearch.addEventListener("input", filterVendorDirectory);
+    }
 
     const intakeForm = document.querySelector("#vendor-intake-form");
     const categorySelect = document.querySelector("#vendor-category");

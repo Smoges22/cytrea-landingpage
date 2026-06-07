@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Wingwi Medical Transportation LLC</title>
+  <desc id="desc">Wingwi Medical Transportation vendor logo tile</desc>
+  <rect width="320" height="180" rx="26" fill="#fff"/>
+  <rect x="1" y="1" width="318" height="178" rx="25" fill="none" stroke="#dbe5ea" stroke-width="2"/>
+  <path d="M0 45c70-28 124-33 188-12 46 15 82 14 132-6v-27H0z" fill="#dff5fb"/>
+  <path d="M0 72c89-41 145-44 222-18 37 13 64 10 98-2" fill="none" stroke="#159aa5" stroke-width="12" opacity=".35"/>
+  <g transform="translate(36 83)" fill="#0f2742">
+    <path d="M23 36h87l-7-31H37L23 36z"/>
+    <path d="M3 36h128v16H3z"/>
+    <circle cx="31" cy="58" r="12" fill="#159aa5"/>
+    <circle cx="103" cy="58" r="12" fill="#159aa5"/>
+  </g>
+  <text x="219" y="84" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900" fill="#0f2742">WINGWI MEDICAL</text>
+  <text x="219" y="112" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="900" fill="#0f2742">TRANSPORTATION</text>
+  <text x="219" y="139" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#159aa5">NON-EMERGENCY MEDICAL</text>
+</svg>

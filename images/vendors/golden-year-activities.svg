@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Golden Year Activities</title>
+  <desc id="desc">Golden Year Activities vendor logo tile</desc>
+  <rect width="320" height="180" rx="26" fill="#fff"/>
+  <rect x="1" y="1" width="318" height="178" rx="25" fill="none" stroke="#dbe5ea" stroke-width="2"/>
+  <circle cx="74" cy="68" r="30" fill="#ffd766"/>
+  <path d="M74 22v18M74 96v18M28 68h18M102 68h18M42 36l13 13M93 87l13 13M106 36 93 49M55 87l-13 13" stroke="#f2b63d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M38 119c31-18 44-18 70 0 26 18 42 18 72 0" fill="none" stroke="#e8891a" stroke-width="9" stroke-linecap="round"/>
+  <text x="211" y="67" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="900" fill="#e0a323">Golden Year</text>
+  <text x="211" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#e0a323">Activities</text>
+  <text x="211" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#475569">Senior engagement programs</text>
+</svg>
