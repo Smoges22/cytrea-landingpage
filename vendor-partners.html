@@ -417,7 +417,7 @@
 
             <label>
               Phone
-              <input name="Phone" type="tel" autocomplete="tel" placeholder="(206) 555-0199" required />
+              <input id="vendor-phone-input" name="Phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" placeholder="(206) 555-0199" title="Enter a 10-digit phone number" required />
             </label>
 
             <label>
@@ -486,12 +486,12 @@
             </label>
 
             <div class="upload-note form-span">
-              Select your logo file so Cytrea receives the file name with your application. Static upload storage is not supported yet, so the file itself is not uploaded automatically.
+              Logo upload storage is not active yet. You may select your logo file name here, and the Cytrea team will follow up to collect the final logo if needed.
             </div>
 
             <label class="form-span">
               Company Logo
-              <input id="vendor-logo-input" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" required />
+              <input id="vendor-logo-input" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" />
             </label>
 
             <label class="form-span">
@@ -626,6 +626,7 @@
     }
 
     const intakeForm = document.querySelector("#vendor-intake-form");
+    const vendorPhoneInput = document.querySelector("#vendor-phone-input");
     const categorySelect = document.querySelector("#vendor-category");
     const otherCategoryField = document.querySelector("#other-category-field");
     const otherCategoryInput = document.querySelector("#other-category-input");
@@ -641,6 +642,30 @@
     const vendorIntakeFrame = document.querySelector("#vendor-intake-hidden-frame");
     let vendorSubmissionStarted = false;
     let vendorSubmissionTimer;
+
+    const getPhoneDigits = (value) => value.replace(/\D/g, "").slice(0, 10);
+
+    const formatPhoneNumber = (value) => {
+      const digits = getPhoneDigits(value);
+
+      if (digits.length <= 3) {
+        return digits ? `(${digits}` : "";
+      }
+
+      if (digits.length <= 6) {
+        return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+      }
+
+      return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+    };
+
+    const updatePhoneFormatting = () => {
+      if (!vendorPhoneInput) {
+        return;
+      }
+
+      vendorPhoneInput.value = formatPhoneNumber(vendorPhoneInput.value);
+    };
 
     const setVendorSubmissionFeedback = (state) => {
       if (!vendorSubmissionFeedback) {
@@ -744,8 +769,26 @@
       logoInput.addEventListener("change", updateVendorSubmissionFields);
     }
 
+    if (vendorPhoneInput) {
+      vendorPhoneInput.addEventListener("beforeinput", (event) => {
+        if (!event.data || event.inputType.startsWith("delete")) {
+          return;
+        }
+
+        if (!/^\d+$/.test(event.data)) {
+          event.preventDefault();
+        }
+      });
+
+      vendorPhoneInput.addEventListener("input", updatePhoneFormatting);
+      vendorPhoneInput.addEventListener("paste", () => {
+        window.setTimeout(updatePhoneFormatting, 0);
+      });
+    }
+
     if (intakeForm) {
       intakeForm.addEventListener("submit", () => {
+        updatePhoneFormatting();
         updateVendorSubmissionFields();
         vendorSubmissionStarted = true;
 
