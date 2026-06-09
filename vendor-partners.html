@@ -500,11 +500,19 @@
             </label>
 
             <div class="vendor-submit-row form-span">
-              <button class="primary-button" type="submit">Submit Vendor Application</button>
+              <button id="vendor-submit-button" class="primary-button" type="submit">Submit Vendor Application</button>
               <a class="secondary-button" href="mailto:support@cytrea.com?subject=Cytrea%20Vendor%20Partner%20Application">Email support@cytrea.com</a>
               <p class="form-help">Cytrea is accepting vendor applications for the initial launch phase.</p>
             </div>
           </form>
+
+          <div
+            id="vendor-submission-feedback"
+            class="vendor-submission-feedback is-hidden"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+          ></div>
 
           <iframe
             name="vendor-intake-hidden-frame"
@@ -628,6 +636,57 @@
     const servicesOfferedInput = document.querySelector("#vendor-services-offered");
     const notesInput = document.querySelector("#vendor-notes-input");
     const notesPayloadInput = document.querySelector("#vendor-notes-payload");
+    const vendorSubmitButton = document.querySelector("#vendor-submit-button");
+    const vendorSubmissionFeedback = document.querySelector("#vendor-submission-feedback");
+    const vendorIntakeFrame = document.querySelector("#vendor-intake-hidden-frame");
+    let vendorSubmissionStarted = false;
+    let vendorSubmissionTimer;
+
+    const setVendorSubmissionFeedback = (state) => {
+      if (!vendorSubmissionFeedback) {
+        return;
+      }
+
+      window.clearTimeout(vendorSubmissionTimer);
+      vendorSubmissionFeedback.className = `vendor-submission-feedback vendor-submission-feedback--${state}`;
+      vendorSubmissionFeedback.setAttribute("role", state === "error" ? "alert" : "status");
+
+      if (state === "pending") {
+        vendorSubmissionFeedback.innerHTML = `
+          <p class="feedback-kicker">Submitting application</p>
+          <h3>Sending your Vendor Partner application...</h3>
+          <p>Please keep this page open while Cytrea receives your information.</p>
+        `;
+        return;
+      }
+
+      if (state === "success") {
+        vendorSubmissionFeedback.innerHTML = `
+          <p class="feedback-kicker">Application received</p>
+          <h3>Thank you. Your Vendor Partner application has been received.</h3>
+          <p>The Cytrea team will review your information and follow up with next steps.</p>
+          <div class="feedback-next-steps">
+            <strong>What happens next?</strong>
+            <ol>
+              <li>Cytrea reviews your application</li>
+              <li>If approved, your business may be added to the Vendor Partner Directory</li>
+              <li>We may contact you to collect your logo file or confirm details</li>
+            </ol>
+          </div>
+        `;
+        vendorSubmissionFeedback.focus({ preventScroll: true });
+        vendorSubmissionFeedback.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      vendorSubmissionFeedback.innerHTML = `
+        <p class="feedback-kicker">Submission issue</p>
+        <h3>Something went wrong.</h3>
+        <p>Please try again or contact Cytrea directly.</p>
+      `;
+      vendorSubmissionFeedback.focus({ preventScroll: true });
+      vendorSubmissionFeedback.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
 
     const updateVendorSubmissionFields = () => {
       if (submittedAtInput) {
@@ -686,7 +745,57 @@
     }
 
     if (intakeForm) {
-      intakeForm.addEventListener("submit", updateVendorSubmissionFields);
+      intakeForm.addEventListener("submit", () => {
+        updateVendorSubmissionFields();
+        vendorSubmissionStarted = true;
+
+        if (vendorSubmitButton) {
+          vendorSubmitButton.disabled = true;
+          vendorSubmitButton.textContent = "Submitting...";
+        }
+
+        setVendorSubmissionFeedback("pending");
+        vendorSubmissionTimer = window.setTimeout(() => {
+          if (vendorSubmitButton) {
+            vendorSubmitButton.disabled = false;
+            vendorSubmitButton.textContent = "Submit Vendor Application";
+          }
+
+          setVendorSubmissionFeedback("error");
+        }, 20000);
+      });
+    }
+
+    if (vendorIntakeFrame) {
+      vendorIntakeFrame.addEventListener("load", () => {
+        if (!vendorSubmissionStarted) {
+          return;
+        }
+
+        vendorSubmissionStarted = false;
+        if (vendorSubmitButton) {
+          vendorSubmitButton.disabled = false;
+          vendorSubmitButton.textContent = "Submit Vendor Application";
+        }
+
+        intakeForm?.reset();
+        updateOtherCategoryField();
+        setVendorSubmissionFeedback("success");
+      });
+
+      vendorIntakeFrame.addEventListener("error", () => {
+        if (!vendorSubmissionStarted) {
+          return;
+        }
+
+        vendorSubmissionStarted = false;
+        if (vendorSubmitButton) {
+          vendorSubmitButton.disabled = false;
+          vendorSubmitButton.textContent = "Submit Vendor Application";
+        }
+
+        setVendorSubmissionFeedback("error");
+      });
     }
   </script>
 </body>
