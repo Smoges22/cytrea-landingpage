@@ -1405,6 +1405,82 @@ select:focus-visible {
   pointer-events: none;
 }
 
+.early-access-confirmation {
+  margin-top: 1.35rem;
+  border: 1px solid rgba(21, 154, 165, 0.22);
+  border-radius: 1.45rem;
+  background:
+    linear-gradient(135deg, rgba(21, 154, 165, 0.11), rgba(255, 255, 255, 0.96) 42%),
+    #ffffff;
+  box-shadow: 0 18px 42px rgba(16, 33, 42, 0.08), 0 6px 18px rgba(21, 154, 165, 0.08);
+  padding: clamp(1.15rem, 4vw, 1.65rem);
+  color: #10212a;
+}
+
+.early-access-confirmation h3 {
+  margin: 0.25rem 0 0.55rem;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.early-access-confirmation p {
+  margin: 0;
+  color: #475569;
+}
+
+.early-access-confirmation-kicker {
+  color: #159aa5 !important;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.early-access-next-steps {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background: rgba(238, 247, 248, 0.74);
+  padding: 1rem;
+}
+
+.early-access-next-steps strong {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #10212a;
+  font-size: 0.98rem;
+}
+
+.early-access-next-steps ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #475569;
+  font-weight: 650;
+}
+
+.early-access-next-steps li + li {
+  margin-top: 0.35rem;
+}
+
+.early-access-confirmation-note {
+  margin-top: 1rem !important;
+  border-top: 1px solid rgba(21, 154, 165, 0.14);
+  padding-top: 0.95rem;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.early-access-confirmation.is-error {
+  border-color: rgba(239, 68, 68, 0.24);
+  background:
+    linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(255, 255, 255, 0.96) 46%),
+    #ffffff;
+}
+
+.early-access-confirmation.is-error .early-access-confirmation-kicker {
+  color: #b91c1c !important;
+}
+
 /* MOBILE */
 @media (max-width: 767px) {
   body {
@@ -3364,7 +3440,13 @@ select:focus-visible {
             Limited onboarding spots for the first wave of AFH providers
           </p>
 
-          <p id="form-message" class="waitlist-message mt-4 hidden text-sm font-semibold" aria-live="polite"></p>
+          <div
+            id="form-message"
+            class="waitlist-message hidden"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+          ></div>
         </div>
       </div>
     </section>
@@ -3430,17 +3512,65 @@ select:focus-visible {
     if (waitlistForm && waitlistMessage) {
       const submitButton = waitlistForm.querySelector("button[type='submit']");
       const defaultButtonText = submitButton ? submitButton.textContent.trim() : "Reserve Early Access";
+      const waitlistRoleSelect = waitlistForm.querySelector('select[name="role"]');
+
+      const waitlistConfirmations = {
+        caregiver: {
+          title: "You're on the Cytrea caregiver waitlist",
+          body: "Thank you for joining Cytrea early access. Your information has been received.",
+          steps: [
+            "We'll notify you when caregiver onboarding opens.",
+            "You'll receive instructions to create your caregiver profile.",
+            "You'll be able to add your experience, availability, and credentials before applying for AFH jobs."
+          ],
+          note: "Cytrea is currently in early access. Caregiver invitations will be sent as provider onboarding begins."
+        },
+        provider: {
+          title: "You're on the Cytrea provider early access list",
+          body: "Thank you for joining Cytrea early access. Your information has been received.",
+          steps: [
+            "We'll review your provider information.",
+            "We'll contact you with onboarding instructions.",
+            "You'll be able to create your facility profile and begin posting caregiver opportunities."
+          ],
+          note: ""
+        }
+      };
+
+      const renderWaitlistConfirmation = (role) => {
+        const confirmation = waitlistConfirmations[role] || waitlistConfirmations.caregiver;
+        const noteMarkup = confirmation.note
+          ? `<p class="early-access-confirmation-note">${confirmation.note}</p>`
+          : "";
+
+        waitlistMessage.innerHTML = `
+          <p class="early-access-confirmation-kicker">Early access received</p>
+          <h3>${confirmation.title}</h3>
+          <p>${confirmation.body}</p>
+          <div class="early-access-next-steps">
+            <strong>What happens next?</strong>
+            <ol>
+              ${confirmation.steps.map((step) => `<li>${step}</li>`).join("")}
+            </ol>
+          </div>
+          ${noteMarkup}
+        `;
+        waitlistMessage.className = "waitlist-message early-access-confirmation";
+        waitlistMessage.setAttribute("role", "status");
+        waitlistMessage.focus({ preventScroll: true });
+      };
 
       waitlistForm.addEventListener("submit", () => {
         if (!submitButton) return;
+        const selectedRole = waitlistRoleSelect?.value || "caregiver";
 
-        waitlistMessage.className = "waitlist-message mt-4 hidden text-sm font-semibold";
+        waitlistMessage.className = "waitlist-message hidden";
+        waitlistMessage.innerHTML = "";
         submitButton.disabled = true;
         submitButton.textContent = "Submitting...";
 
         window.setTimeout(() => {
-          waitlistMessage.textContent = "You're on the Cytrea waitlist. We'll reach out shortly.";
-          waitlistMessage.className = "waitlist-message mt-4 text-sm font-semibold text-teal-600";
+          renderWaitlistConfirmation(selectedRole);
           waitlistForm.reset();
           submitButton.disabled = false;
           submitButton.textContent = defaultButtonText;
