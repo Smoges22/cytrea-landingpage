@@ -379,13 +379,26 @@
         <div class="vendor-section-header">
           <p class="eyebrow">Vendor intake</p>
           <h2 id="intake-title">Apply to join Cytrea</h2>
-          <p>Submit your details below. This opens a prefilled email to Cytrea support so our team can review your application.</p>
+          <p>Submit your details below so the Cytrea team can review your vendor application.</p>
           <p>Vendor listings include clickable phone, email, and website actions inside the Cytrea directory. Future profiles are designed to support click-to-call, click-to-email, and click-to-website actions using <code>tel:</code>, <code>mailto:</code>, and <code>https://</code> links.</p>
         </div>
 
         <article class="vendor-form-card">
-          <form id="vendor-intake-form" class="vendor-form">
+          <form
+            id="vendor-intake-form"
+            class="vendor-form"
+            action="https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec"
+            method="POST"
+            target="vendor-intake-hidden-frame"
+          >
             <input type="hidden" name="form_type" value="vendor_partner_application" />
+            <input type="hidden" name="Form Type" value="vendor_partner_application" />
+            <input id="vendor-submitted-at" type="hidden" name="Submitted At" />
+            <input type="hidden" name="Status" value="New" />
+            <input type="hidden" name="Source Page" value="https://cytrea.com/vendor-partners" />
+            <input id="vendor-primary-category" type="hidden" name="Primary Category" />
+            <input id="vendor-logo-file-name" type="hidden" name="Logo File Name" />
+            <input id="vendor-notes-payload" type="hidden" name="Notes" />
 
             <label>
               Business Name
@@ -394,7 +407,7 @@
 
             <label>
               Contact person
-              <input name="Contact person" type="text" autocomplete="name" required />
+              <input name="Contact Person" type="text" autocomplete="name" required />
             </label>
 
             <label>
@@ -414,7 +427,7 @@
 
             <label>
               Category
-              <select id="vendor-category" name="Category" required>
+              <select id="vendor-category" name="Subcategory" required>
                 <option value="" selected disabled>Select a category</option>
                 <optgroup label="Healthcare &amp; Clinical">
                   <option>Nurse Delegation</option>
@@ -454,36 +467,36 @@
 
             <label id="other-category-field" class="form-span is-hidden">
               Business category
-              <input id="other-category-input" name="Business category" type="text" placeholder="Enter your business category" />
+              <input id="other-category-input" name="Other Category" type="text" placeholder="Enter your business category" />
             </label>
 
             <label class="form-span">
               Service area
-              <input name="Service area" type="text" placeholder="Seattle, King County, statewide, etc." required />
+              <input name="Service Area" type="text" placeholder="Seattle, King County, statewide, etc." required />
             </label>
 
             <label class="form-span">
               Short description
-              <textarea name="Short description" required placeholder="Briefly describe your company and who you serve."></textarea>
+              <textarea name="Short Description" required placeholder="Briefly describe your company and who you serve."></textarea>
             </label>
 
             <label class="form-span">
               Services offered
-              <textarea name="Services offered" placeholder="Optional: list the main services, products, or professional support you provide to AFHs."></textarea>
+              <textarea id="vendor-services-offered" placeholder="Optional: list the main services, products, or professional support you provide to AFHs."></textarea>
             </label>
 
             <div class="upload-note form-span">
-              Upload your logo here for your records. If your email opens without attachments, please attach your company logo manually before sending. Static upload storage is not supported yet.
+              Select your logo file so Cytrea receives the file name with your application. Static upload storage is not supported yet, so the file itself is not uploaded automatically.
             </div>
 
             <label class="form-span">
               Company Logo
-              <input name="Company Logo" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" required />
+              <input id="vendor-logo-input" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" required />
             </label>
 
             <label class="form-span">
               Notes
-              <textarea name="Notes" placeholder="Optional: add anything else Cytrea should know, including a public logo file link if helpful."></textarea>
+              <textarea id="vendor-notes-input" placeholder="Optional: add anything else Cytrea should know, including a public logo file link if helpful."></textarea>
             </label>
 
             <div class="vendor-submit-row form-span">
@@ -492,6 +505,12 @@
               <p class="form-help">Cytrea is accepting vendor applications for the initial launch phase.</p>
             </div>
           </form>
+
+          <iframe
+            name="vendor-intake-hidden-frame"
+            id="vendor-intake-hidden-frame"
+            style="display:none;"
+          ></iframe>
         </article>
       </section>
     </div>
@@ -602,6 +621,43 @@
     const categorySelect = document.querySelector("#vendor-category");
     const otherCategoryField = document.querySelector("#other-category-field");
     const otherCategoryInput = document.querySelector("#other-category-input");
+    const submittedAtInput = document.querySelector("#vendor-submitted-at");
+    const primaryCategoryInput = document.querySelector("#vendor-primary-category");
+    const logoInput = document.querySelector("#vendor-logo-input");
+    const logoFileNameInput = document.querySelector("#vendor-logo-file-name");
+    const servicesOfferedInput = document.querySelector("#vendor-services-offered");
+    const notesInput = document.querySelector("#vendor-notes-input");
+    const notesPayloadInput = document.querySelector("#vendor-notes-payload");
+
+    const updateVendorSubmissionFields = () => {
+      if (submittedAtInput) {
+        submittedAtInput.value = new Date().toISOString();
+      }
+
+      if (primaryCategoryInput && categorySelect) {
+        primaryCategoryInput.value = categorySelect.selectedOptions[0]?.parentElement?.label || "";
+      }
+
+      if (logoFileNameInput && logoInput) {
+        logoFileNameInput.value = logoInput.files?.[0]?.name || "";
+      }
+
+      if (notesPayloadInput) {
+        const notesParts = [];
+        const servicesOffered = servicesOfferedInput?.value?.trim();
+        const notes = notesInput?.value?.trim();
+
+        if (servicesOffered) {
+          notesParts.push(`Services offered: ${servicesOffered}`);
+        }
+
+        if (notes) {
+          notesParts.push(`Notes: ${notes}`);
+        }
+
+        notesPayloadInput.value = notesParts.join("\n\n");
+      }
+    };
 
     const updateOtherCategoryField = () => {
       const isOther = categorySelect && categorySelect.value === "Other";
@@ -616,6 +672,8 @@
           otherCategoryInput.value = "";
         }
       }
+
+      updateVendorSubmissionFields();
     };
 
     if (categorySelect) {
@@ -623,31 +681,12 @@
       updateOtherCategoryField();
     }
 
+    if (logoInput) {
+      logoInput.addEventListener("change", updateVendorSubmissionFields);
+    }
+
     if (intakeForm) {
-      intakeForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(intakeForm);
-        const entries = Array.from(formData.entries()).map(([label, value]) => {
-          if (value instanceof File) {
-            return [label, value.name ? value.name : "No file selected"];
-          }
-
-          return [label, value || "Not provided"];
-        });
-
-        const lines = [
-          "Cytrea Vendor Partner Application",
-          "",
-          ...entries.map(([label, value]) => `${label}: ${value}`),
-          "",
-          "Attachment reminder: This static form cannot guarantee file attachments are added to your email automatically. Please attach your company logo manually before sending if it is missing."
-        ];
-
-        const subject = encodeURIComponent("Cytrea Vendor Partner Application");
-        const body = encodeURIComponent(lines.join("\n"));
-        window.location.href = `mailto:support@cytrea.com?subject=${subject}&body=${body}`;
-      });
+      intakeForm.addEventListener("submit", updateVendorSubmissionFields);
     }
   </script>
 </body>
