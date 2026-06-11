@@ -234,7 +234,7 @@
           <p class="directory-preview-note">Initial real vendor partner listings. Contact actions are live where vendor contact details are available.</p>
 
           <div class="directory-card-grid">
-            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Electricians" data-search="sparkson electrical electrician licensed bonded insured bellevue mercer island sammamish issaquah seattle kirkland redmond home facility services">
+            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Electricians" data-search="sparkson electrical electrician licensed bonded insured bellevue mercer island sammamish issaquah seattle kirkland redmond home facility services electrical work electrical contractor wiring wire repair lighting outlets panels breaker power">
               <div class="directory-card-topline">
                 <img class="directory-vendor-logo" src="images/vendors/sparkson-electrical.svg" alt="Sparkson Electrical logo" loading="lazy" />
                 <span class="featured-partner-badge">Featured Partner</span>
@@ -264,7 +264,7 @@
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Foot Care, Nursing" data-search="the visiting foot care nurse bonnie ackles arnp cfcs edmonds healthcare clinical foot care nursing">
+            <article class="directory-card" data-primary-category="Healthcare &amp; Clinical" data-subcategories="Foot Care, Nursing" data-search="the visiting foot care nurse bonnie ackles arnp cfcs edmonds healthcare clinical foot care nursing podiatry nurse foot care toenail senior foot care feet foot nurse mobile foot care">
               <div class="directory-card-topline">
                 <img class="directory-vendor-logo" src="images/vendors/visiting-foot-care-nurse.svg" alt="The Visiting Foot Care Nurse logo" loading="lazy" />
                 <span class="featured-partner-badge">Featured Partner</span>
@@ -284,7 +284,7 @@
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Transportation, Medical Transportation" data-search="wingwi medical transportation non emergency medical transportation resident support activities">
+            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Transportation, Medical Transportation" data-search="wingwi medical transportation non emergency medical transportation resident support activities ride rides medical ride wheelchair transport wheelchair transportation appointments appointment transport mobility patient transport">
               <div class="directory-card-topline">
                 <img class="directory-vendor-logo" src="images/vendors/wingwi-medical-transportation.svg" alt="Wingwi Medical Transportation LLC logo" loading="lazy" />
                 <span class="featured-partner-badge">Featured Partner</span>
@@ -303,7 +303,7 @@
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Repair &amp; Maintenance, Appliance Repair" data-search="david mburu repair maintenance refrigerators freezers washers dryers ovens stoves dishwashers microwaves garbage disposals home facility services">
+            <article class="directory-card" data-primary-category="Home &amp; Facility Services" data-subcategories="Repair &amp; Maintenance, Appliance Repair" data-search="david mburu repair maintenance refrigerators freezers washers dryers ovens stoves dishwashers microwaves garbage disposals home facility services appliance repair washer repair dryer repair refrigerator repair freezer repair stove repair oven repair dishwasher repair handyman fix fixing maintenance services">
               <div class="directory-card-topline">
                 <img class="directory-vendor-logo" src="images/vendors/david-mburu-maintenance.svg" alt="David Mburu Repair and Maintenance Services logo" loading="lazy" />
               </div>
@@ -319,7 +319,7 @@
               </div>
             </article>
 
-            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Resident Activities, Senior Engagement" data-search="golden year activities tina brittain ogden senior engagement activity programming adult family homes resident support activities">
+            <article class="directory-card" data-primary-category="Resident Support &amp; Activities" data-subcategories="Resident Activities, Senior Engagement" data-search="golden year activities tina brittain ogden senior engagement activity programming adult family homes resident support activities activities senior activities entertainment music musician musicians games engagement recreation social events">
               <div class="directory-card-topline">
                 <img class="directory-vendor-logo" src="images/vendors/golden-year-activities.svg" alt="Golden Year Activities logo" loading="lazy" />
               </div>
@@ -337,7 +337,7 @@
               </div>
             </article>
           </div>
-          <p class="directory-empty-state" hidden>No vendors match that search yet.</p>
+          <p class="directory-empty-state" hidden>No vendors found. Try a different category or search term.</p>
         </div>
       </section>
 
@@ -587,15 +587,30 @@
     const directoryEmptyState = document.querySelector(".directory-empty-state");
     let activeDirectoryCategory = "All";
 
+    const normalizeDirectorySearchText = (value) => String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+
+    const getDirectorySearchTokens = (value) => normalizeDirectorySearchText(value)
+      .split(/\s+/)
+      .filter(Boolean);
+
     const filterVendorDirectory = () => {
-      const query = (directorySearch?.value || "").trim().toLowerCase();
+      const queryTokens = getDirectorySearchTokens(directorySearch?.value);
       let visibleCards = 0;
 
       directoryCards.forEach((card) => {
         const primaryCategory = card.dataset.primaryCategory || "";
-        const searchableText = `${card.innerText} ${card.dataset.subcategories || ""} ${card.dataset.search || ""}`.toLowerCase();
+        const searchableText = normalizeDirectorySearchText([
+          card.innerText,
+          primaryCategory,
+          card.dataset.subcategories || "",
+          card.dataset.search || ""
+        ].join(" "));
         const categoryMatches = activeDirectoryCategory === "All" || primaryCategory === activeDirectoryCategory;
-        const queryMatches = !query || searchableText.includes(query);
+        const queryMatches = queryTokens.length === 0 ||
+          queryTokens.every((token) => searchableText.includes(token));
         const shouldShow = categoryMatches && queryMatches;
 
         card.hidden = !shouldShow;
