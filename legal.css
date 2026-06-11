@@ -1132,6 +1132,17 @@ h1 {
   }
 }
 
+@media (max-width: 767px) {
+  .vendor-launch-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .vendor-launch-layout .vendor-card {
+    width: 100%;
+  }
+}
+
 @media (max-width: 760px) {
   .header-inner,
   .footer-inner {
