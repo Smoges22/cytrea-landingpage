@@ -1498,3 +1498,105 @@ h4 {
     border-radius: 20px;
   }
 }
+
+/* Production review polish */
+.section {
+  scroll-margin-top: 88px;
+}
+
+.visual-card,
+.screenshot-card,
+.demo-placeholder-card,
+.download-panel {
+  overflow: hidden;
+}
+
+.visual-card img {
+  aspect-ratio: 1290 / 2796;
+  object-fit: cover;
+}
+
+.section-head {
+  max-width: 1120px;
+}
+
+@media (min-width: 1500px) {
+  .header-inner,
+  .mobile-panel-inner,
+  .shell {
+    width: min(1240px, calc(100% - 4rem));
+  }
+
+  .hero-grid,
+  .split-grid,
+  .journey-row {
+    gap: clamp(2.5rem, 4vw, 4.75rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: clamp(3.25rem, 12vw, 4.75rem) 0;
+  }
+
+  .download-section {
+    padding-block: clamp(2.5rem, 10vw, 3.75rem);
+  }
+
+  .section-head {
+    margin-bottom: 1.35rem;
+  }
+
+  .section-head .lead {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .device-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .device-pair .visual-card:nth-child(2) {
+    margin-top: 1rem;
+  }
+
+  .visual-card {
+    border-radius: 22px;
+    padding: 0.58rem;
+  }
+
+  .visual-card img,
+  .screenshot-card img {
+    border-radius: 14px;
+  }
+
+  .journey-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .screenshot-card {
+    min-width: 68%;
+  }
+
+  .demo-copy h3 {
+    font-size: clamp(1.65rem, 9vw, 2.25rem);
+  }
+
+  .demo-placeholder-card,
+  .demo-video {
+    min-height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
