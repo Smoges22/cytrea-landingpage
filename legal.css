@@ -73,6 +73,69 @@ a {
   font-weight: 700;
 }
 
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 2.85rem;
+  height: 2.85rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(21, 154, 165, 0.18);
+  border-radius: 999px;
+  background: rgba(238, 247, 248, 0.82);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-toggle span,
+.menu-toggle::before,
+.menu-toggle::after {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.menu-toggle::before,
+.menu-toggle::after {
+  content: "";
+  position: absolute;
+  transform: translateY(-0.38rem);
+}
+
+.menu-toggle::after {
+  transform: translateY(0.38rem);
+}
+
+.mobile-panel {
+  display: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.mobile-panel-inner {
+  display: grid;
+  width: min(100% - 2.5rem, 76rem);
+  margin: 0 auto;
+  gap: 0.25rem;
+  padding: 0.8rem 0 1rem;
+}
+
+.mobile-panel a {
+  border-radius: 0.9rem;
+  color: #475569;
+  font-weight: 850;
+  padding: 0.85rem 0.9rem;
+  text-decoration: none;
+}
+
+.mobile-panel a:hover,
+.mobile-panel a:focus-visible {
+  background: rgba(21, 154, 165, 0.08);
+  color: var(--brand-teal);
+}
+
 .site-nav a,
 .footer-nav a,
 .footer-credit a {
@@ -1167,17 +1230,25 @@ h1 {
   }
 }
 
+@media (max-width: 980px) {
+  .site-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-header.is-open .mobile-panel {
+    display: block;
+  }
+}
+
 @media (max-width: 760px) {
   .header-inner,
   .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .site-nav {
-    width: 100%;
-    gap: 0.85rem;
-    font-size: 0.9rem;
+    align-items: center;
+    flex-direction: row;
   }
 
   .cta-link {
@@ -1185,7 +1256,7 @@ h1 {
   }
 
   main {
-    padding-top: 11.5rem;
+    padding-top: 7rem;
   }
 
   .topic-grid {
@@ -1215,5 +1286,13 @@ h1 {
   .site-nav,
   .footer-nav {
     gap: 0.7rem 1rem;
+  }
+
+  .directory-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .directory-card {
+    min-width: 0;
   }
 }
