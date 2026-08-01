@@ -1296,3 +1296,132 @@ h1 {
     min-width: 0;
   }
 }
+
+/* Bright Cytrea brand alignment */
+:root {
+  --brand-teal: #19a7aa;
+  --brand-orange: #f28a1a;
+  --ink: #122f45;
+  --mist: #edfafa;
+  --warm: #faf7f2;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(25, 167, 170, 0.11), transparent 24rem),
+    radial-gradient(circle at 88% 2%, rgba(242, 138, 26, 0.08), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, #fbf9f4 100%);
+  color: var(--ink);
+}
+
+.site-header {
+  border-bottom-color: rgba(18, 47, 69, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 30px rgba(18, 47, 69, 0.045);
+}
+
+.site-nav a,
+.mobile-panel a {
+  color: #314f63;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.mobile-panel a:hover,
+.mobile-panel a:focus-visible {
+  background: rgba(25, 167, 170, 0.08);
+  color: #0c7d85;
+}
+
+.menu-toggle,
+.mobile-panel {
+  border-color: rgba(18, 47, 69, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.page-shell {
+  background: linear-gradient(180deg, #ffffff 0%, var(--warm) 100%);
+}
+
+.page-hero,
+.vendor-hero {
+  color: var(--ink);
+}
+
+.eyebrow,
+.vendor-kicker,
+.feedback-kicker {
+  color: #0c7d85;
+}
+
+.legal-card,
+.side-card,
+.topic-card,
+.vendor-hero-panel,
+.vendor-card,
+.founding-program-card,
+.vendor-form-card,
+.directory-preview-shell,
+.directory-card,
+.vendor-category-item,
+.process-step {
+  border-color: rgba(18, 47, 69, 0.1);
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 48px rgba(18, 47, 69, 0.08), 0 4px 14px rgba(18, 47, 69, 0.04);
+}
+
+.vendor-hero-panel::before {
+  background: rgba(25, 167, 170, 0.1);
+}
+
+.vendor-metric,
+.directory-filter,
+.process-arrow,
+.info-callout {
+  background: rgba(237, 250, 250, 0.78);
+}
+
+.cta-link,
+.primary-button {
+  border-color: var(--brand-orange);
+  background: linear-gradient(180deg, #ff9d33 0%, var(--brand-orange) 100%);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(242, 138, 26, 0.22);
+}
+
+.cta-link:hover,
+.primary-button:hover {
+  background: linear-gradient(180deg, #ffab4d 0%, #e97f0e 100%);
+}
+
+.secondary-button {
+  border-color: rgba(18, 47, 69, 0.12);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.vendor-form input,
+.vendor-form select,
+.vendor-form textarea,
+.directory-search input,
+.directory-filter select {
+  border-color: rgba(18, 47, 69, 0.13);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.vendor-form input:focus,
+.vendor-form select:focus,
+.vendor-form textarea:focus,
+.directory-search input:focus,
+.directory-filter select:focus {
+  border-color: rgba(25, 167, 170, 0.5);
+  box-shadow: 0 0 0 4px rgba(25, 167, 170, 0.12);
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(25, 167, 170, 0.08), transparent 18rem),
+    #ffffff;
+}

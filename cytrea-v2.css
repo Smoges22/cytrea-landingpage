@@ -913,3 +913,331 @@ h3 {
     white-space: normal;
   }
 }
+
+/* Bright healthcare SaaS refresh */
+:root {
+  --ink: #122f45;
+  --ink-2: #1d4056;
+  --muted: #637383;
+  --soft: #edfafa;
+  --panel: #f7f5f1;
+  --warm: #faf7f2;
+  --line: rgba(18, 47, 69, 0.1);
+  --teal: #19a7aa;
+  --teal-dark: #0c7d85;
+  --orange: #f28a1a;
+  --orange-dark: #c76606;
+  --shadow-soft: 0 18px 50px rgba(18, 47, 69, 0.08), 0 4px 16px rgba(18, 47, 69, 0.045);
+  --shadow-lift: 0 28px 70px rgba(18, 47, 69, 0.12), 0 8px 24px rgba(18, 47, 69, 0.06);
+  --radius: 28px;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 4%, rgba(25, 167, 170, 0.12), transparent 24rem),
+    radial-gradient(circle at 92% 2%, rgba(242, 138, 26, 0.09), transparent 22rem),
+    #ffffff;
+  color: var(--ink);
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(18, 47, 69, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 30px rgba(18, 47, 69, 0.045);
+}
+
+.site-nav a {
+  color: #314f63;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: rgba(25, 167, 170, 0.08);
+  color: var(--teal-dark);
+}
+
+.nav-cta,
+.button.primary,
+.form-card button,
+.waitlist-form button,
+.app-store {
+  background: linear-gradient(180deg, #ff9d33 0%, var(--orange) 100%);
+  box-shadow: 0 14px 28px rgba(242, 138, 26, 0.22);
+}
+
+.nav-cta:hover,
+.button.primary:hover,
+.form-card button:hover,
+.waitlist-form button:hover,
+.app-store:hover {
+  background: linear-gradient(180deg, #ffab4d 0%, #e97f0e 100%);
+}
+
+.button.secondary,
+.button.light {
+  border: 1px solid rgba(18, 47, 69, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  box-shadow: 0 12px 28px rgba(18, 47, 69, 0.08);
+}
+
+.button.secondary:hover,
+.button.light:hover {
+  border-color: rgba(25, 167, 170, 0.24);
+  background: #ffffff;
+  color: var(--teal-dark);
+}
+
+.menu-toggle {
+  border-color: rgba(18, 47, 69, 0.12);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+}
+
+.mobile-panel {
+  border-top: 1px solid rgba(18, 47, 69, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.mobile-panel a {
+  color: #314f63;
+}
+
+.mobile-panel a:hover,
+.mobile-panel a:focus-visible {
+  background: rgba(25, 167, 170, 0.08);
+  color: var(--teal-dark);
+}
+
+.mobile-panel .nav-cta {
+  color: #ffffff;
+}
+
+.hero,
+.page-hero,
+.final-cta {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(25, 167, 170, 0.16), transparent 26rem),
+    radial-gradient(circle at 86% 18%, rgba(242, 138, 26, 0.12), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, #f7fcfc 62%, #fff8ef 100%);
+  color: var(--ink);
+}
+
+.dark-band {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(25, 167, 170, 0.13), transparent 22rem),
+    linear-gradient(180deg, #f1fbfb 0%, #ffffff 100%);
+  color: var(--ink);
+}
+
+.section:nth-of-type(even):not(.hero):not(.dark-band):not(.page-hero):not(.final-cta) {
+  background: var(--warm);
+}
+
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0)),
+    repeating-linear-gradient(90deg, rgba(18, 47, 69, 0.045) 0 1px, transparent 1px 80px);
+  opacity: 0.62;
+}
+
+.hero .eyebrow,
+.dark-band .eyebrow,
+.page-hero .eyebrow,
+.final-cta .eyebrow {
+  color: var(--teal-dark);
+}
+
+.hero .lead,
+.dark-band .lead,
+.page-hero .lead,
+.final-cta .lead {
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+}
+
+.hero-proof .proof-pill,
+.trust-item,
+.card,
+.stat-card,
+.visual-card,
+.screenshot-card,
+.pricing-card,
+.faq-item,
+.journey-card,
+.quote-card,
+.resource-card,
+.founder-card,
+.metric-row,
+.timeline-card,
+.footer-panel,
+.form-card,
+.dark-band .card,
+.dark-band .faq-item,
+.final-cta .form-card {
+  border-color: rgba(18, 47, 69, 0.1);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover,
+.resource-card:hover,
+.pricing-card.featured {
+  border-color: rgba(25, 167, 170, 0.2);
+  box-shadow: var(--shadow-lift);
+}
+
+.dark-band .card p,
+.dark-band .faq-item p {
+  color: var(--muted);
+}
+
+.trust-strip {
+  border-top: 1px solid rgba(18, 47, 69, 0.08);
+  border-bottom: 1px solid rgba(18, 47, 69, 0.08);
+  background: #f5fbfb;
+  color: var(--ink);
+}
+
+.trust-grid {
+  gap: 0.8rem;
+}
+
+.trust-item {
+  padding: 0.9rem 1rem;
+}
+
+.proof-pill,
+.trust-item {
+  color: var(--ink);
+}
+
+.icon-bubble,
+.step-number,
+.check-icon,
+.faq-icon {
+  background: rgba(25, 167, 170, 0.1);
+  color: var(--teal-dark);
+}
+
+.hero-mockup,
+.phone {
+  filter: drop-shadow(0 22px 34px rgba(18, 47, 69, 0.16));
+}
+
+.hero-mockup-provider {
+  transform: rotate(-3deg) translateY(0.3rem);
+}
+
+.hero-mockup-caregiver {
+  transform: rotate(3deg) translateY(1.25rem);
+}
+
+.phone-frame,
+.phone {
+  box-shadow: 0 24px 60px rgba(18, 47, 69, 0.14);
+}
+
+.visual-card {
+  background:
+    linear-gradient(180deg, rgba(237, 250, 250, 0.78), rgba(255, 255, 255, 0.96)),
+    #ffffff;
+}
+
+.footer-panel,
+.site-footer {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(25, 167, 170, 0.08), transparent 18rem),
+    #ffffff;
+}
+
+.waitlist-form label,
+.final-cta .waitlist-form label {
+  color: var(--ink);
+}
+
+.waitlist-form input,
+.waitlist-form select,
+.waitlist-form textarea {
+  border-color: rgba(18, 47, 69, 0.13);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.waitlist-form input:focus,
+.waitlist-form select:focus,
+.waitlist-form textarea:focus {
+  border-color: rgba(25, 167, 170, 0.5);
+  box-shadow: 0 0 0 4px rgba(25, 167, 170, 0.12);
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .page-hero,
+  .final-cta {
+    background:
+      radial-gradient(circle at 16% 4%, rgba(25, 167, 170, 0.15), transparent 19rem),
+      linear-gradient(180deg, #ffffff 0%, #f5fcfc 72%, #fff8ef 100%);
+  }
+
+  .hero-mockup {
+    width: min(40%, 126px);
+  }
+
+  .hero-mockup-caregiver {
+    transform: rotate(3deg) translateY(0.85rem);
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    max-width: 10.6ch;
+    font-size: clamp(2.28rem, 11vw, 3.15rem);
+    overflow-wrap: break-word;
+    text-wrap: normal;
+  }
+
+  .lead {
+    font-size: 1.04rem;
+  }
+
+  .actions .button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    padding-inline: 1rem;
+    font-size: 0.94rem;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-proof {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .proof-pill {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-mockup-stage {
+    max-width: 100%;
+    gap: 0.35rem;
+    overflow: visible;
+  }
+
+  .hero-mockup {
+    width: min(39%, 118px);
+  }
+}
