@@ -342,6 +342,27 @@ h3 {
   min-height: 520px;
 }
 
+.hero-mockup-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(0.8rem, 2vw, 1.25rem);
+}
+
+.hero-mockup {
+  width: min(46%, 250px);
+  height: auto;
+  filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.24));
+}
+
+.hero-mockup-provider {
+  transform: rotate(-4deg) translateY(0.6rem);
+}
+
+.hero-mockup-caregiver {
+  transform: rotate(4deg) translateY(2.2rem);
+}
+
 .phone {
   position: absolute;
   width: min(32vw, 232px);
@@ -823,6 +844,17 @@ h3 {
     gap: 0.55rem;
     min-height: auto;
     margin-top: 1.3rem;
+  }
+
+  .hero-mockup-stage {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+    padding-top: 0.5rem;
+  }
+
+  .hero-mockup {
+    width: min(44%, 158px);
   }
 
   .phone {
