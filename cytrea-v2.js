@@ -1,3 +1,93 @@
+const CYTREA_V2_CONFIG = {
+  stores: {
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.cytrea.mobile",
+    appleAppStoreUrl: ""
+  },
+  demos: {
+    caregiver: {
+      videoUrl: "",
+      posterImage: "images/mockups/caregiver-dashboard-mockup.png",
+      posterAlt: "Cytrea caregiver dashboard phone mockup",
+      roleLabel: "Caregiver Demo",
+      title: "Caregiver App Walkthrough",
+      description: "A guided walkthrough of profile setup, job discovery, applications, and provider messaging."
+    },
+    provider: {
+      videoUrl: "",
+      posterImage: "images/mockups/provider-dashboard-mockup.png",
+      posterAlt: "Cytrea provider dashboard phone mockup",
+      roleLabel: "Provider Demo",
+      title: "Provider App Walkthrough",
+      description: "A guided walkthrough of job posting, applicant review, messaging, and the hiring workflow."
+    }
+  },
+  endpoints: {
+    earlyAccess: "https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec",
+    vendorApplication: "https://script.google.com/macros/s/AKfycbzWxhbI9gJkns-ZJytlmEXMA5vlcmTUzFgEraQWoK3e556-Lt3XeNzkT5BqUE4PDdgI/exec"
+  }
+};
+
+window.CYTREA_V2_CONFIG = CYTREA_V2_CONFIG;
+
+const renderStoreBadge = ({ type, href }) => {
+  const isGoogle = type === "google";
+  const label = isGoogle ? "Get it on Google Play" : "Coming Soon on the App Store";
+  const eyebrow = isGoogle ? "GET IT ON" : "COMING SOON ON THE";
+  const brand = isGoogle ? "Google Play" : "App Store";
+  const icon = isGoogle ? "GP" : "A";
+  const tag = href ? "a" : "span";
+  const attributes = href
+    ? `href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}"`
+    : `role="text" aria-label="${label}" aria-disabled="true"`;
+
+  return `
+    <${tag} class="store-badge store-badge--${type}${href ? "" : " is-disabled"}" ${attributes}>
+      <span class="store-badge-icon" aria-hidden="true">${icon}</span>
+      <span><span>${eyebrow}</span><strong>${brand}</strong></span>
+    </${tag}>`;
+};
+
+document.querySelectorAll("[data-cytrea-download]").forEach((container) => {
+  const { stores } = CYTREA_V2_CONFIG;
+  container.innerHTML = `
+    <div class="store-badge-row">
+      ${renderStoreBadge({ type: "google", href: stores.googlePlayUrl })}
+      ${renderStoreBadge({ type: "apple", href: stores.appleAppStoreUrl })}
+    </div>
+    <p class="store-availability">Availability may vary during the early-access rollout.</p>
+  `;
+});
+
+document.querySelectorAll("[data-cytrea-demo]").forEach((container) => {
+  const role = container.dataset.cytreaDemo;
+  const demo = CYTREA_V2_CONFIG.demos[role];
+
+  if (!demo) return;
+
+  const media = demo.videoUrl
+    ? `<video class="demo-video" controls preload="metadata" poster="${demo.posterImage}">
+        <source src="${demo.videoUrl}" />
+      </video>`
+    : `<div class="demo-placeholder-card" role="img" aria-label="${demo.roleLabel}: interactive walkthrough coming soon">
+        <div class="demo-device-frame">
+          <img loading="lazy" src="${demo.posterImage}" alt="${demo.posterAlt}" />
+        </div>
+        <div class="demo-play-badge" aria-hidden="true"><span></span></div>
+        <div class="demo-coming-soon">Interactive walkthrough coming soon.</div>
+      </div>`;
+
+  container.innerHTML = `
+    <div class="demo-showcase-grid">
+      <div class="demo-copy">
+        <span class="badge">${demo.roleLabel}</span>
+        <h3>${demo.title}</h3>
+        <p>${demo.description}</p>
+      </div>
+      ${media}
+    </div>
+  `;
+});
+
 const siteHeader = document.querySelector(".site-header");
 const headerInner = document.querySelector(".header-inner");
 const desktopNav = document.querySelector(".site-nav");
@@ -40,8 +130,15 @@ if (siteHeader && headerInner && desktopNav) {
 
 const waitlistForm = document.querySelector("#waitlist-form");
 const waitlistMessage = document.querySelector("#form-message");
+const vendorApplicationForm = document.querySelector("#vendor-intake-form");
+
+if (vendorApplicationForm) {
+  vendorApplicationForm.action = CYTREA_V2_CONFIG.endpoints.vendorApplication;
+}
 
 if (waitlistForm && waitlistMessage) {
+  waitlistForm.action = CYTREA_V2_CONFIG.endpoints.earlyAccess;
+
   const submitButton = waitlistForm.querySelector("button[type='submit']");
   const roleSelect = waitlistForm.querySelector('select[name="role"]');
   const defaultText = submitButton ? submitButton.textContent.trim() : "Join Early Access";

@@ -95,6 +95,17 @@
       </div>
     </section>
 
+    <section class="section download-section" aria-labelledby="download-cytrea-home">
+      <div class="shell download-panel">
+        <div>
+          <p class="eyebrow">Mobile app</p>
+          <h2 id="download-cytrea-home">Download Cytrea</h2>
+          <p class="lead">Connect with caregivers, providers, and trusted services from the Cytrea mobile app.</p>
+        </div>
+        <div data-cytrea-download></div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="shell">
         <div class="section-head">
@@ -151,6 +162,19 @@
     </section>
 
     <section class="section dark-band">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Caregiver demo</p>
+            <h2>See the caregiver experience</h2>
+          </div>
+          <p class="lead">Create your profile, add credentials, find AFH opportunities, apply, and track responses in one focused workflow.</p>
+        </div>
+        <div data-cytrea-demo="caregiver"></div>
+      </div>
+    </section>
+
+    <section class="section dark-band">
       <div class="shell split-grid">
         <div class="device-pair" aria-label="Provider app screenshots">
           <div class="visual-card"><img loading="lazy" src="images/current-app/provider/provider-jobs.png" alt="Cytrea provider jobs screenshot" width="1290" height="2796" /></div>
@@ -162,6 +186,19 @@
           <p class="lead">Post jobs, review applications, continue credential review through the hiring/unlock flow, and message applicants directly. Providers remain responsible for verification, background checks, and hiring compliance.</p>
           <div class="actions"><a class="button" href="/providers">See Provider Workflow</a></div>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Provider demo</p>
+            <h2>See the provider experience</h2>
+          </div>
+          <p class="lead">Post roles, review applicants, message caregivers, and manage hiring from one streamlined dashboard.</p>
+        </div>
+        <div data-cytrea-demo="provider"></div>
       </div>
     </section>
 
@@ -242,14 +279,11 @@
         <div>
           <p class="eyebrow">Join early access</p>
           <h2>Build the next Cytrea launch wave.</h2>
-          <p class="lead">The current intake behavior remains connected while this v2 preview is reviewed. App Store and Google Play buttons stay pending until store approval.</p>
-          <div class="actions">
-            <a class="button secondary" href="#" aria-disabled="true">App Store pending</a>
-            <a class="button secondary" href="#" aria-disabled="true">Google Play pending</a>
-          </div>
+          <p class="lead">The current intake behavior remains connected while this v2 preview is reviewed. Download links are managed from the shared Cytrea v2 configuration.</p>
+          <div data-cytrea-download></div>
         </div>
         <div class="form-card">
-          <form id="waitlist-form" action="https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec" method="POST" target="waitlist-hidden-frame" class="waitlist-form">
+          <form id="waitlist-form" action="" data-endpoint-key="earlyAccess" method="POST" target="waitlist-hidden-frame" class="waitlist-form">
             <label class="form-span">I am joining as
               <select name="role" required>
                 <option value="" disabled selected>Select your role</option>
