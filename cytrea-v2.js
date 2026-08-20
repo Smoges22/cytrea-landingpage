@@ -128,6 +128,74 @@ if (siteHeader && headerInner && desktopNav) {
   });
 }
 
+document.querySelectorAll("[data-tab-group]").forEach((group) => {
+  const tabs = Array.from(group.querySelectorAll(":scope > [role='tablist'] [role='tab'], :scope > .segmented-tabs [role='tab'], :scope > .scroll-tabs [role='tab']"));
+  const panels = tabs
+    .map((tab) => document.getElementById(tab.dataset.tabTarget))
+    .filter(Boolean);
+
+  if (!tabs.length || !panels.length) return;
+
+  const activateTab = (tab, shouldFocus = false) => {
+    tabs.forEach((item) => {
+      const isActive = item === tab;
+      item.setAttribute("aria-selected", String(isActive));
+      item.tabIndex = isActive ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.id === tab.dataset.tabTarget;
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+    });
+
+    if (shouldFocus) tab.focus();
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.tabIndex = tab.getAttribute("aria-selected") === "true" ? 0 : -1;
+
+    tab.addEventListener("click", () => activateTab(tab));
+    tab.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(tab);
+      const keyMap = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+
+      if (event.key in keyMap) {
+        event.preventDefault();
+        const nextIndex = (currentIndex + keyMap[event.key] + tabs.length) % tabs.length;
+        activateTab(tabs[nextIndex], true);
+      }
+
+      if (event.key === "Home") {
+        event.preventDefault();
+        activateTab(tabs[0], true);
+      }
+
+      if (event.key === "End") {
+        event.preventDefault();
+        activateTab(tabs[tabs.length - 1], true);
+      }
+    });
+
+    if (index === 0 && !tabs.some((item) => item.getAttribute("aria-selected") === "true")) {
+      activateTab(tab);
+    }
+  });
+});
+
+document.querySelectorAll("[data-accordion]").forEach((accordion) => {
+  accordion.querySelectorAll("button[aria-controls]").forEach((button) => {
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+      panel.hidden = isOpen;
+    });
+  });
+});
+
 const waitlistForm = document.querySelector("#waitlist-form");
 const waitlistMessage = document.querySelector("#form-message");
 const vendorApplicationForm = document.querySelector("#vendor-intake-form");

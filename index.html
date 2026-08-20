@@ -57,31 +57,35 @@
         <a href="/caregivers">Caregivers</a>
         <a href="/vendor-partners">Vendor Partners</a>
         <a href="/resources">Resources</a>
-        <a class="nav-cta" href="#early-access">Join Early Access</a>
+        <a class="nav-cta" href="#download">Download App</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div>
-          <p class="eyebrow">Built for Adult Family Homes</p>
+    <section class="hero home-hero">
+      <div class="shell home-hero-grid">
+        <div class="home-hero-copy">
+          <p class="eyebrow">Washington Adult Family Home hiring</p>
           <h1>Hire trusted caregivers faster.</h1>
-          <p class="lead">Cytrea helps Adult Family Home providers connect directly with caregivers and helps caregivers find better opportunities through a focused, credential-aware hiring workflow.</p>
+          <p class="lead">Cytrea helps AFH providers connect with caregivers through direct applications, clear profiles, and mobile-first hiring tools.</p>
           <div class="actions">
-            <a class="button" href="#early-access">Hire Caregivers / Join Early Access</a>
+            <a class="button" href="#early-access">Hire Caregivers</a>
             <a class="button secondary" href="/caregivers">Join as a Caregiver</a>
           </div>
           <div class="hero-proof" aria-label="Cytrea launch signals">
-            <span class="proof-pill">AFH-focused workflow</span>
-            <span class="proof-pill">Free for caregivers during launch</span>
-            <span class="proof-pill">Direct provider connection</span>
+            <span class="proof-pill"><strong>700+</strong> caregivers in the Cytrea community</span>
+            <span class="proof-pill">Built for AFH providers</span>
+            <span class="proof-pill">Google Play live</span>
           </div>
         </div>
-        <div class="phone-stage hero-mockup-stage" aria-label="Cytrea app screenshots">
-          <img class="hero-mockup hero-mockup-provider" src="images/mockups/provider-dashboard-mockup.png" alt="Cytrea provider dashboard phone mockup" width="1520" height="3012">
-          <img class="hero-mockup hero-mockup-caregiver" src="images/mockups/caregiver-dashboard-mockup.png" alt="Cytrea caregiver dashboard phone mockup" width="1520" height="3012">
+        <div class="hero-device-composition" aria-label="Cytrea provider and caregiver app screenshots">
+          <figure class="device-frame device-frame--primary">
+            <img src="images/mockups/provider-dashboard-mockup.png" alt="Cytrea provider dashboard phone mockup" width="1520" height="3012">
+          </figure>
+          <figure class="device-frame device-frame--secondary">
+            <img src="images/mockups/caregiver-dashboard-mockup.png" alt="Cytrea caregiver dashboard phone mockup" width="1520" height="3012">
+          </figure>
         </div>
       </div>
     </section>
@@ -90,199 +94,267 @@
       <div class="shell trust-grid">
         <div class="trust-item">Built for Adult Family Homes</div>
         <div class="trust-item">Caregiver-first marketplace</div>
-        <div class="trust-item">Credential-focused hiring</div>
+        <div class="trust-item">Credential-focused profiles</div>
         <div class="trust-item">Direct provider-to-caregiver connection</div>
       </div>
     </section>
 
-    <section class="section download-section" aria-labelledby="download-cytrea-home">
-      <div class="shell download-panel">
-        <div>
-          <p class="eyebrow">Mobile app</p>
-          <h2 id="download-cytrea-home">Download Cytrea</h2>
-          <p class="lead">Connect with caregivers, providers, and trusted services from the Cytrea mobile app.</p>
-        </div>
-        <div data-cytrea-download></div>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section audience-section" aria-labelledby="audience-title">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head compact-head">
           <div>
-            <p class="eyebrow">Launch traction</p>
-            <h2>Designed around the hiring problems AFHs already feel.</h2>
+            <p class="eyebrow">Two-sided marketplace</p>
+            <h2 id="audience-title">Built for both sides of AFH hiring.</h2>
           </div>
-          <p class="lead">Cytrea keeps the hiring path simple: real profiles, direct applications, clear next steps, and fewer scattered conversations.</p>
+          <p class="lead">Choose the view that matches your role. Cytrea keeps each workflow focused.</p>
         </div>
-        <div class="stat-grid">
-          <article class="stat-card"><strong>700+</strong><p>Caregivers already waiting for launch from the early-access community.</p></article>
-          <article class="stat-card"><strong>0</strong><p>Agency positioning. Cytrea supports direct provider-to-caregiver connection.</p></article>
-          <article class="stat-card"><strong>1</strong><p>Focused workflow for jobs, applications, credentials, and messaging.</p></article>
+        <div class="tab-shell audience-switcher" data-tab-group>
+          <div class="segmented-tabs" role="tablist" aria-label="Audience views">
+            <button id="audience-provider-tab" type="button" role="tab" aria-selected="true" aria-controls="audience-provider" data-tab-target="audience-provider">Providers</button>
+            <button id="audience-caregiver-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-caregiver" data-tab-target="audience-caregiver">Caregivers</button>
+          </div>
+          <article id="audience-provider" class="tab-panel audience-panel is-active" role="tabpanel" aria-labelledby="audience-provider-tab">
+            <div>
+              <h3>Move from open role to qualified conversation.</h3>
+              <ul class="benefit-list">
+                <li>Post opportunities</li>
+                <li>Review applicants</li>
+                <li>View caregiver profiles</li>
+                <li>Message caregivers directly</li>
+              </ul>
+              <a class="button light" href="/providers">Explore Provider Features</a>
+            </div>
+            <figure class="device-frame panel-device">
+              <img loading="lazy" src="images/mockups/provider-dashboard-mockup.png" alt="Cytrea provider dashboard mockup" width="1520" height="3012">
+            </figure>
+          </article>
+          <article id="audience-caregiver" class="tab-panel audience-panel" role="tabpanel" aria-labelledby="audience-caregiver-tab" hidden>
+            <div>
+              <h3>Build a profile and pursue better-fit AFH jobs.</h3>
+              <ul class="benefit-list">
+                <li>Build your profile</li>
+                <li>Add credentials and availability</li>
+                <li>Discover AFH opportunities</li>
+                <li>Apply and connect directly</li>
+              </ul>
+              <a class="button light" href="/caregivers">Explore Caregiver Features</a>
+            </div>
+            <figure class="device-frame panel-device">
+              <img loading="lazy" src="images/mockups/caregiver-dashboard-mockup.png" alt="Cytrea caregiver dashboard mockup" width="1520" height="3012">
+            </figure>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section dark-band">
+    <section class="section process-section" aria-labelledby="process-title">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head compact-head">
           <div>
             <p class="eyebrow">How Cytrea works</p>
-            <h2>From profile to conversation, without the clutter.</h2>
+            <h2 id="process-title">Hiring shouldn’t be complicated.</h2>
           </div>
-          <p class="lead">Each side gets the workflow it needs, with enough structure to move quickly and enough clarity to stay responsible.</p>
         </div>
-        <div class="grid-4">
-          <article class="card"><h3>Caregivers create a profile</h3><p>Caregivers add experience, availability, preferences, and credential details.</p></article>
-          <article class="card"><h3>Providers post jobs</h3><p>AFH providers describe the role, schedule, location, and hiring needs.</p></article>
-          <article class="card"><h3>Caregivers apply</h3><p>Caregivers discover opportunities and apply directly to providers.</p></article>
-          <article class="card"><h3>Providers review and connect</h3><p>Providers review applicants, continue credential review, and message caregivers.</p></article>
+        <div class="process-flow">
+          <article><span>01</span><h3>Post</h3><p>Provider creates an opportunity.</p></article>
+          <article><span>02</span><h3>Match</h3><p>Caregivers discover relevant AFH jobs.</p></article>
+          <article><span>03</span><h3>Connect</h3><p>Providers review applicants and communicate directly.</p></article>
+          <article><span>04</span><h3>Hire</h3><p>Providers complete their own hiring process.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell split-grid">
-        <div class="device-pair" aria-label="Provider app screenshots">
-          <div class="visual-card"><img loading="lazy" src="images/current-app/provider/provider-jobs.png" alt="Cytrea provider jobs screenshot" width="1290" height="2796" /></div>
-          <div class="visual-card"><img loading="lazy" src="images/current-app/provider/provider-review-applicants.png" alt="Cytrea provider applicant review screenshot" width="1290" height="2796" /></div>
+    <section class="section showcase-section" aria-labelledby="showcase-title">
+      <div class="shell">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">Product tour</p>
+            <h2 id="showcase-title">See Cytrea in action.</h2>
+          </div>
+          <p class="lead">One focused screen at a time, using real Cytrea app screenshots.</p>
         </div>
+        <div class="product-showcase" data-tab-group>
+          <div class="segmented-tabs" role="tablist" aria-label="Product role views">
+            <button id="product-provider-tab" type="button" role="tab" aria-selected="true" aria-controls="product-provider" data-tab-target="product-provider">Provider</button>
+            <button id="product-caregiver-tab" type="button" role="tab" aria-selected="false" aria-controls="product-caregiver" data-tab-target="product-caregiver">Caregiver</button>
+          </div>
+          <div id="product-provider" class="tab-panel product-panel is-active" role="tabpanel" aria-labelledby="product-provider-tab">
+            <div class="screen-tabs" data-tab-group>
+              <div class="scroll-tabs" role="tablist" aria-label="Provider product screens">
+                <button id="provider-screen-dashboard-tab" type="button" role="tab" aria-selected="true" aria-controls="provider-screen-dashboard" data-tab-target="provider-screen-dashboard">Dashboard</button>
+                <button id="provider-screen-jobs-tab" type="button" role="tab" aria-selected="false" aria-controls="provider-screen-jobs" data-tab-target="provider-screen-jobs">Jobs</button>
+                <button id="provider-screen-applicants-tab" type="button" role="tab" aria-selected="false" aria-controls="provider-screen-applicants" data-tab-target="provider-screen-applicants">Applicants</button>
+                <button id="provider-screen-messages-tab" type="button" role="tab" aria-selected="false" aria-controls="provider-screen-messages" data-tab-target="provider-screen-messages">Messages</button>
+                <button id="provider-screen-profile-tab" type="button" role="tab" aria-selected="false" aria-controls="provider-screen-profile" data-tab-target="provider-screen-profile">Profile</button>
+              </div>
+              <article id="provider-screen-dashboard" class="tab-panel screen-panel is-active" role="tabpanel" aria-labelledby="provider-screen-dashboard-tab">
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/provider/provider-dashboard.png" alt="Provider dashboard in the Cytrea app" width="1290" height="2796"><figcaption>Provider dashboard</figcaption></figure>
+              </article>
+              <article id="provider-screen-jobs" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="provider-screen-jobs-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/provider/provider-jobs.png" alt="Provider jobs screen in the Cytrea app" width="1290" height="2796"><figcaption>Posted jobs</figcaption></figure>
+              </article>
+              <article id="provider-screen-applicants" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="provider-screen-applicants-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/provider/provider-review-applicants.png" alt="Provider applicant list in the Cytrea app" width="1290" height="2796"><figcaption>Applicant review</figcaption></figure>
+              </article>
+              <article id="provider-screen-messages" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="provider-screen-messages-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/live-messaging.png" alt="Messaging screen in the Cytrea app" width="1290" height="2796"><figcaption>Messaging</figcaption></figure>
+              </article>
+              <article id="provider-screen-profile" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="provider-screen-profile-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/provider/provider-applicant-review.png" alt="Provider applicant profile review in the Cytrea app" width="1290" height="2796"><figcaption>Caregiver profile review</figcaption></figure>
+              </article>
+            </div>
+          </div>
+          <div id="product-caregiver" class="tab-panel product-panel" role="tabpanel" aria-labelledby="product-caregiver-tab" hidden>
+            <div class="screen-tabs" data-tab-group>
+              <div class="scroll-tabs" role="tablist" aria-label="Caregiver product screens">
+                <button id="caregiver-screen-home-tab" type="button" role="tab" aria-selected="true" aria-controls="caregiver-screen-home" data-tab-target="caregiver-screen-home">Home</button>
+                <button id="caregiver-screen-jobs-tab" type="button" role="tab" aria-selected="false" aria-controls="caregiver-screen-jobs" data-tab-target="caregiver-screen-jobs">Find Jobs</button>
+                <button id="caregiver-screen-applications-tab" type="button" role="tab" aria-selected="false" aria-controls="caregiver-screen-applications" data-tab-target="caregiver-screen-applications">Applications</button>
+                <button id="caregiver-screen-messages-tab" type="button" role="tab" aria-selected="false" aria-controls="caregiver-screen-messages" data-tab-target="caregiver-screen-messages">Messages</button>
+                <button id="caregiver-screen-profile-tab" type="button" role="tab" aria-selected="false" aria-controls="caregiver-screen-profile" data-tab-target="caregiver-screen-profile">Profile</button>
+              </div>
+              <article id="caregiver-screen-home" class="tab-panel screen-panel is-active" role="tabpanel" aria-labelledby="caregiver-screen-home-tab">
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/caregiver-dashboard.png" alt="Caregiver home screen in the Cytrea app" width="1290" height="2796"><figcaption>Caregiver home</figcaption></figure>
+              </article>
+              <article id="caregiver-screen-jobs" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="caregiver-screen-jobs-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/caregiver-job-search.png" alt="Caregiver job search in the Cytrea app" width="1290" height="2796"><figcaption>Find jobs</figcaption></figure>
+              </article>
+              <article id="caregiver-screen-applications" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="caregiver-screen-applications-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/caregiver-application-status.png" alt="Caregiver application status in the Cytrea app" width="1290" height="2796"><figcaption>Applications</figcaption></figure>
+              </article>
+              <article id="caregiver-screen-messages" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="caregiver-screen-messages-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/live-messaging.png" alt="Caregiver messaging in the Cytrea app" width="1290" height="2796"><figcaption>Messaging</figcaption></figure>
+              </article>
+              <article id="caregiver-screen-profile" class="tab-panel screen-panel" role="tabpanel" aria-labelledby="caregiver-screen-profile-tab" hidden>
+                <figure class="device-frame showcase-device"><img loading="lazy" src="images/current-app/caregiver/caregiver-profile.png" alt="Caregiver profile in the Cytrea app" width="1290" height="2796"><figcaption>Profile</figcaption></figure>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo-preview-section" aria-labelledby="demo-title">
+      <div class="shell">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">Walkthroughs</p>
+            <h2 id="demo-title">Product demos, ready when recordings are.</h2>
+          </div>
+        </div>
+        <div class="demo-preview-grid">
+          <div>
+            <h3>Provider Walkthrough</h3>
+            <p>See how providers post opportunities, review applicants, message caregivers, and manage hiring.</p>
+            <div data-cytrea-demo="provider"></div>
+          </div>
+          <div>
+            <h3>Caregiver Walkthrough</h3>
+            <p>See how caregivers create profiles, find jobs, apply, track applications, and communicate with providers.</p>
+            <div data-cytrea-demo="caregiver"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section human-care-section" aria-labelledby="human-care-title">
+      <div class="shell human-care-grid">
         <div>
-          <p class="eyebrow">For providers</p>
-          <h2>Review applicants and keep hiring moving.</h2>
-          <p class="lead">Post roles, compare applicants, message caregivers, and keep next steps organized. Providers remain responsible for verification, background checks, and hiring compliance.</p>
-          <div class="actions"><a class="button" href="/providers">See Provider Workflow</a></div>
+          <p class="eyebrow">Human-centered technology</p>
+          <h2 id="human-care-title">Technology that supports real care.</h2>
+          <p class="lead">Cytrea helps reduce hiring friction so Adult Family Home teams can spend more time focused on residents and care.</p>
+          <p class="small-note">Cytrea supports hiring workflows. It does not provide clinical care or replace provider hiring requirements.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section dark-band">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Provider demo</p>
-            <h2>See the provider experience</h2>
+        <div class="care-visual-card" aria-label="Cytrea supports care teams with clearer hiring tools">
+          <figure class="device-frame care-device"><img loading="lazy" src="images/current-app/provider/provider-dashboard.png" alt="Cytrea provider dashboard used to organize hiring" width="1290" height="2796"></figure>
+          <div class="care-message-card">
+            <strong>Less scattered hiring</strong>
+            <span>More time for the work that happens inside the home.</span>
           </div>
-          <p class="lead">Post roles, review applicants, message caregivers, and manage hiring from one streamlined dashboard.</p>
-        </div>
-        <div data-cytrea-demo="provider"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell split-grid">
-        <div>
-          <p class="eyebrow">For caregivers</p>
-          <h2>Find AFH jobs and keep control of your opportunities.</h2>
-          <p class="lead">Build a free launch profile, show relevant experience, apply directly, and track each opportunity without a generic job-board maze.</p>
-          <ul class="content-list">
-            <li>Showcase experience, availability, and credential details</li>
-            <li>Find Adult Family Home jobs in one focused place</li>
-            <li>Apply directly and message providers when the workflow opens</li>
-          </ul>
-          <div class="actions"><a class="button light" href="/caregivers">See Caregiver Journey</a></div>
-        </div>
-        <div class="device-pair" aria-label="Caregiver app screenshots">
-          <div class="visual-card"><img loading="lazy" src="images/current-app/caregiver/caregiver-profile.png" alt="Cytrea caregiver profile screenshot" width="1290" height="2796" /></div>
-          <div class="visual-card"><img loading="lazy" src="images/current-app/caregiver/caregiver-applications.png" alt="Cytrea caregiver applications screenshot" width="1290" height="2796" /></div>
         </div>
       </div>
     </section>
 
-    <section class="section dark-band">
+    <section class="section vendor-preview-section" aria-labelledby="vendor-preview-title">
       <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Caregiver demo</p>
-            <h2>See the caregiver experience</h2>
-          </div>
-          <p class="lead">Create your profile, add credentials, find AFH opportunities, apply, and track responses in one focused workflow.</p>
-        </div>
-        <div data-cytrea-demo="caregiver"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Product preview</p>
-            <h2>Real Cytrea screens, consistent product story.</h2>
-          </div>
-          <p class="lead">Only current Cytrea screenshots from the repository are used for the preview.</p>
-        </div>
-        <div class="screenshot-grid">
-          <article class="screenshot-card"><img loading="lazy" src="images/current-app/caregiver/caregiver-dashboard.png" alt="Caregiver dashboard screenshot" width="1290" height="2796" /><span>Caregiver dashboard</span></article>
-          <article class="screenshot-card"><img loading="lazy" src="images/current-app/caregiver/caregiver-application-status.png" alt="Caregiver application status screenshot" width="1290" height="2796" /><span>Application status</span></article>
-          <article class="screenshot-card"><img loading="lazy" src="images/current-app/provider/provider-applicant-review.png" alt="Provider applicant detail screenshot" width="1290" height="2796" /><span>Applicant review</span></article>
-          <article class="screenshot-card"><img loading="lazy" src="images/current-app/caregiver/live-messaging.png" alt="Cytrea messaging screenshot" width="1290" height="2796" /><span>Messaging</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-band">
-      <div class="shell">
-        <div class="section-head">
+        <div class="section-head compact-head">
           <div>
             <p class="eyebrow">Vendor ecosystem</p>
-            <h2>Trusted services around the AFH workflow.</h2>
+            <h2 id="vendor-preview-title">More than hiring.</h2>
           </div>
-          <p class="lead">Approved Vendor Partners can help providers and caregivers discover relevant operational, clinical, training, and facility services during launch.</p>
+          <p class="lead">Discover trusted services built around the Adult Family Home community.</p>
         </div>
-        <div class="grid-3">
-          <article class="card"><h3>Founding program</h3><p>Founding Vendor Partner Program during launch phase. No public pricing shown unless approved by Sam.</p></article>
-          <article class="card"><h3>Searchable directory</h3><p>Real vendor listings, category filters, and smart search aliases support useful discovery.</p></article>
-          <article class="card"><h3>Simple intake</h3><p>Vendors can apply through the existing Cytrea vendor intake form.</p></article>
+        <div class="vendor-preview-row" aria-label="Featured vendor categories">
+          <article><img loading="lazy" src="images/vendors/visiting-foot-care-nurse.svg" alt="The Visiting Foot Care Nurse logo"><h3>Nurse Delegation</h3><p>Clinical and healthcare support.</p></article>
+          <article><img loading="lazy" src="images/vendors/wingwi-medical-transportation.svg" alt="Wingwi Medical Transportation LLC logo"><h3>Transportation</h3><p>Resident appointment support.</p></article>
+          <article><img loading="lazy" src="images/vendors/sparkson-electrical.svg" alt="Sparkson Electrical logo"><h3>Electrical</h3><p>Facility service needs.</p></article>
+          <article><img loading="lazy" src="images/vendors/golden-year-activities.svg" alt="Golden Year Activities logo"><h3>Resident Activities</h3><p>Engagement and enrichment.</p></article>
         </div>
-        <div class="actions"><a class="button" href="/vendor-partners">Become a Vendor Partner</a></div>
+        <div class="actions"><a class="button light" href="/vendor-partners">Explore Vendor Partners</a></div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Pricing preview</p>
-            <h2>Clear launch messaging, no unapproved public rates.</h2>
-          </div>
-          <p class="lead">Caregiver access is free during launch. Provider and vendor pricing details stay private until approved.</p>
-        </div>
-        <div class="grid-3">
-          <article class="pricing-card"><span class="badge">Caregivers</span><p class="price">Free</p><p>Create a profile, discover AFH jobs, and apply directly during launch.</p></article>
-          <article class="pricing-card"><span class="badge">Providers</span><p class="price">Early Access</p><p>No unapproved subscription or hiring-fee amount is published on the site.</p></article>
-          <article class="pricing-card"><span class="badge">Vendor Partners</span><p class="price">Founding Program</p><p>Founding Vendor Partner Program during launch phase. No public pricing shown unless approved by Sam.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-band">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">FAQ</p>
-            <h2>Important answers before launch.</h2>
-          </div>
-        </div>
-        <div class="grid-2">
-          <article class="faq-item"><h3>Is Cytrea an agency?</h3><p>No. Cytrea is a marketplace and workflow tool that helps providers and caregivers connect directly.</p></article>
-          <article class="faq-item"><h3>Is Cytrea free for caregivers?</h3><p>Yes. Caregiver access is free during launch.</p></article>
-          <article class="faq-item"><h3>Who can use Cytrea?</h3><p>Caregivers, Adult Family Home providers, and approved vendor partners.</p></article>
-          <article class="faq-item"><h3>Does Cytrea do background checks?</h3><p>No. Providers are responsible for their own hiring requirements, background checks, credential verification, and compliance.</p></article>
-          <article class="faq-item"><h3>When will the app be available?</h3><p>App Store and Google Play links will be added once approved and live.</p></article>
-          <article class="faq-item"><h3>Will v2 replace cytrea.com now?</h3><p>No. The current production site stays live until Sam approves a preview switch.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section final-cta" id="early-access">
-      <div class="shell split-grid">
+    <section class="section download-section" id="download" aria-labelledby="download-cytrea-home">
+      <div class="shell download-panel download-panel--visual">
         <div>
-          <p class="eyebrow">Join early access</p>
-          <h2>Build the next Cytrea launch wave.</h2>
-          <p class="lead">The current intake behavior remains connected while this v2 preview is reviewed. Download links are managed from the shared Cytrea v2 configuration.</p>
+          <p class="eyebrow">Mobile app</p>
+          <h2 id="download-cytrea-home">Take Cytrea with you.</h2>
+          <p class="lead">Google Play is available now. Apple remains Coming Soon until the verified App Store URL is approved.</p>
           <div data-cytrea-download></div>
         </div>
-        <div class="form-card">
+        <div class="download-devices" aria-label="Cytrea mobile app screenshots">
+          <figure class="device-frame"><img loading="lazy" src="images/mockups/provider-dashboard-mockup.png" alt="Cytrea provider app mockup" width="1520" height="3012"></figure>
+          <figure class="device-frame"><img loading="lazy" src="images/mockups/caregiver-dashboard-mockup.png" alt="Cytrea caregiver app mockup" width="1520" height="3012"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-accordion-section" aria-labelledby="faq-title">
+      <div class="shell">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Important answers before launch.</h2>
+          </div>
+        </div>
+        <div class="faq-accordion" data-accordion>
+          <article class="faq-accordion-item">
+            <h3><button type="button" aria-expanded="true" aria-controls="faq-agency">Is Cytrea an agency?</button></h3>
+            <div id="faq-agency"><p>No. Cytrea is a marketplace and hiring workflow that connects Adult Family Home providers directly with caregivers.</p></div>
+          </article>
+          <article class="faq-accordion-item">
+            <h3><button type="button" aria-expanded="false" aria-controls="faq-free">Is Cytrea free for caregivers?</button></h3>
+            <div id="faq-free" hidden><p>Yes, caregiver access is free during launch.</p></div>
+          </article>
+          <article class="faq-accordion-item">
+            <h3><button type="button" aria-expanded="false" aria-controls="faq-users">Who can use Cytrea?</button></h3>
+            <div id="faq-users" hidden><p>Caregivers, Adult Family Home providers, and approved Vendor Partners.</p></div>
+          </article>
+          <article class="faq-accordion-item">
+            <h3><button type="button" aria-expanded="false" aria-controls="faq-checks">Does Cytrea perform background checks?</button></h3>
+            <div id="faq-checks" hidden><p>No. Providers remain responsible for their own hiring, screening, verification, background-check, and employment requirements.</p></div>
+          </article>
+          <article class="faq-accordion-item">
+            <h3><button type="button" aria-expanded="false" aria-controls="faq-available">When is the app available?</button></h3>
+            <div id="faq-available" hidden><p>Google Play is available. Apple remains Coming Soon until an approved App Store URL exists.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta home-final-cta" id="early-access">
+      <div class="shell final-cta-card">
+        <div>
+          <p class="eyebrow">Join early access</p>
+          <h2>Ready to find your next connection?</h2>
+          <p class="lead">Join the launch list or download the app on Google Play.</p>
+          <div class="actions">
+            <a class="button" href="#early-access-form">Hire Caregivers</a>
+            <a class="button secondary" href="/caregivers">Join as a Caregiver</a>
+          </div>
+          <div data-cytrea-download></div>
+        </div>
+        <div class="form-card" id="early-access-form">
           <form id="waitlist-form" action="" data-endpoint-key="earlyAccess" method="POST" target="waitlist-hidden-frame" class="waitlist-form">
             <label class="form-span">I am joining as
               <select name="role" required>
