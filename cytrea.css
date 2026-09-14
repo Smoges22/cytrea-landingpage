@@ -957,3 +957,56 @@ html.screenshot-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .benchmark-form input, .benchmark-form select, .benchmark-form textarea, #vendor-directory .partner-row, .resource-hub--editorial .resource-link { transition: none; }
 }
+
+/* Page polish: mobile Vendor presentation only.
+   The existing nonsemantic info wrapper is flattened for layout; DOM order,
+   content, contact links, search hooks and form contracts stay unchanged. */
+@media (max-width: 600px) {
+  #vendor-directory .partner-row { row-gap: 0; }
+  #vendor-directory .partner-row > div:not(.partner-actions) { display: contents; }
+  #vendor-directory .partner-row > img { grid-column: 1; grid-row: 1 / 3; }
+  #vendor-directory .partner-row .partner-category {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin: 0 0 6px;
+  }
+  #vendor-directory .partner-row h3 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+  }
+  #vendor-directory .partner-row > div:not(.partner-actions) > p:not(.partner-category) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    max-width: none;
+    margin: 12px 0 0;
+  }
+  #vendor-directory .partner-actions { grid-column: 1 / -1; grid-row: 4; margin-top: 14px; }
+  #vendor-intake .form-intro .support-note {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  #vendor-intake .form-intro .support-note p { margin: 0; }
+}
+
+/* Role-page polish only; the approved Home hero and Product controls are frozen. */
+:is(.provider-page, .caregiver-page) .console-top .switch-track {
+  display: inline-flex;
+  width: fit-content;
+  align-self: flex-start;
+}
+:is(.provider-page, .caregiver-page) .console-top .switch-track button {
+  flex: 0 0 auto;
+  padding-inline: 18px;
+}
+@media (min-width: 901px) {
+  :is(.provider-page, .caregiver-page) .role-opening .page-opening--split > :first-child {
+    align-self: start;
+    padding-top: 64px;
+  }
+}
