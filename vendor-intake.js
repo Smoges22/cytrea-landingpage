@@ -50,6 +50,7 @@
       window.clearTimeout(vendorSubmissionTimer);
       vendorSubmissionFeedback.className = `vendor-submission-feedback vendor-submission-feedback--${state}`;
       vendorSubmissionFeedback.setAttribute("role", state === "error" ? "alert" : "status");
+      intakeForm?.setAttribute("aria-busy", String(state === "pending"));
 
       if (state === "pending") {
         vendorSubmissionFeedback.innerHTML = `
@@ -62,8 +63,8 @@
 
       if (state === "success") {
         vendorSubmissionFeedback.innerHTML = `
-          <p class="feedback-kicker">Application received</p>
-          <h3>Thank you. Your Vendor Partner application has been received.</h3>
+          <p class="feedback-kicker">Application submitted</p>
+          <h3>Thank you for submitting your Vendor Partner application.</h3>
           <p>The Cytrea team will review your information and follow up with next steps.</p>
           <div class="feedback-next-steps">
             <strong>What happens next?</strong>
@@ -81,8 +82,8 @@
 
       vendorSubmissionFeedback.innerHTML = `
         <p class="feedback-kicker">Submission issue</p>
-        <h3>Something went wrong.</h3>
-        <p>Please try again or contact Cytrea directly.</p>
+        <h3>We couldn’t confirm the response.</h3>
+        <p>Your details are still here. Please contact support@cytrea.com before trying again.</p>
       `;
       vendorSubmissionFeedback.focus({ preventScroll: true });
       vendorSubmissionFeedback.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
@@ -174,6 +175,7 @@
 
         setVendorSubmissionFeedback("pending");
         vendorSubmissionTimer = window.setTimeout(() => {
+          vendorSubmissionStarted = false;
           if (vendorSubmitButton) {
             vendorSubmitButton.disabled = false;
             vendorSubmitButton.textContent = "Submit Vendor Application";

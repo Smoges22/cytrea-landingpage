@@ -5,8 +5,8 @@ document.documentElement.classList.add("js");
 const downloadState = window.CYTREA_DOWNLOADS?.resolve();
 const CYTREA_CONFIG = Object.freeze({
   appleAppStoreUrl: downloadState?.apple.url,
-  androidEarlyAccessUrl: window.CYTREA_DOWNLOADS?.config.android.earlyAccessUrl,
-  earlyAccessEndpoint: "https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec",
+  androidPlayStoreUrl: downloadState?.android.url,
+  onboardingEndpoint: "https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec",
   vendorEndpoint: "https://script.google.com/macros/s/AKfycbzWxhbI9gJkns-ZJytlmEXMA5vlcmTUzFgEraQWoK3e556-Lt3XeNzkT5BqUE4PDdgI/exec"
 });
 window.CYTREA_CONFIG = CYTREA_CONFIG;
@@ -26,7 +26,6 @@ if (downloadState) {
       artwork.alt = store.artworkAlt;
       artwork.dataset.artworkKind = store.artworkKind;
     });
-    control.querySelectorAll("[data-store-early-only]").forEach(node => { node.hidden = store.status !== "early-access"; });
     control.querySelectorAll("[data-store-public-only]").forEach(node => { node.hidden = store.status !== "public"; });
   });
   document.querySelectorAll("[data-download-copy]").forEach(node => {
@@ -36,6 +35,11 @@ if (downloadState) {
 }
 
 const masthead = document.querySelector(".masthead");
+if (masthead) {
+  const syncHeader = () => masthead.classList.toggle("is-scrolled", window.scrollY > 12);
+  syncHeader();
+  window.addEventListener("scroll", syncHeader, { passive: true });
+}
 const menu = document.querySelector(".menu-control");
 const nav = document.querySelector(".primary-nav");
 if (masthead && menu && nav) {
@@ -140,7 +144,7 @@ const waitlist = document.getElementById("waitlist-form");
 const waitlistMessage = document.getElementById("form-message");
 const waitlistFrame = document.getElementById("waitlist-hidden-frame");
 if (waitlist && waitlistMessage && waitlistFrame) {
-  waitlist.action = CYTREA_CONFIG.earlyAccessEndpoint;
+  waitlist.action = CYTREA_CONFIG.onboardingEndpoint;
   const submit = waitlist.querySelector("button[type=submit]");
   let pending = false;
   let timer;
@@ -171,12 +175,17 @@ if (vendorForm) vendorForm.action = CYTREA_CONFIG.vendorEndpoint;
 const directorySearch = document.getElementById("vendor-directory-search");
 if (directorySearch) {
   const rows = [...document.querySelectorAll("[data-vendor-search]")];
-  directorySearch.addEventListener("input", () => {
+  const count = document.getElementById("vendor-results-status");
+  const updateResults = () => {
     const query = directorySearch.value.trim().toLowerCase();
     rows.forEach(row => { row.hidden = !row.dataset.vendorSearch.toLowerCase().includes(query); });
     const empty = document.getElementById("vendor-no-results");
-    if (empty) empty.hidden = rows.some(row => !row.hidden);
-  });
+    const visibleCount = rows.filter(row => !row.hidden).length;
+    if (empty) empty.hidden = visibleCount > 0;
+    if (count) count.textContent = `${visibleCount} ${visibleCount === 1 ? "vendor" : "vendors"}${query ? " found" : " in the directory"}`;
+  };
+  directorySearch.addEventListener("input", updateResults);
+  updateResults();
 }
 
 /* The original screenshot links remain the fallback. Only genuine, same-origin

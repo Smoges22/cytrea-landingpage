@@ -44,7 +44,6 @@ function synchronizeHtml(html, state = downloads.resolve()) {
         updated = attribute(updated, "alt", store.artworkAlt);
         return attribute(updated, "data-artwork-kind", store.artworkKind);
       });
-      inner = toggleMarked(inner, "data-store-early-only", store.status === "early-access");
       inner = toggleMarked(inner, "data-store-public-only", store.status === "public");
       return `${tag}${inner}${closing}`;
     });
