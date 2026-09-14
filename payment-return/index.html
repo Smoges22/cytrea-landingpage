@@ -1,72 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cytrea Checkout</title>
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #fff8f0;
-        color: #12263a;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-      }
-      main {
-        width: min(440px, 100%);
-        background: #ffffff;
-        border: 1px solid #ead7bd;
-        border-radius: 18px;
-        padding: 28px;
-        box-shadow: 0 16px 50px rgba(18, 38, 58, 0.12);
-      }
-      .eyebrow {
-        margin: 0 0 8px;
-        color: #d98219;
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      h1 {
-        margin: 0 0 12px;
-        font-size: 30px;
-        line-height: 1.1;
-      }
-      p {
-        margin: 0 0 22px;
-        color: #667085;
-        font-size: 17px;
-        line-height: 1.45;
-      }
-      a {
-        display: inline-flex;
-        width: 100%;
-        min-height: 52px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 14px;
-        background: #0f8f8f;
-        color: #ffffff;
-        font-weight: 800;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p class="eyebrow">Cytrea checkout</p>
-      <h1 id="title">Payment submitted</h1>
-      <p id="message">Return to Cytrea to refresh your billing and contact status.</p>
-      <a id="open-app" href="cytrea://payment-return">Open Cytrea</a>
-    </main>
-    <script>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cytrea Checkout</title>
+<meta name="description" content="Return to the Cytrea app after checkout.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://cytrea.com/payment-return/">
+<link rel="icon" type="image/png" href="/images/branding/Cytrea-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cytrea">
+<meta property="og:title" content="Cytrea Checkout">
+<meta property="og:description" content="Return to the Cytrea app after checkout.">
+<meta property="og:url" content="https://cytrea.com/payment-return/">
+<meta property="og:image" content="https://cytrea.com/images/social/cytrea-og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/cytrea.css">
+<script src="/cytrea.js" defer></script>
+
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="masthead"><div class="page-width masthead-layout">
+<a class="identity" href="/" aria-label="Cytrea home"><img src="/images/branding/cytrea-wordmark-trimmed.png" width="292" height="84" alt="Cytrea"></a>
+<nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="/product">Product</a><a href="/providers">Providers</a><a href="/caregivers">Caregivers</a><a href="/vendor-partners">Vendor Partners</a><a href="/resources">Resources</a><a href="/about">About</a></nav>
+<div class="masthead-actions"><a class="action action--small" href="/#download">Download<span class="wide-only"> Cytrea</span></a><button class="menu-control" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" hidden><span aria-hidden="true">☰</span></button></div>
+</div></header>
+<main id="content">
+<section class="page-opening"><div class="page-width story"><p class="overline">Cytrea checkout</p><h1 id="title">Payment submitted</h1><p class="intro" id="message">Return to Cytrea to refresh your billing and contact status.</p><div class="action-row"><a class="action" id="open-app" href="cytrea://payment-return">Open Cytrea</a></div></div></section>
+</main>
+<footer class="colophon"><div class="page-width footer-layout"><div class="footer-identity"><a class="identity" href="/" aria-label="Cytrea home"><img src="/images/branding/cytrea-wordmark-trimmed.png" width="292" height="84" alt="Cytrea"></a><p>Built around Adult Family Homes.<br>Designed for human connection.</p></div><nav aria-label="Explore"><a href="/product">Product</a><a href="/providers">Providers</a><a href="/caregivers">Caregivers</a><a href="/vendor-partners">Vendor Partners</a><a href="/resources">Resources</a><a href="/about">About</a></nav><nav aria-label="Support and policies"><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/delete-account">Delete Account</a></nav></div><div class="page-width footer-signoff"><span>© 2026 Cytrea</span><span>Washington roots. People first.</span></div></footer>
+<script>
       (function () {
         var query = window.location.search || "";
         var params = new URLSearchParams(query);
@@ -87,5 +51,5 @@
         }, 250);
       })();
     </script>
-  </body>
+</body>
 </html>
