@@ -60,7 +60,7 @@
 <section class="block block--tinted" id="vendor-intake"><div class="page-width form-layout"><div class="form-intro"><p class="overline">Partner application</p><h2>Tell us about your business.</h2><p>Apply to the Founding Vendor Partner Program. We’ll review your information and follow up on fit and next steps.</p><div class="support-note"><p>Questions about becoming a partner?</p><a class="email-link" href="mailto:support@cytrea.com">support@cytrea.com<span aria-hidden="true">→</span></a></div></div><div>
 <form
             id="vendor-intake-form"
-            class="vendor-form"
+            class="vendor-form benchmark-form"
             action="https://script.google.com/macros/s/AKfycbzWxhbI9gJkns-ZJytlmEXMA5vlcmTUzFgEraQWoK3e556-Lt3XeNzkT5BqUE4PDdgI/exec"
 
             method="POST"
@@ -74,8 +74,8 @@
             <input id="vendor-primary-category" type="hidden" name="Primary Category" />
             <input id="vendor-logo-file-name" type="hidden" name="Logo File Name" />
             <input id="vendor-notes-payload" type="hidden" name="Notes" />
-            <p class="form-help form-span" id="vendor-required-help">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
-            <fieldset class="form-section form-span"><legend>Business &amp; contact</legend><div class="field-grid">
+            <p class="form-help form-span form-required-note" id="vendor-required-help">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+            <fieldset class="form-section form-span"><legend><span class="form-legend-number" aria-hidden="true">01</span>Business &amp; contact</legend><div class="field-grid">
             <label>
               <span>Business Name <span class="field-required" aria-hidden="true">*</span></span>
               <input name="Business Name" type="text" autocomplete="organization" required />
@@ -102,7 +102,7 @@
               <input name="Website" type="url" autocomplete="url" placeholder="https://example.com" required />
             </label>
             </div></fieldset>
-            <fieldset class="form-section form-span"><legend>Services &amp; coverage</legend><div class="field-grid">
+            <fieldset class="form-section form-span"><legend><span class="form-legend-number" aria-hidden="true">02</span>Services &amp; coverage</legend><div class="field-grid">
             <label>
               <span>Category <span class="field-required" aria-hidden="true">*</span></span>
               <select id="vendor-category" name="Subcategory" required>
@@ -164,7 +164,8 @@
             </label>
 
             </div></fieldset>
-            <fieldset class="form-section form-span"><legend>Additional details</legend><div class="field-grid">
+            <fieldset class="form-section form-span"><legend><span class="form-legend-number" aria-hidden="true">03</span>Additional details</legend><div class="field-grid">
+            <div class="logo-panel form-span">
             <div class="upload-note form-span" id="vendor-logo-help">
               Only the file name is recorded. Logo upload storage is not active; the Cytrea team will follow up to collect your final logo if needed.
             </div>
@@ -173,6 +174,7 @@
               Company Logo (optional)
               <input id="vendor-logo-input" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf" aria-describedby="vendor-logo-help" />
             </label>
+            </div>
 
             <label class="form-span">
               Notes (optional)
