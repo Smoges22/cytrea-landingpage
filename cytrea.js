@@ -26,11 +26,15 @@ if (downloadState) {
       artwork.alt = store.artworkAlt;
       artwork.dataset.artworkKind = store.artworkKind;
     });
+    control.querySelectorAll("[data-store-early-only]").forEach(node => { node.hidden = store.status !== "early-access"; });
     control.querySelectorAll("[data-store-public-only]").forEach(node => { node.hidden = store.status !== "public"; });
   });
   document.querySelectorAll("[data-download-copy]").forEach(node => {
     const text = downloadState.copy[node.dataset.downloadCopy];
     if (typeof text === "string") node.textContent = text;
+  });
+  document.querySelectorAll('meta[data-download-social="image"]').forEach(node => {
+    node.content = downloadState.socialImage;
   });
 }
 

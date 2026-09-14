@@ -36,7 +36,14 @@ function synchronizeHtml(html, state = downloads.resolve()) {
       let tag = attribute(opening, "href", store.url);
       tag = attribute(tag, "aria-label", `${store.label} (opens in a new tab)`);
       tag = attribute(tag, "data-store-state", store.status);
-      let inner = markedText(contents, "data-store-label", store.label);
+      // Migrate the existing Android footer label once; the wrapper is absent
+      // from layout in public mode, leaving only the official store badge.
+      let inner = contents;
+      if (platform.toLowerCase() === "android" && /\bfooter-store\b/.test(opening) && !/\bfooter-store-copy\b/.test(inner)) {
+        inner = inner.replace(/(<span\b[^>]*\sdata-store-label(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?[^>]*>)[\s\S]*?<\/span>/i,
+          '<span class="footer-store-copy" data-store-early-only><span data-store-label></span><span class="footer-store-detail" data-store-detail></span></span>');
+      }
+      inner = markedText(inner, "data-store-label", store.label);
       inner = markedText(inner, "data-store-detail", store.detail);
       inner = markedText(inner, "data-store-platform", store.platform);
       inner = inner.replace(/<img\b[^>]*\sdata-store-artwork(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?[^>]*>/gi, image => {
@@ -44,6 +51,7 @@ function synchronizeHtml(html, state = downloads.resolve()) {
         updated = attribute(updated, "alt", store.artworkAlt);
         return attribute(updated, "data-artwork-kind", store.artworkKind);
       });
+      inner = toggleMarked(inner, "data-store-early-only", store.status === "early-access");
       inner = toggleMarked(inner, "data-store-public-only", store.status === "public");
       return `${tag}${inner}${closing}`;
     });
@@ -52,6 +60,12 @@ function synchronizeHtml(html, state = downloads.resolve()) {
       if (!Object.hasOwn(state.copy, key)) throw new Error(`Unknown download copy key: ${key}`);
       return `${opening}${escapeHtml(state.copy[key])}${closing}`;
     });
+  result = result.replace(/<meta\b[^>]*\sproperty=(['"])og:image\1[^>]*>/gi, tag =>
+    attribute(attribute(tag, "content", state.socialImage), "data-download-social", "image"));
+  if (!/\bhref=(['"])\/fonts\/inter-latin-variable\.woff2\1/i.test(result)) {
+    result = result.replace(/(<link\b[^>]*\srel=(['"])stylesheet\2[^>]*\shref=(['"])\/cytrea\.css\3[^>]*>)/i,
+      '<link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>\n$1');
+  }
   return result;
 }
 
