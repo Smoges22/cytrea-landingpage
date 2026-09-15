@@ -105,7 +105,8 @@ const setRoleContext = (role, updateAddress = false) => {
 };
 
 document.querySelectorAll("[data-switch-group]").forEach(group => {
-  const tabs = [...group.querySelectorAll("[role=tab]")].filter(tab => tab.closest("[data-switch-group]") === group);
+  // Only own these role switches, not a nested component's independent step tabs.
+  const tabs = [...group.querySelectorAll("[role=tab][data-switch]")].filter(tab => tab.closest("[data-switch-group]") === group);
   const activate = (selected, focus = false) => {
     tabs.forEach(tab => {
       const active = tab === selected;

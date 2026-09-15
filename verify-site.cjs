@@ -13,7 +13,7 @@ const root = staged ? path.join(repo, ".verification", "greenfield") : repo;
 const out = path.join(repo, ".verification", "greenfield-qa");
 fs.mkdirSync(out, { recursive: true });
 const mime = {".html":"text/html", ".css":"text/css", ".js":"text/javascript", ".png":"image/png", ".webp":"image/webp", ".svg":"image/svg+xml", ".xml":"text/xml"};
-const routes = ["/","/product","/providers","/caregivers","/vendor-partners","/resources","/about","/support","/privacy","/terms","/delete-account","/pricing","/payment-return/"];
+const routes = ["/","/showcase","/walkthrough","/product","/providers","/caregivers","/vendor-partners","/resources","/about","/support","/privacy","/terms","/delete-account","/pricing","/payment-return/"];
 const widths = [390,768,1024,1440];
 const errors = [];
 const warnings = [];
