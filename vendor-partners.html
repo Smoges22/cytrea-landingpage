@@ -18,7 +18,9 @@
 <link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/cytrea.css">
 <script src="/download-config.js" defer></script>
+<script src="/form-config.js" defer></script>
 <script src="/cytrea.js" defer></script>
+<script src="/forms.js" defer></script>
 <script src="/vendor-intake.js" defer></script>
 </head>
 <body>
@@ -67,6 +69,7 @@
             method="POST"
             target="vendor-intake-hidden-frame"
           >
+            <label class="form-honeypot" aria-hidden="true">Leave this field empty<input type="text" data-form-honeypot tabindex="-1" autocomplete="off" /></label>
             <input type="hidden" name="form_type" value="vendor_partner_application" />
             <input type="hidden" name="Form Type" value="vendor_partner_application" />
             <input id="vendor-submitted-at" type="hidden" name="Submitted At" />
@@ -94,8 +97,8 @@
 
             <label>
               <span>Phone <span class="field-required" aria-hidden="true">*</span></span>
-              <input id="vendor-phone-input" name="Phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" placeholder="(206) 555-0199" title="Enter a 10-digit phone number" aria-describedby="vendor-phone-help" required />
-              <span class="form-help" id="vendor-phone-help">Enter your 10-digit phone number.</span>
+              <input id="vendor-phone-input" name="Phone" type="tel" autocomplete="tel" placeholder="(206) 555-0199" aria-describedby="vendor-phone-help" required />
+              <span class="form-help" id="vendor-phone-help">Include a country code or extension if needed.</span>
             </label>
 
             <label>
@@ -184,7 +187,8 @@
 
             </div></fieldset>
             <div class="vendor-submit-row form-submit-panel form-span">
-              <button id="vendor-submit-button" class="primary-button" type="submit">Submit Vendor Application</button>
+              <p class="form-help" id="vendor-consent">By submitting, you agree that Cytrea may contact you about your request.</p>
+              <button id="vendor-submit-button" class="primary-button" type="submit" aria-describedby="vendor-consent">Submit Vendor Application</button>
               <a class="secondary-button" href="mailto:support@cytrea.com?subject=Cytrea%20Vendor%20Partner%20Application">Email support@cytrea.com</a>
               <p class="form-help">Applications are reviewed by the Cytrea team.</p>
             </div>

@@ -6,8 +6,8 @@ const downloadState = window.CYTREA_DOWNLOADS?.resolve();
 const CYTREA_CONFIG = Object.freeze({
   appleAppStoreUrl: downloadState?.apple.url,
   androidPlayStoreUrl: downloadState?.android.url,
-  onboardingEndpoint: "https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec",
-  vendorEndpoint: "https://script.google.com/macros/s/AKfycbzWxhbI9gJkns-ZJytlmEXMA5vlcmTUzFgEraQWoK3e556-Lt3XeNzkT5BqUE4PDdgI/exec"
+  onboardingEndpoint: window.CYTREA_FORM_CONFIG?.endpoints.onboarding,
+  vendorEndpoint: window.CYTREA_FORM_CONFIG?.endpoints.vendor
 });
 window.CYTREA_CONFIG = CYTREA_CONFIG;
 
@@ -143,38 +143,6 @@ document.querySelectorAll("[data-switch-group]").forEach(group => {
 const requestedRole = new URLSearchParams(window.location.search).get("role");
 const defaultRoleTab = roleGroups[0]?.tabs.find(tab => tab.getAttribute("aria-selected") === "true");
 setRoleContext(["provider", "caregiver"].includes(requestedRole) ? requestedRole : defaultRoleTab && roleForTab(defaultRoleTab));
-
-const waitlist = document.getElementById("waitlist-form");
-const waitlistMessage = document.getElementById("form-message");
-const waitlistFrame = document.getElementById("waitlist-hidden-frame");
-if (waitlist && waitlistMessage && waitlistFrame) {
-  waitlist.action = CYTREA_CONFIG.onboardingEndpoint;
-  const submit = waitlist.querySelector("button[type=submit]");
-  let pending = false;
-  let timer;
-  const finish = (loaded) => {
-    if (!pending) return;
-    pending = false;
-    window.clearTimeout(timer);
-    if (submit) { submit.disabled = false; submit.textContent = "Request onboarding help"; }
-    waitlistMessage.hidden = false;
-    waitlistMessage.textContent = loaded
-      ? (downloadState?.copy["help-success"] || "Your request was sent. If you need help getting started, contact support@cytrea.com.")
-      : "We could not confirm the response. Your details are still here. Please contact support@cytrea.com before trying again.";
-    waitlistMessage.focus({ preventScroll: true });
-    if (loaded) waitlist.reset();
-  };
-  waitlist.addEventListener("submit", () => {
-    pending = true;
-    waitlistMessage.hidden = true;
-    if (submit) { submit.disabled = true; submit.textContent = "Sending…"; }
-    timer = window.setTimeout(() => finish(false), 20000);
-  });
-  waitlistFrame.addEventListener("load", () => finish(true));
-  waitlistFrame.addEventListener("error", () => finish(false));
-}
-const vendorForm = document.getElementById("vendor-intake-form");
-if (vendorForm) vendorForm.action = CYTREA_CONFIG.vendorEndpoint;
 
 const directorySearch = document.getElementById("vendor-directory-search");
 if (directorySearch) {

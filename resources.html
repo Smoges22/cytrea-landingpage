@@ -18,7 +18,9 @@
 <link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/cytrea.css">
 <script src="/download-config.js" defer></script>
+<script src="/form-config.js" defer></script>
 <script src="/cytrea.js" defer></script>
+<script src="/forms.js" defer></script>
 
 </head>
 <body>
@@ -55,6 +57,7 @@
 </div></div></section>
 <section class="block block--tinted" id="early-access-form"><div class="page-width form-layout support-panel"><div class="form-intro"><p class="overline">Onboarding assistance</p><h2>Need help getting started?</h2><p>Tell us your role and how to reach you. We’ll help with your next step.</p><p class="support-note" id="onboarding-access-note" data-download-copy="onboarding-help">Requesting help does not automatically grant Android testing access.</p><a class="quiet-link" href="/#download">Choose your device<span aria-hidden="true">→</span></a></div><div>
 <form id="waitlist-form" action="https://script.google.com/macros/s/AKfycbxyvPokvsdvnuiPA_aXt-WrLD9W_etfs0WozEDqMutnvtR21dUC56iBu-S9S_dSCx1z/exec" method="POST" target="waitlist-hidden-frame" class="waitlist-form benchmark-form">
+            <label class="form-honeypot" aria-hidden="true">Leave this field empty<input type="text" data-form-honeypot tabindex="-1" autocomplete="off" /></label>
             <p class="form-help form-span form-required-note">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
             <label class="form-span"><span>I am joining as <span class="field-required" aria-hidden="true">*</span></span>
               <select name="role" required>
@@ -67,7 +70,8 @@
             <label><span>Email <span class="field-required" aria-hidden="true">*</span></span><input type="email" name="email" required autocomplete="email" /></label>
             <label>Phone number (optional)<input type="tel" name="phone" autocomplete="tel" /></label>
             <label>City (optional)<input type="text" name="city" autocomplete="address-level2" /></label>
-            <button class="action" type="submit" aria-describedby="onboarding-access-note">Request onboarding help<span aria-hidden="true">→</span></button>
+            <p class="form-help form-span" id="onboarding-consent">By submitting, you agree that Cytrea may contact you about your request.</p>
+            <button class="action" type="submit" aria-describedby="onboarding-access-note onboarding-consent">Request onboarding help<span aria-hidden="true">→</span></button>
           </form>
 <iframe name="waitlist-hidden-frame" id="waitlist-hidden-frame" title="Onboarding request response" hidden></iframe>
 <div id="form-message" class="form-message" role="status" aria-live="polite" tabindex="-1" hidden></div>

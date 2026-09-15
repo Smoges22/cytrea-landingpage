@@ -919,6 +919,11 @@ html.screenshot-open { overflow: hidden; }
 }
 .benchmark-form input:user-invalid, .benchmark-form select:user-invalid, .benchmark-form textarea:user-invalid { border-color: #a33b35; }
 .benchmark-form .form-help, .benchmark-form .upload-note { font-size: 13px; font-weight: var(--weight-regular); line-height: 1.65; }
+.benchmark-form .field-error { font-size: 13px; font-weight: var(--weight-medium); line-height: 1.5; color: #9b3832; }
+.benchmark-form [aria-invalid=true] { border-color: #9b3832; }
+.benchmark-form .form-honeypot { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; pointer-events: none; }
+[data-form-state=error] { border: 1px solid #d5a09c; background: #fff6f4; }
+[data-form-state=submitted] { border: 1px solid #b5d4d9; background: #f3f9f9; }
 .logo-panel {
   display: grid;
   gap: 16px;
