@@ -39,6 +39,10 @@ function synchronizeHtml(html, state = downloads.resolve()) {
       // Migrate the existing Android footer label once; the wrapper is absent
       // from layout in public mode, leaving only the official store badge.
       let inner = contents;
+      if (/\bdownload-choice\b/.test(opening)) {
+        // One shared compact control, usable before enhancement and in either state.
+        inner = `<span class="download-platform"><span data-store-platform></span><span aria-hidden="true">↗</span></span><span data-store-badge data-early-access-control><img data-store-artwork width="180" height="60" loading="lazy"><span class="store-control-copy" data-store-early-only><strong data-store-label></strong><span data-store-detail></span></span></span>`;
+      }
       if (platform.toLowerCase() === "android" && /\bfooter-store\b/.test(opening) && !/\bfooter-store-copy\b/.test(inner)) {
         inner = inner.replace(/(<span\b[^>]*\sdata-store-label(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?[^>]*>)[\s\S]*?<\/span>/i,
           '<span class="footer-store-copy" data-store-early-only><span data-store-label></span><span class="footer-store-detail" data-store-detail></span></span>');
@@ -55,6 +59,8 @@ function synchronizeHtml(html, state = downloads.resolve()) {
       inner = toggleMarked(inner, "data-store-public-only", store.status === "public");
       return `${tag}${inner}${closing}`;
     });
+  result = result.replace(/<p\b[^>]*\sdata-download-copy="android-notice"[^>]*>[\s\S]*?<\/p>/gi, "");
+  result = result.replace(/<p class="page-width trademark-note">[\s\S]*?<\/p>/g, "");
   result = result.replace(/(<([a-z][\w:-]*)\b[^>]*\sdata-download-copy=(['"])([\w-]+)\3[^>]*>)[\s\S]*?(<\/\2>)/gi,
     (_, opening, tag, quote, key, closing) => {
       if (!Object.hasOwn(state.copy, key)) throw new Error(`Unknown download copy key: ${key}`);
@@ -62,9 +68,10 @@ function synchronizeHtml(html, state = downloads.resolve()) {
     });
   result = result.replace(/<meta\b[^>]*\sproperty=(['"])og:image\1[^>]*>/gi, tag =>
     attribute(attribute(tag, "content", state.socialImage), "data-download-social", "image"));
-  if (!/\bhref=(['"])\/fonts\/inter-latin-variable\.woff2\1/i.test(result)) {
+  result = result.replace(/\/fonts\/inter-latin-variable\.woff2/g, "/fonts/plus-jakarta-sans-latin-variable.woff2");
+  if (!/\bhref=(['"])\/fonts\/plus-jakarta-sans-latin-variable\.woff2\1/i.test(result)) {
     result = result.replace(/(<link\b[^>]*\srel=(['"])stylesheet\2[^>]*\shref=(['"])\/cytrea\.css\3[^>]*>)/i,
-      '<link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>\n$1');
+      '<link rel="preload" href="/fonts/plus-jakarta-sans-latin-variable.woff2" as="font" type="font/woff2" crossorigin>\n$1');
   }
   return result;
 }

@@ -39,16 +39,13 @@
         platform: "Android", status: settings.android.status,
         url: androidPublic ? settings.android.publicUrl : settings.android.earlyAccessUrl,
         label: androidPublic ? "Get it on Google Play" : "Android Early Access",
-        detail: androidPublic ? "Available on Google Play" : "Join the Google Play early-access test.",
+        detail: androidPublic ? "Available on Google Play" : "Join the Google Play test",
         artwork: androidPublic ? "/images/branding/google-play-badge.png" : "/images/branding/google-play.webp",
         artworkAlt: androidPublic ? "Get it on Google Play" : "Google Play",
         artworkKind: androidPublic ? "badge" : "mark"
       },
       copy: {
         availability: androidPublic ? "Available on iPhone and Android" : "iPhone available · Android Early Access",
-        "android-notice": androidPublic
-          ? "Cytrea is available on the App Store and Google Play."
-          : "Android Early Access is a closed test, not a public Google Play release.",
         "android-question": androidPublic ? "Can I download Cytrea on Android?" : "How do I join Android Early Access?",
         "android-answer": androidPublic
           ? "You can download Cytrea for Android from Google Play. Contact support if you need help getting started."
