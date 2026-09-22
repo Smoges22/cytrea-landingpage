@@ -1,0 +1,15 @@
+<!doctype html>
+{% assign target = page.redirect.to | remove_first: site.url %}
+<html lang="en"><head><meta charset="utf-8">
+<title>Continue to Cytrea</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ page.redirect.to | escape }}">
+<noscript><meta http-equiv="refresh" content="0; url={{ target | escape }}"></noscript>
+</head><body>
+<p>This page has moved. <a id="destination" href="{{ target | escape }}">Continue to Cytrea</a>.</p>
+<script>
+  const destination = document.getElementById("destination");
+  destination.href += window.location.search + window.location.hash;
+  window.location.replace(destination.href);
+</script>
+</body></html>

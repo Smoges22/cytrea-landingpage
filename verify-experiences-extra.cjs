@@ -10,8 +10,8 @@ module.exports = async function extra({ browser, base, context, check, report, o
   ]) {
     const html=fs.readFileSync(path.join(__dirname,route+".html"),"utf8");
     check(html.includes(`<title>${title.replaceAll("&","&amp;")}</title>`)&&html.includes(`name="description" content="${description}"`),`${route}: exact metadata contract`);
-    check(html.includes(`rel="canonical" href="https://cytrea.com/${route}"`),`${route}: canonical URL`);
-    check(fs.readFileSync(path.join(__dirname,"sitemap.xml"),"utf8").includes(`https://cytrea.com/${route}</loc>`),`${route}: sitemap entry`);
+    check(html.includes(`rel="canonical" href="https://cytrea.com/${route}/"`),`${route}: canonical URL`);
+    check(fs.readFileSync(path.join(__dirname,"sitemap.xml"),"utf8").includes(`https://cytrea.com/${route}/</loc>`),`${route}: sitemap entry`);
   }
   check(site.resolveSocial().length === 0, "Social profiles must remain hidden until verified URLs are supplied.");
   for (const bad of ["javascript:alert(1)", "http://facebook.com/profile", "https://facebook.com.evil.invalid/profile", "https://facebook.com/", "https://user:password@facebook.com/profile"]) check(site.resolveSocial({ facebook: bad }).length === 0, "Unsafe/non-profile social URL accepted");
@@ -100,8 +100,9 @@ module.exports = async function extra({ browser, base, context, check, report, o
   const fixture=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unlinked social and future banner design fixtures</title><link rel="stylesheet" href="/cytrea.css"><link rel="stylesheet" href="/experiences.css"><body><main class="page-width" style="padding-block:40px"><h1 style="font-size:32px">Design fixtures only</h1><p>No social URLs are configured. These are unlinked style samples, not Cytrea profile links.</p><div class="colophon--dark" style="padding:32px;border-radius:24px"><div class="social-row"><button type="button" class="social-link social-link--facebook" aria-label="Facebook style sample, not linked"><img src="/images/social-icons/facebook.svg" width="24" height="24" alt=""></button><button type="button" class="social-link social-link--instagram" aria-label="Instagram style sample, not linked"><img src="/images/social-icons/instagram.svg" width="24" height="24" alt=""></button></div></div><h2 style="margin-top:40px">Future public banner · disabled on the site</h2><aside class="site-banner"><div class="page-width"><p>${site.resolveBanner(publicState,{enabled:true,kind:"public-launch"}).text}</p></div></aside></main></body></html>`;
   fs.writeFileSync(path.join(out,"design-fixtures.html"),fixture);
   const fixtureContext=await context({viewport:{width:1000,height:650}}), fixturePage=await fixtureContext.newPage();
-  const fixtureUrl = "/" + path.relative(__dirname, path.join(out,"design-fixtures.html")).split(path.sep).join("/");
-  await fixturePage.goto(base+fixtureUrl);await fixturePage.evaluate(()=>document.fonts.ready);await fixturePage.screenshot({path:path.join(out,"design-fixtures.png")});
+  const fixtureUrl = base + "/__qa-design-fixtures";
+  await fixtureContext.route(fixtureUrl, route => route.fulfill({contentType:"text/html",body:fixture}));
+  await fixturePage.goto(fixtureUrl);await fixturePage.evaluate(()=>document.fonts.ready);await fixturePage.screenshot({path:path.join(out,"design-fixtures.png")});
   await fixturePage.locator(".social-link--instagram").hover();await fixturePage.waitForTimeout(250);check(await fixturePage.locator(".social-link--instagram").evaluate(e=>getComputedStyle(e).transform!=="none"),"Social hover fixture did not lift");
   await fixturePage.emulateMedia({reducedMotion:"reduce"});check(await fixturePage.locator(".social-link--instagram").evaluate(e=>getComputedStyle(e).transform==="none"),"Social reduced-motion fixture still moves");
   await fixtureContext.close();

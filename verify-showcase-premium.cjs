@@ -32,15 +32,9 @@ const readBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`]
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "application/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".woff2": "font/woff2" };
 let browser, base;
-const server = http.createServer((request, response) => {
-  if (!["GET", "HEAD"].includes(request.method)) { response.writeHead(405).end(); return; }
-  const pathname = decodeURIComponent(new URL(request.url, "http://127.0.0.1").pathname);
-  const candidate = path.resolve(root, pathname === "/" ? "index.html" : pathname.replace(/^\/+/, ""));
-  if (!candidate.startsWith(root + path.sep)) { response.writeHead(403).end(); return; }
-  const file = [candidate, `${candidate}.html`, path.join(candidate, "index.html")].find(file => fs.existsSync(file) && fs.statSync(file).isFile());
-  if (!file) { response.writeHead(404).end("Not found"); return; }
-  response.writeHead(200, { "Content-Type": mime[path.extname(file)] || "application/octet-stream", "Cache-Control": "no-store" });
-  fs.createReadStream(file).pipe(response);
+const siteRoot = process.env.CYTREA_QA_SITE_ROOT;
+const server = require("./preview-server.js").createPreviewServer({
+  root: siteRoot ? path.resolve(root, siteRoot) : root, built: !!siteRoot
 });
 
 async function context(options = {}) {

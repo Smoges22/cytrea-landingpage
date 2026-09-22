@@ -1,0 +1,66 @@
+# Existing GitHub Pages branch build: main, repository root. No hosting relink.
+url: "https://cytrea.com"
+baseurl: ""
+# Prevent Pages defaults from adding theme assets or converting license Markdown.
+theme: null
+optional_front_matter:
+  enabled: false
+readme_index:
+  enabled: false
+plugins:
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
+redirect_from:
+  json: false
+include:
+  - fonts/PlusJakartaSans-OFL.txt
+  - images/social-icons/LICENSE.md
+
+# Exclude development/reference material from the generated Pages artifact.
+# Git ignore rules alone do not control publishing. Keep required asset licenses.
+exclude:
+  - .verification
+  - .git
+  - .github
+  - .agents
+  - .codex
+  - .gitignore
+  - .env
+  - .env.*
+  - .sass-cache
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles
+  - node_modules
+  - vendor/
+  - "*.cjs"
+  - FINAL_WEBSITE_FREEZE.md
+  - LAUNCH_REVIEW.md
+  - SHOWCASE_WALKTHROUGH_REVIEW.md
+  - WARM_PREMIUM_REVIEW.md
+  - WEBSITE_REVIEW.md
+  - screenshot-copy.md
+  - screenshot-plan.md
+  - "**/README.md"
+  - "*.log"
+  - "*.tmp"
+  - "*.bak"
+  - preview-server.js
+  - hosting-public-files.json
+  - apps-script
+  - App Store Screenshots
+  - app-store-assets
+  # Not referenced by the current public dependency manifest; retain in source.
+  - fonts/OFL.txt
+  - fonts/inter-latin-variable.woff2
+  - images/mockups
+  - images/branding/STORE-ARTWORK.md
+  - images/branding/cytrea-wordmark-transparent.png
+  - images/branding/cytrea-wordmark.png
+  - images/current-app/caregiver/caregiver-applications.png
+  - images/current-app/caregiver/caregiver-profile.png
+  - images/social/cytrea-og-image.png
+  - images/social/vendor-partners-og.png
+  - images/web/caregiver/caregiver-profile.webp

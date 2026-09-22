@@ -1,65 +1,47 @@
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+"use strict";
+// Loopback-only preview. Production is the existing GitHub Pages Jekyll build.
+const http = require("node:http");
+const fs = require("node:fs");
+const path = require("node:path");
+const manifest = require("./hosting-public-files.json");
+const types = {".html":"text/html; charset=utf-8", ".css":"text/css", ".js":"application/javascript", ".json":"application/json", ".png":"image/png", ".jpg":"image/jpeg", ".jpeg":"image/jpeg", ".svg":"image/svg+xml", ".webp":"image/webp", ".woff2":"font/woff2", ".txt":"text/plain; charset=utf-8", ".md":"text/plain; charset=utf-8", ".xml":"application/xml"};
+const routeNames = manifest.routes;
+const sourceFiles = new Set(manifest.sourceFiles);
+const outputFiles = new Set(manifest.sourceFiles.flatMap(file => routeNames.includes(file.replace(/\.html$/, "")) ? [file, file.replace(/\.html$/, "/index.html")] : [file]));
 
-const root = process.cwd();
-const port = 4173;
-
-const mimeTypes = {
-  ".html": "text/html; charset=UTF-8",
-  ".css": "text/css; charset=UTF-8",
-  ".js": "application/javascript; charset=UTF-8",
-  ".json": "application/json; charset=UTF-8",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".svg": "image/svg+xml",
-  ".webp": "image/webp"
-};
-
-http.createServer((req, res) => {
-  const requestPath = (req.url || "/").split("?")[0];
-  const relativePath = requestPath === "/" ? "index.html" : requestPath.replace(/^\/+/, "");
-  const resolvedPath = path.resolve(root, relativePath);
-  const extensionlessHtmlPath = path.resolve(root, `${relativePath}.html`);
-  const directoryIndexPath = path.resolve(root, relativePath, "index.html");
-
-  if (!resolvedPath.startsWith(root)) {
-    res.writeHead(403, { "Content-Type": "text/plain; charset=UTF-8" });
-    res.end("Forbidden");
-    return;
-  }
-
-  const candidates = [resolvedPath];
-
-  if (!path.extname(relativePath)) {
-    candidates.push(extensionlessHtmlPath, directoryIndexPath);
-  }
-
-  const readCandidate = (index) => {
-    const candidatePath = candidates[index];
-
-    if (!candidatePath || !candidatePath.startsWith(root)) {
-      res.writeHead(404, { "Content-Type": "text/plain; charset=UTF-8" });
-      res.end("Not found");
-      return;
+function createPreviewServer({root = __dirname, built = false} = {}) {
+  root = fs.realpathSync(root);
+  return http.createServer((req, res) => {
+    if (!["GET", "HEAD"].includes(req.method)) { res.writeHead(405, {Allow:"GET, HEAD"}).end(); return; }
+    let url, pathname;
+    try { url = new URL(req.url, "http://127.0.0.1"); pathname = decodeURIComponent(url.pathname); }
+    catch { res.writeHead(400).end("Bad request"); return; }
+    const name = pathname.replace(/^\/+|\/+$/g, "");
+    const isPage = routeNames.includes(name) || name === "payment-return";
+    if (isPage && !pathname.endsWith("/")) {
+      res.writeHead(301, {Location:"/"+name+"/"+url.search}).end(); return;
     }
+    if (!built && routeNames.includes(name.replace(/\.html$/, "")) && name.endsWith(".html")) {
+      res.writeHead(301, {Location:"/"+name.replace(/\.html$/, "")+"/"+url.search}).end(); return;
+    }
+    let file = pathname === "/" ? "index.html" : name;
+    if (pathname.endsWith("/") && name) file = built || name === "payment-return" ? name+"/index.html" : name+".html";
+    if (!(built ? outputFiles : sourceFiles).has(file)) { res.writeHead(404).end("Not found"); return; }
+    const candidate = path.resolve(root, file);
+    try {
+      const real = fs.realpathSync(candidate);
+      if (!real.startsWith(root + path.sep) || !fs.statSync(real).isFile()) { res.writeHead(404).end("Not found"); return; }
+      let body = fs.readFileSync(real);
+      if (!built && file.endsWith(".html")) body = Buffer.from(body.toString("utf8").replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, ""));
+      res.writeHead(200, {"Content-Type":types[path.extname(file)] || "application/octet-stream", "Cache-Control":"no-store", "Content-Length":body.length});
+      res.end(req.method === "HEAD" ? undefined : body);
+    } catch { res.writeHead(404).end("Not found"); }
+  });
+}
 
-    fs.readFile(candidatePath, (error, content) => {
-      if (error) {
-        readCandidate(index + 1);
-        return;
-      }
-
-      const extension = path.extname(candidatePath).toLowerCase();
-      res.writeHead(200, {
-        "Content-Type": mimeTypes[extension] || "application/octet-stream"
-      });
-      res.end(content);
-    });
-  };
-
-  readCandidate(0);
-}).listen(port, "127.0.0.1", () => {
-  console.log(`Preview server running at http://127.0.0.1:${port}`);
-});
+if (require.main === module) {
+  const builtRoot = process.env.CYTREA_PREVIEW_SITE_ROOT;
+  createPreviewServer({root:builtRoot ? path.resolve(builtRoot) : __dirname, built:!!builtRoot})
+    .listen(4173, "127.0.0.1", () => console.log("Local Cytrea preview at http://127.0.0.1:4173/"));
+}
+module.exports = {createPreviewServer};

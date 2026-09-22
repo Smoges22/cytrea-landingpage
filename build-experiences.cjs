@@ -11,11 +11,16 @@ const figure = (key, extra = "", eager = false) => {
   const s = screens[key];
   return `<figure class="app-mockup ${extra}"><div class="screen-frame mockup-phone"><a href="/images/current-app/${s.file}.png" target="_blank" rel="noopener noreferrer" aria-label="Enlarge screenshot: ${e(s.alt)}"><img src="/images/web/${s.file}.webp" width="780" height="1691" alt="${e(s.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async"></a></div><figcaption>${e(s.caption)}</figcaption></figure>`;
 };
-const page = (route, title, description, body) => synchronizeHtml(synchronize(`<!doctype html>
+const page = (route, title, description, body) => synchronizeHtml(synchronize(`---
+layout: null
+permalink: /${route}/
+redirect_from: /${route}.html
+---
+<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${e(title)}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://cytrea.com/${route}"><link rel="icon" type="image/png" href="/images/branding/Cytrea-logo.png">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Cytrea"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="https://cytrea.com/${route}"><meta property="og:image" content="https://cytrea.com/images/social/cytrea-social-preview.png" data-download-social="image"><meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://cytrea.com/${route}/"><link rel="icon" type="image/png" href="/images/branding/Cytrea-logo.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Cytrea"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="https://cytrea.com/${route}/"><meta property="og:image" content="https://cytrea.com/images/social/cytrea-social-preview.png" data-download-social="image"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fonts/plus-jakarta-sans-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/cytrea.css"><script src="/download-config.js" defer></script><script src="/cytrea.js" defer></script>
 </head><body class="experience-page ${route}-page"><a class="skip" href="#content">Skip to content</a>${header}<main id="content">${body}</main>${footer}</body></html>`));
