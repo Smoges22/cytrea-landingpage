@@ -15,7 +15,7 @@ module.exports = async function extra({ browser, base, context, check, report, o
   }
   check(site.resolveSocial().length === 0, "Social profiles must remain hidden until verified URLs are supplied.");
   for (const bad of ["javascript:alert(1)", "http://facebook.com/profile", "https://facebook.com.evil.invalid/profile", "https://facebook.com/", "https://user:password@facebook.com/profile"]) check(site.resolveSocial({ facebook: bad }).length === 0, "Unsafe/non-profile social URL accepted");
-  const early = downloads.resolve(), publicState = downloads.resolve({ ios: {...downloads.config.ios}, android: {...downloads.config.android, status:"public"} });
+  const early = downloads.resolve({ ios: {...downloads.config.ios}, android: {...downloads.config.android, status:"early-access"} }), publicState = downloads.resolve({ ios: {...downloads.config.ios}, android: {...downloads.config.android, status:"public"} });
   check(site.SITE_BANNER.enabled === false && site.resolveBanner(early) === null, "Launch banner must remain disabled");
   check(site.resolveBanner(early,{enabled:true,kind:"public-launch"}) === null, "Banner guard announced public Android during Early Access");
   check(site.resolveBanner(publicState,{enabled:true,kind:"public-launch"})?.text === "Cytrea is now available on the App Store and Google Play.", "Future public banner does not resolve correctly");
@@ -53,11 +53,23 @@ module.exports = async function extra({ browser, base, context, check, report, o
       await p.evaluate(()=>scrollTo({top:0,behavior:"instant"}));
     }
     // Resize a focused desktop stepper into the readable mobile sequence.
-    if(width>900){await p.locator("#walk-provider-step-2-tab").focus();await p.setViewportSize({width:390,height:900});check(await p.locator("#journey-provider [data-walk-step]:visible").count()===6,"Responsive stepper did not expose the mobile sequence");check(await p.evaluate(()=>!!document.activeElement.getClientRects().length),"Resize stranded keyboard focus");}
+    if(width>900){
+      await p.locator("#walk-provider-step-2-tab").focus();
+      await p.setViewportSize({width:390,height:900});
+      // matchMedia's change event arrives after the viewport protocol response.
+      await p.waitForFunction(()=>[...document.querySelectorAll("#journey-provider [data-walk-step]")].filter(e=>e.getClientRects().length).length===6,undefined,{timeout:2000});
+      check(await p.locator("#journey-provider [data-walk-step]:visible").count()===6,"Responsive stepper did not expose the mobile sequence");
+      check(await p.evaluate(()=>!!document.activeElement.getClientRects().length),"Resize stranded keyboard focus");
+    }
     await p.setViewportSize({width,height:900});
     await p.goto(base+"/showcase");
     for(const link of await p.locator(".chapter-nav a").all()) {const href=await link.getAttribute("href");check(await p.locator(href).count()===1,`Missing chapter ${href}`);}
     check(await p.locator(".showcase-chapter").count()===7,"Expected seven showcase chapters");
+    if (width === 768) {
+      check(await p.locator(".mockup-pair .mockup-primary figcaption").isVisible(), "Tablet showcase lost its primary screenshot caption");
+      check(!await p.locator(".mockup-pair .mockup-secondary figcaption").isVisible(), "Tablet companion caption can overlap the foreground phone");
+      check(await p.locator(".mockup-pair .mockup-secondary .screen-frame a").isVisible(), "Tablet companion screenshot link must remain available");
+    }
     check(await p.locator(".primary-nav a").count()===6,"Primary navigation became crowded");
     check(await p.locator("[data-social-links]:visible").count()===0,"Unverified social links rendered");
     check(await p.locator("[data-site-banner]:visible").count()===0,"Disabled launch banner visible");
@@ -88,7 +100,8 @@ module.exports = async function extra({ browser, base, context, check, report, o
   const fixture=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unlinked social and future banner design fixtures</title><link rel="stylesheet" href="/cytrea.css"><link rel="stylesheet" href="/experiences.css"><body><main class="page-width" style="padding-block:40px"><h1 style="font-size:32px">Design fixtures only</h1><p>No social URLs are configured. These are unlinked style samples, not Cytrea profile links.</p><div class="colophon--dark" style="padding:32px;border-radius:24px"><div class="social-row"><button type="button" class="social-link social-link--facebook" aria-label="Facebook style sample, not linked"><img src="/images/social-icons/facebook.svg" width="24" height="24" alt=""></button><button type="button" class="social-link social-link--instagram" aria-label="Instagram style sample, not linked"><img src="/images/social-icons/instagram.svg" width="24" height="24" alt=""></button></div></div><h2 style="margin-top:40px">Future public banner · disabled on the site</h2><aside class="site-banner"><div class="page-width"><p>${site.resolveBanner(publicState,{enabled:true,kind:"public-launch"}).text}</p></div></aside></main></body></html>`;
   fs.writeFileSync(path.join(out,"design-fixtures.html"),fixture);
   const fixtureContext=await context({viewport:{width:1000,height:650}}), fixturePage=await fixtureContext.newPage();
-  await fixturePage.goto(base+"/.verification/showcase-walkthrough-premium/technical/design-fixtures.html");await fixturePage.evaluate(()=>document.fonts.ready);await fixturePage.screenshot({path:path.join(out,"design-fixtures.png")});
+  const fixtureUrl = "/" + path.relative(__dirname, path.join(out,"design-fixtures.html")).split(path.sep).join("/");
+  await fixturePage.goto(base+fixtureUrl);await fixturePage.evaluate(()=>document.fonts.ready);await fixturePage.screenshot({path:path.join(out,"design-fixtures.png")});
   await fixturePage.locator(".social-link--instagram").hover();await fixturePage.waitForTimeout(250);check(await fixturePage.locator(".social-link--instagram").evaluate(e=>getComputedStyle(e).transform!=="none"),"Social hover fixture did not lift");
   await fixturePage.emulateMedia({reducedMotion:"reduce"});check(await fixturePage.locator(".social-link--instagram").evaluate(e=>getComputedStyle(e).transform==="none"),"Social reduced-motion fixture still moves");
   await fixtureContext.close();

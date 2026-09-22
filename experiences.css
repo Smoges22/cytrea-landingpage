@@ -118,6 +118,8 @@ html:not(.js) .walk-step { max-width: 860px; margin-inline: auto; }
   .mockup-pair { min-height: 590px; }
   .mockup-pair .mockup-primary { max-width: 62%; margin-left: 0; }
   .mockup-pair .mockup-secondary { max-width: 42%; top: 120px; right: 0; }
+  /* The primary caption covers the pair; avoid text behind the foreground phone. */
+  .mockup-pair .mockup-secondary figcaption { visibility: hidden; }
   .composition-note { display: none; }
   .showcase-chapter-grid, .chapter-reversed { gap: 40px; grid-template-columns: .9fr 1.1fr; }
   .mockup-stack { min-height: 660px; padding: 0; }

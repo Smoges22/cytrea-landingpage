@@ -14,15 +14,18 @@ const downloads = require("./download-config.js");
 const { synchronizeHtml } = require("./sync-downloads.cjs");
 
 const root = __dirname;
-const baseline = "f9d1b64edf43acb6ad7ba1585cca634379ab1ffc";
-const out = path.join(root, ".verification/showcase-walkthrough-premium/technical");
+const baseline = process.env.CYTREA_QA_BASELINE || "f9d1b64edf43acb6ad7ba1585cca634379ab1ffc";
+const out = path.resolve(root, process.env.CYTREA_QA_OUTPUT || ".verification/showcase-walkthrough-premium/technical");
+if (!out.startsWith(path.join(root, ".verification") + path.sep)) throw new Error("QA output must stay inside this repository's .verification directory.");
 const expectedFont = process.env.CYTREA_QA_FONT || "Plus Jakarta Sans";
+const expectedAndroidStatus = process.env.CYTREA_QA_ANDROID_STATUS || "early-access";
+if (!["early-access", "public"].includes(expectedAndroidStatus)) throw new Error("CYTREA_QA_ANDROID_STATUS must be early-access or public.");
 const expectedFontAsset = expectedFont === "Plus Jakarta Sans" ? "/fonts/plus-jakarta-sans-latin-variable.woff2" : "/fonts/manrope-latin-variable.woff2";
 const widths = [390, 430, 768, 1024, 1440];
 const routes = ["/", "/showcase", "/walkthrough", "/product", "/providers", "/caregivers", "/vendor-partners", "/resources", "/about", "/support", "/privacy", "/terms", "/delete-account", "/pricing", "/payment-return/"];
 const pageRoutes = routes.filter(route => route !== "/payment-return/");
 const errors = [], warnings = [];
-const report = { baseline, expectedFont, startedAt: new Date().toISOString(), widths, viewportHeight: 900, routes: [], pages: [], warmSystem: [], interactions: [], focusChecks: [], forms: [], sourceContracts: [], imageContracts: [], downloadStates: [], reducedMotion: [], links: [], images: [], blockedRequests: [], screenshots: [], errors, warnings };
+const report = { baseline, expectedFont, expectedAndroidStatus, startedAt: new Date().toISOString(), widths, viewportHeight: 900, routes: [], pages: [], warmSystem: [], interactions: [], focusChecks: [], forms: [], sourceContracts: [], imageContracts: [], downloadStates: [], reducedMotion: [], links: [], images: [], blockedRequests: [], screenshots: [], errors, warnings };
 const check = (condition, message) => { if (!condition) errors.push(message); };
 const digest = content => crypto.createHash("sha256").update(content).digest("hex");
 const readBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`], { cwd: root, encoding: "utf8" });
@@ -197,9 +200,10 @@ async function warmSystemChecks(page, route, width) {
   check(result.footer.align === "center" && result.footer.items.every(item => item.textAlign === "center"), `${prefix}: footer bottom copy is not centered`);
   if (width <= 430) check(result.footer.items.every(item => Math.abs(item.centerX - result.footer.centerX) <= 2), `${prefix}: mobile footer items do not stack on the centerline`);
   for (const control of result.android) {
-    check(control.state === "early-access" && control.artworkKind === "mark", `${prefix}: current Android control misrepresents public availability`);
-    check(control.label === "Android Early Access" && control.detail === "Join the Google Play test", `${prefix}: Android control text differs from the supplied wording`);
-    check(control.darkSurface && control.entireControlLinked, `${prefix}: missing compact dark clickable Android control (${control.footer ? "footer" : "download"})`);
+    const expected = downloads.resolve().android;
+    check(control.state === expectedAndroidStatus && control.artworkKind === expected.artworkKind, `${prefix}: current Android control misrepresents configured availability`);
+    check(control.label === expected.label && control.detail === expected.detail, `${prefix}: Android control text differs from the configured wording`);
+    if (expectedAndroidStatus === "early-access") check(control.darkSurface && control.entireControlLinked, `${prefix}: missing compact dark clickable Android control (${control.footer ? "footer" : "download"})`);
     check(!control.clippedText.length, `${prefix}: clipped/overflowing Android control text ${control.clippedText.join("; ")}`);
     if (control.control && (control.control.height > 100 || control.control.width > 300)) warnings.push(`${prefix}: inspect Android control size ${Math.round(control.control.width)}x${Math.round(control.control.height)}; compact badge treatment requested.`);
   }
@@ -360,8 +364,9 @@ async function main() {
   fs.mkdirSync(out, { recursive: true });
   check(["Manrope", "Plus Jakarta Sans"].includes(expectedFont), "Set CYTREA_QA_FONT to the single approved family: Manrope or Plus Jakarta Sans.");
   const approved = downloads.resolve();
-  check(approved.apple.status === "public" && approved.apple.url === "https://apps.apple.com/app/cytrea/id6767470963", "Current iOS configuration differs from the approved public App Store URL.");
-  check(approved.android.status === "early-access" && approved.android.url === "https://play.google.com/apps/testing/com.cytrea.mobile", "Current Android configuration must remain Early Access at the approved testing URL.");
+  check(approved.apple.status === "public" && approved.apple.url === "https://apps.apple.com/us/app/cytrea/id6767470963", "Current iOS configuration differs from the approved public App Store URL.");
+  const expectedAndroidUrl = expectedAndroidStatus === "public" ? "https://play.google.com/store/apps/details?id=com.cytrea.mobile" : "https://play.google.com/apps/testing/com.cytrea.mobile";
+  check(approved.android.status === expectedAndroidStatus && approved.android.url === expectedAndroidUrl, `Current Android configuration must match the explicitly expected ${expectedAndroidStatus} state and URL.`);
   const heroPattern = /<section\b[^>]*class="[^"]*\bopening\b[^"]*"[^>]*>[\s\S]*?<\/section>/;
   const baselineHero = readBaseline("index.html").match(heroPattern)?.[0], currentHero = read("index.html").match(heroPattern)?.[0];
   report.heroContract = { unchanged: !!baselineHero && baselineHero === currentHero, baselineSha256: baselineHero && digest(baselineHero), currentSha256: currentHero && digest(currentHero) };

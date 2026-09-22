@@ -10,7 +10,7 @@
   const config = Object.freeze({
     ios: Object.freeze({
       status: "public",
-      publicUrl: "https://apps.apple.com/app/cytrea/id6767470963"
+      publicUrl: "https://apps.apple.com/us/app/cytrea/id6767470963"
     }),
     android: Object.freeze({
       // Change this one value to "public" when Android production is available.
